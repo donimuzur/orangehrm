@@ -194,7 +194,7 @@ class EmailService extends BaseService {
 
         if (empty($this->messageFrom)) {
             $this->_validateEmailAddress($this->emailConfig->getSentAs());
-            $this->messageFrom = array($this->emailConfig->getSentAs() => 'OrangeHRM');
+            $this->messageFrom = array($this->emailConfig->getSentAs() => 'Admin HRM');
         }
 
         if (empty($this->messageTo)) {
@@ -465,7 +465,7 @@ class EmailService extends BaseService {
 
                         try {
                             $message->setTo($to);
-                            $message->setFrom(array($this->emailConfig->getSentAs() => 'OrangeHRM'));
+                            $message->setFrom(array($this->emailConfig->getSentAs() => 'Admin HRM'));
 
                             $message->setSubject($emailSubject);
                             $message->setBody($emailBody);

@@ -6106,7 +6106,7 @@
       </trans-unit>
       <trans-unit id="1526">
         <source>Leave Balance</source>
-        <target>Tinggalkan Saldo</target>
+        <target>Sisa Cuti</target>
       </trans-unit>
       <trans-unit id="1527">
         <source>Leave Comment</source>
@@ -6114,43 +6114,43 @@
       </trans-unit>
       <trans-unit id="1528">
         <source>Leave Entitled</source>
-        <target>Tinggalkan Berjudul</target>
+        <target>Hak Cuti</target>
       </trans-unit>
       <trans-unit id="1529">
         <source>Leave Period Does Not Exist</source>
-        <target>Tinggalkan Periode Tiada</target>
+        <target>Cuti Haid Tidak ada</target>
       </trans-unit>
       <trans-unit id="1530">
         <source>Leave Period Not Defined</source>
-        <target>Tinggalkan Periode Tidak Ditetapkan</target>
+        <target>Cuti Haid tidak di Ditetapkan</target>
       </trans-unit>
       <trans-unit id="1531">
         <source>Leave Request</source>
-        <target>Tinggalkan Permintaan</target>
+        <target>Permintaan Cuti</target>
       </trans-unit>
       <trans-unit id="1532">
         <source>Leave Scheduled</source>
-        <target>Tinggalkan Terjadwal</target>
+        <target>Cuti Terjadwal</target>
       </trans-unit>
       <trans-unit id="1533">
         <source>Leave Taken</source>
-        <target>Tinggalkan Diambil</target>
+        <target>Cuti Terambil</target>
       </trans-unit>
       <trans-unit id="1534">
         <source>Leave Type</source>
-        <target>Tinggalkan Jenis</target>
+        <target>Jenis Cuti Jenis</target>
       </trans-unit>
       <trans-unit id="1535">
         <source>Leave type will be undeleted</source>
-        <target>Tinggalkan jenis akan terhapus</target>
+        <target>Jenis Cuti akan terhapus</target>
       </trans-unit>
       <trans-unit id="1536">
         <source>My Leave Details</source>
-        <target>Saya Cuti Rincian</target>
+        <target>Detail Cuti Saya</target>
       </trans-unit>
       <trans-unit id="1537">
         <source>My Leave List</source>
-        <target>Saya Cuti Daftar</target>
+        <target>Daftar Cuti Saya</target>
       </trans-unit>
       <trans-unit id="1538">
         <source>Name of Holiday</source>
@@ -6158,7 +6158,7 @@
       </trans-unit>
       <trans-unit id="1539">
         <source>No Leave Types with Leave Balance</source>
-        <target>No Jenis Cuti dengan Saldo Cuti</target>
+        <target>Tidak ada jenis cuti dengan sisa cuti tersebut</target>
       </trans-unit>
       <trans-unit id="1540">
         <source>No of Hours</source>
@@ -6194,7 +6194,7 @@
       </trans-unit>
       <trans-unit id="1548">
         <source>Show Leave with Status</source>
-        <target>Tampilkan Tinggalkan Status</target>
+        <target>Tampilkan Cuti Dengan Status</target>
       </trans-unit>
       <trans-unit id="1549">
         <source>Successfully Undeleted</source>
@@ -6206,7 +6206,7 @@
       </trans-unit>
       <trans-unit id="1551">
         <source>This is a deleted leave type. Reactivate it?</source>
-        <target>Ini adalah jenis cuti dihapus. Mengaktifkannya kembali?</target>
+        <target>Ini adalah jenis cuti yang dihapus. Aktifkan kembali?</target>
       </trans-unit>
       <trans-unit id="1552">
         <source>To Date</source>

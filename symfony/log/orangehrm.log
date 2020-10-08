@@ -1,2 +1,45 @@
 [07-Oct-2020 10:21:39 Asia/Jakarta] PDO Connection Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
 [07-Oct-2020 10:22:18 Asia/Jakarta] PDO Connection Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+Wed Oct  7 13:40:10 2020,443 [13532] INFO core.email - ========== Message Begins ==========
+
+Time : October 7, 2020, 1:40 pm
+Message Type : Success
+Message : Emails was sent to donimuzur@gmail.com using smtp
+
+========== Message Ends ==========
+
+
+Wed Oct  7 15:30:45 2020,426 [11824] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: ServiceException: Leave Period Start date is not defined in C:\Web\hrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeavePeriodService.php:315
+Stack trace:
+#0 C:\Web\hrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeavePeriodService.php(369): LeavePeriodService->getGeneratedLeavePeriodList(NULL, false)
+#1 C:\Web\hrm\symfony\plugins\orangehrmLeavePlugin\lib\entitlement\FIFOEntitlementConsumptionStrategy.php(706): LeavePeriodService->getCurrentLeavePeriodByDate('2020-10-07')
+#2 C:\Web\hrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveEntitlementService.php(170): FIFOEntitlementConsumptionStrategy->getLeavePeriod('2020-10-07', '1', 'undefined')
+#3 C:\Web\hrm\symfony\plugins\orangehrmLeavePlugin\modules\leave\actions\getLeaveBalanceAjaxAction.class.php(177): LeaveEntitlementService->getLeaveBalance('1', 'undefined', '2020-10-07', NULL)
+#4 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): getLeaveBalanceAjaxAction->execute(Object(sfWebRequest))
+#5 C:\Web\hrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction(Object(getLeaveBalanceAjaxAction))
+#6 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction(Object(getLeaveBalanceAjaxAction))
+#7 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(getLeaveBalanceAjaxAction))
+#8 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute(Object(sfFilterChain))
+#9 C:\Web\hrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#10 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute(Object(sfFilterChain))
+#11 C:\Web\hrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#12 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute(Object(sfFilterChain))
+#13 C:\Web\hrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#14 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute(Object(sfFilterChain))
+#15 C:\Web\hrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#16 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute(Object(sfFilterChain))
+#17 C:\Web\hrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#18 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute(Object(sfFilterChain))
+#19 C:\Web\hrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#20 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute(Object(sfFilterChain))
+#21 C:\Web\hrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#22 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute(Object(sfFilterChain))
+#23 C:\Web\hrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#24 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute(Object(sfFilterChain))
+#25 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#26 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute(Object(sfFilterChain))
+#27 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#28 C:\Web\hrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward('leave', 'getLeaveBalance...')
+#29 C:\Web\hrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#30 C:\Web\hrm\symfony\web\index.php(22): sfContext->dispatch()
+#31 {main}
