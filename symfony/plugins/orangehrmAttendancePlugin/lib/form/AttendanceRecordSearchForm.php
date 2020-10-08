@@ -22,17 +22,20 @@ class AttendanceRecordSearchForm extends sfForm {
     public function configure() {
 
         $date = $this->getOption('date');
+		$fromDate = $this->getOption('fromDate');
         $employeeId = $this->getOption('employeeId');
         $trigger = $this->getOption('trigger');
 
         $this->setWidgets(array(
             'employeeName' => new ohrmWidgetEmployeeNameAutoFill(array('jsonList' => $this->getEmployeeListAsJson()), array('class' => 'formInputText')),
-            'date' => new ohrmWidgetDatePicker(array(), array('id' => 'attendance_date'), array('class' => 'formDateInput'))
+            'date' => new ohrmWidgetDatePicker(array(), array('id' => 'attendance_date'), array('class' => 'date')),
+			'fromDate' => new ohrmWidgetDatePicker(array(), array('id' => 'from_attendance_date'), array('class' => 'formDateInput'))
         ));
 
         if ($trigger) {
             $this->setDefault('employeeName', $this->getEmployeeName($employeeId));
             $this->setDefault('date', set_datepicker_date_format($date));
+			$this->setDefault('fromDate', set_datepicker_date_format($fromDate));
         }
 
         $this->widgetSchema->setNameFormat('attendance[%s]');
@@ -40,6 +43,8 @@ class AttendanceRecordSearchForm extends sfForm {
         $inputDatePattern = sfContext::getInstance()->getUser()->getDateFormat();
         $this->setValidators(array(
             'date' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
+                    array('invalid' => 'Date format should be ' . $inputDatePattern)),
+			'fromDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => true),
                     array('invalid' => 'Date format should be ' . $inputDatePattern)),
             'employeeName' => new ohrmValidatorEmployeeNameAutoFill()
         ));
@@ -57,7 +62,8 @@ class AttendanceRecordSearchForm extends sfForm {
 
         $labels = array(
             'employeeName' => __('Employee Name'),
-            'date' => __('Date') . $requiredMarker
+            'date' => __('Date') . $requiredMarker,
+			'fromDate' => __('fromDate') . $requiredMarker
         );
 
         return $labels;
