@@ -72,6 +72,7 @@ class AddEmployeeForm extends sfForm {
             'firstName' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 30)),
             'middleName' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 30)),
             'lastName' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 30)),
+			'pin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32)),
             'employeeId' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 10)),
             'photofile' => new sfWidgetFormInputFileEditable(array('edit_mode' => false, 'with_delete' => false, 
                 'file_src' => ''), array("class" => "duplexBox")),
@@ -87,6 +88,8 @@ class AddEmployeeForm extends sfForm {
 
         $this->widgets['empNumber']->setDefault($empNumber);
         $this->widgets['employeeId']->setDefault($employeeId);
+		
+		$this->widgets['pin']->setDefault($this->getOption(('pin')));
 
         if ($this->getOption(('employeeId')) != "") {
             $this->widgets['employeeId']->setDefault($this->getOption(('employeeId')));
@@ -116,6 +119,7 @@ class AddEmployeeForm extends sfForm {
             'empNumber' => new sfValidatorString(array('required' => false)),
             'lastName' => new sfValidatorString(array('required' => true, 'max_length' => 30, 'trim' => true)),
             'middleName' => new sfValidatorString(array('required' => false, 'max_length' => 30, 'trim' => true)),
+			'pin' => new sfValidatorString(array('required' => false, 'max_length' => 32)),
             'employeeId' => new sfValidatorString(array('required' => false, 'max_length' => 10)),
             'chkLogin' => new sfValidatorString(array('required' => false)),
             'user_name' => new sfValidatorString(array('required' => false, 'max_length' => 40, 'trim' => true)),
@@ -154,6 +158,7 @@ class AddEmployeeForm extends sfForm {
             'firstName' => false,
             'middleName' => false,
             'lastName' => false,
+			'pin' => __('Pin'),
             'employeeId' => __('Employee Id'),
             'chkLogin' => __('Create Login Details'),
             'user_name' => __('User Name') . '<em> *</em>',
@@ -171,6 +176,7 @@ class AddEmployeeForm extends sfForm {
         $employee->firstName = $posts['firstName'];
         $employee->lastName = $posts['lastName'];
         $employee->middleName = $posts['middleName'];
+		$employee->pin = $posts['pin'];
         $employee->employeeId = $posts['employeeId'];
         return $employee;
     }

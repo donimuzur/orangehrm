@@ -19,7 +19,6 @@ $(document).ready(function() {
     $(".editable").each(function(){
         $(this).attr("disabled", "disabled");
     });
-    
     // Disable calendar elements
     $(".editable.calendar").datepicker('disable');
     

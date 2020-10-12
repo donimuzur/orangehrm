@@ -321,6 +321,10 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'autoincrement' => true,
              'length' => 4,
              ));
+		$this->hasColumn('pin', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
+             ));
         $this->hasColumn('emp_lastname as lastName', 'string', 100, array(
              'type' => 'string',
              'default' => '',

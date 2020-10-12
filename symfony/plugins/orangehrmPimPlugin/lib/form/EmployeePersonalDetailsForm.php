@@ -137,6 +137,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtEmpFirstName' => new sfWidgetFormInputText(),
             'txtEmpMiddleName' => new sfWidgetFormInputText(),
             'txtEmpNickName' => new sfWidgetFormInputText(),
+			'txtPin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32)),
             'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
             'txtOtherID' => new sfWidgetFormInputText(),
@@ -152,6 +153,9 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $widgets['txtEmpMiddleName']->setAttribute('value', $this->employee->middleName);
         $widgets['txtEmpNickName']->setAttribute('value', $this->employee->nickName);
 
+		//setting default pin
+		$widgets['txtPin']->setAttribute('value', $this->employee->pin);
+		
         //setting the default selected nation code
         $widgets['cmbNation']->setDefault($this->employee->nation_code);
 
@@ -187,6 +191,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
                 'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
                 'multiple' => false)),
             'cmbNation' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->getNationalityList()))),
+			'txtPin' => new sfValidatorString(array('required' => false, 'max_length' => 32)),
             'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
             'cmbMarital' => new sfValidatorString(array('required' => false)),
             'chkSmokeFlag' => new sfValidatorString(array('required' => false)),
@@ -260,6 +265,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
         }
 
         if ($this->canEditSensitiveInformation) {
+			$employee->pin = $this->getValue('txtPin');
             $employee->employeeId = $this->getValue('txtEmployeeId');
             $employee->ssn = $this->getValue('txtNICNo');
             $employee->sin = $this->getValue('txtSINNo');

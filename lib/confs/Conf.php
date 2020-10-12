@@ -10,11 +10,11 @@ class Conf {
 
 	function __construct() {
 
-		$this->dbhost	= 'localhost';
+		$this->dbhost	= 'server2';
 		$this->dbport 	= '3306';
 		$this->dbname	= 'orangehrm_mysql';
 		$this->dbuser	= 'root';
-		$this->dbpass	= '';
+		$this->dbpass	= 'Polowijo605421';
 		$this->version = '4.4';
 
 		$this->emailConfiguration = dirname(__FILE__).'mailConf.php';

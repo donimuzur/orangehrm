@@ -81,6 +81,10 @@
                         <?php echo $form['maintenance']->renderLabel(__('Enable Maintenance module')); ?>
                         <?php echo $form['maintenance']->render(); ?>
                     </li>
+					<li class="checkbox">
+                        <?php echo $form['customattendance']->renderLabel(__('Enable Custom Attendance module')); ?>
+                        <?php echo $form['customattendance']->render(); ?>
+                    </li>
                     <li class="required">
                         <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
                     </li>

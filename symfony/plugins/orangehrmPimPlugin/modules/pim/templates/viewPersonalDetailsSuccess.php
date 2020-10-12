@@ -51,6 +51,10 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                         </li>
                     </ol>
                     <ol>
+					  <li>
+                            <label for="personal_txtPin"><?php echo __('Pin'); ?></label>
+                            <?php echo $form['txtPin']->render(array("maxlength" => 32, "class" => "editable")); ?>
+                        </li>
                         <li>
                             <label for="personal_txtEmployeeId"><?php echo __('Employee Id'); ?></label>
                             <?php echo $form['txtEmployeeId']->render(array("maxlength" => 10, "class" => "editable")); ?>

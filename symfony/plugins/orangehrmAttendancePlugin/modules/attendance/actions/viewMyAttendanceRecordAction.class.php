@@ -10,7 +10,7 @@
  *
  * @author orangehrm
  */
-class viewMyAttendanceRecordAction extends sfAction {
+class viewMyAttendanceRecordAction extends ohrmBaseAction {
 
     public function execute($request) {
 

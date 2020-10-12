@@ -48,6 +48,7 @@ class ModuleForm extends BaseForm {
             'help' => new sfWidgetFormInputCheckbox(array(), array('class' => 'checkbox', 'value' => 'on')),
             'directory' => new sfWidgetFormInputCheckbox(array(), array('class' => 'checkbox', 'value' => 'on')),
             'maintenance' => new sfWidgetFormInputCheckbox(array(), array('class' => 'checkbox', 'value' => 'on')),
+			'customattendance' => new sfWidgetFormInputCheckbox(array(), array('class' => 'checkbox', 'value' => 'on')),
 
         ));        
         
@@ -60,7 +61,8 @@ class ModuleForm extends BaseForm {
             'performance' => new sfValidatorPass(),
             'help' => new sfValidatorPass(),
             'directory' => new sfValidatorPass(),
-            'maintenance' => new sfValidatorPass()
+            'maintenance' => new sfValidatorPass(),
+			'customattendance' => new sfValidatorPass()
 
         ));
         
