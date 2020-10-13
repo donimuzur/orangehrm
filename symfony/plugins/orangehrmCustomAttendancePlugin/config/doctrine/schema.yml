@@ -1,0 +1,24 @@
+## YAML Template.
+---
+FingerspotAttendance:
+  tableName: ohrm_att_log
+  columns:
+    sn:  
+      type: string(30)
+      primary: true
+    scan_date:
+      type: datetime
+      primary: true
+    pin:
+      type: string(30)
+      primary: true
+    verifymode:
+      type: integer
+    inoutmode:
+      type: integer
+    reserved:
+      type: integer
+    work_code:
+      type: integer
+    att_id:
+      type: string(50)
