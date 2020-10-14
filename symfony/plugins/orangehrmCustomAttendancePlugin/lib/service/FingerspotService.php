@@ -47,12 +47,12 @@ class FingerspotService {
 
     /**
      * get Attendance record 
-     * @param $employeeId, $date
+     * @param $pin, $fromDate, $toDate
      * @return array of records 
      */
-    public function getFingerstpotRecord($pin, $date) {
+    public function getFingerspotRecord($pin, $fromDate, $toDate) {
 
-        return $this->getFingerspotDao()->getFingerstpotRecord($pin, $date);
+        return $this->getFingerspotDao()->getFingerspotRecord($pin, $fromDate, $toDate);
     }
 
     /**

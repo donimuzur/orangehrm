@@ -13,10 +13,24 @@
 class viewFingerspotAttendanceAction extends ohrmBaseAction {
 	  
 	private $fingerspotService;
-	
+	private $employeeService;
 	
     public function getDataGroupPermissions($dataGroups, $self = false) {
         return $this->getContext()->getUserRoleManager()->getDataGroupPermissions($dataGroups, array(), array(), $self, array());
+    }
+	public function getEmployeeService() {
+
+        if (is_null($this->employeeService)) {
+
+            $this->employeeService = new EmployeeService();
+        }
+
+        return $this->employeeService;
+    }
+
+    public function setEmployeeService(EmployeeService $employeeService) {
+
+        $this->employeeService = $employeeService;
     }
 	
 	public function getFingerspotService() {
@@ -37,7 +51,8 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
     public function execute($request) {
 
         $this->fingerspotService = $this->getFingerspotService();
-        $this->employeeId = $this->getContext()->getUser()->getEmployeeNumber();
+		$this->employeeService = $this->getEmployeeService();
+        $this->employeeId = $request->getParameter('employeeId');
         $this->toDate = $this->request->getParameter('toDate');
 		$this->fromDate = $this->request->getParameter('fromDate');
         $this->trigger = $request->getParameter('trigger');
@@ -87,7 +102,6 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
                     $noOfRecords = sfConfig::get('app_items_per_page');
                     $offset = ($pageNumber >= 1) ? (($pageNumber - 1) * $noOfRecords) : ($request->getParameter('pageNo', 1) - 1) * $noOfRecords;
 					
-					
                     $empRecords = array();
 					if (!$this->employeeId) {
 //                      $empRecords = $this->employeeService->getEmployeeList('firstName', 'ASC', false);
@@ -99,32 +113,24 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
                         $count = 1;
                     }
 					
-					 $records = array();
+                     $records = array();
+                     $arrPin = "";
                     foreach ($empRecords as $employee) {
                         $hasRecords = false;
-
-                        $attendanceRecords = $employee->getFingerstpotRecord();
+                        $attendanceRecords = $this->fingerspotService->getFingerspotRecord($employee->getpin(), $this->fromDate, $this->toDate);
                         $total = 0;
                         foreach ($attendanceRecords as $attendance) {
-                            $from = $this->date . " " . "00:" . "00:" . "00";
-                            $end = $this->date . " " . "23:" . "59:" . "59";
-                            if (strtotime($attendance->getPunchInUserTime()) >= strtotime($from) && strtotime($attendance->getPunchInUserTime()) <= strtotime($end)) {
-                                if ($attendance->getPunchOutUtcTime()) {
-                                    $total = $total + round((strtotime($attendance->getPunchOutUtcTime()) - strtotime($attendance->getPunchInUtcTime())) / 3600, 2);
-                                }
-                                $records[] = $attendance;
-                                $hasRecords = true;
-                            }
-                        }
-
-                        if ($hasRecords) {
-                            $last = end($records);
-                            $last->setTotal($total);
-                        } else {
-                            $attendance = new AttendanceRecord();
-                            $attendance->setEmployee($employee);
-                            $attendance->setTotal('---');
+                            $from = $this->fromDate . " " . "00:" . "00:" . "00";
+                            $end = $this->toDate . " " . "23:" . "59:" . "59";
+                            
                             $records[] = $attendance;
+                            $hasRecords = true;
+                        }
+                        if (!$hasRecords) {
+                            $fingerspotAttendance = new FingerspotRecord();
+                            $fingerspotAttendance->setEmployee($employee);
+                            $fingerspotAttendance->setscan_date('---');
+                            $records[] = $fingerspotAttendance;
                         }
                     }
 					$this->_setListComponent($records, $noOfRecords, $pageNumber, $count);

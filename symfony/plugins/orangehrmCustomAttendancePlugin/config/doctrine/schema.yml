@@ -1,10 +1,8 @@
-## YAML Template.
----
-FingerspotAttendance:
+FingerspotRecord:
   tableName: ohrm_att_log
   columns:
     sn:  
-      type: string(30)
+      type: string(32)
       primary: true
     scan_date:
       type: datetime
@@ -22,3 +20,8 @@ FingerspotAttendance:
       type: integer
     att_id:
       type: string(50)
+
+  relations:
+    Employee:     
+      local: pin
+      foreign: pin

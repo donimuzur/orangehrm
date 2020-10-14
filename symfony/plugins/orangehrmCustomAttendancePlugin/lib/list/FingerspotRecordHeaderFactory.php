@@ -17,31 +17,24 @@ class FingerspotRecordHeaderFactory extends ohrmListConfigurationFactory {
             'name' => 'Tanggal',
             'width' => '20%',
             'elementType' => 'label',
-            'elementProperty' => array('getter' => array('getEmployee', 'getFirstAndLastNames')),
+            'elementProperty' => array('getter' => 'getdate_ymd'),
         ));
 
         $header2->populateFromArray(array(
             'name' => 'Employee Name',
             'width' => '30%',
             'elementType' => 'label',
-            'elementProperty' => array('getter' => 'getPunchInUserTimeAndZone'),
+            'elementProperty' => array('getter' => array('getEmployee', 'getFirstAndLastNames')),
         ));
         
         $header3->populateFromArray(array(
-            'name' => 'Check In',
-            'width' => '20%',
+            'name' => 'Scan log',
+            'width' => '40%',
             'elementType' => 'label',
-            'elementProperty' => array('getter' => 'getPunchInNote'),
+            'elementProperty' => array('getter' => 'getscan_date'),
         ));
         
-        $header4->populateFromArray(array(
-            'name' => 'Check Out',
-            'width' => '20%',
-            'elementType' => 'label',
-            'elementProperty' => array('getter' => 'getPunchOutUserTimeAndZone'),
-        ));
-        
-        $this->headers = array($header1, $header2, $header3, $header4 );
+        $this->headers = array($header1, $header2, $header3);
     }
 
     public function getClassName() {

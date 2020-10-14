@@ -55,9 +55,7 @@ class FingerspotSearchForm extends sfForm {
                         array('throw_global_error' => true),
                         array('invalid' => 'The from date ("%left_field%") must be before the to date ("%right_field%")')
         ));
-		
     }
-
     /**
      *
      * @return array

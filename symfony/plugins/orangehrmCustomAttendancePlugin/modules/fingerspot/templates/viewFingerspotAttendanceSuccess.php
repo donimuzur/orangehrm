@@ -6,9 +6,6 @@
         <h1><?php echo __('Fingerspot Attendance Records'); ?></h1>
     </div>
     <div class="inner">
-        <div id="validationMsg">
-            <?php echo isset($messageData) ? templateMessage($messageData) : ''; ?>
-        </div>
         <form action="<?php echo url_for("fingerspot/viewFingerspotAttendance"); ?>" id="reportForm" method="post">
             <fieldset>
                 <ol class="normal">
