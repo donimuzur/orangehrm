@@ -1,5 +1,5 @@
 FingerspotRecord:
-  tableName: ohrm_att_log
+  tableName: view_ohrm_att_log
   columns:
     sn:  
       type: string(32)

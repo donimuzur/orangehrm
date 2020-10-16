@@ -53,7 +53,7 @@ abstract class BaseFingerspotRecord extends sfDoctrineRecord
 {
      public function setTableDefinition()
      {
-         $this->setTableName('ohrm_att_log');
+         $this->setTableName('view_ohrm_att_log');
            $this->hasColumn('sn', 'string', 30, array(
               'type' => 'string',
               'length' => 30,

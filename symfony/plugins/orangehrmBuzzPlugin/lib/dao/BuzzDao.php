@@ -229,6 +229,29 @@ class BuzzDao extends BaseDao {
 
 
     /**
+     * get employees who having Birthday on month
+     * @param INT Month
+     * @return array Employee
+     * @throws DaoException
+     */
+    public function getEmployeesHavingBirthdayOnMonth($date) {
+        try {
+            $whereClause = "WHERE emp_birthday <= :date AND datediff( MAKEDATE(YEAR(:date) , DAYOFYEAR(emp_birthday)) , :date) " .
+                " BETWEEN 0 AND 30 ";
+
+            $params = array(':date' => $date);
+
+            $q = Doctrine_Manager::getInstance()->getCurrentConnection();
+            $result = $q->execute("SELECT * FROM hs_hr_employee $whereClause ORDER BY MONTH(emp_birthday) ASC, DAY(emp_birthday) ASC", $params);
+            return $result->fetchAll();
+            // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd
+    }
+	
+    /**
      *
      * @param type $date
      * @return type
@@ -243,6 +266,29 @@ class BuzzDao extends BaseDao {
 
             $q = Doctrine_Manager::getInstance()->getCurrentConnection();
             $result = $q->execute("SELECT * FROM hs_hr_employee $whereClause ORDER BY MONTH(joined_date) ASC, DAY(joined_date) ASC", $params);
+            return $result->fetchAll();
+            // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd
+    }
+
+    /**
+     *
+     * @param type $date
+     * @return type
+     * @throws DaoException
+     */
+    public function getEmployeesHavingBirthdayNextYear($date) {
+        try {
+            $whereClause = "WHERE emp_birthday <= :date AND " .
+                " datediff( MAKEDATE(YEAR(:date)+1 , DAYOFYEAR(emp_birthday)) , :date) " .
+                " BETWEEN 0 AND 30 ";
+            $params = array(':date' => $date);
+
+            $q = Doctrine_Manager::getInstance()->getCurrentConnection();
+            $result = $q->execute("SELECT * FROM hs_hr_employee $whereClause ORDER BY MONTH(emp_birthday) ASC, DAY(emp_birthday) ASC", $params);
             return $result->fetchAll();
             // @codeCoverageIgnoreStart
         } catch (Exception $e) {

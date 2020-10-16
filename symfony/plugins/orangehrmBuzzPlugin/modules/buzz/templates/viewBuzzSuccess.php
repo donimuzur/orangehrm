@@ -78,6 +78,11 @@ ini_set("memory_limit", '-1');
             <?php include_component('buzz', 'viewAnniversaries', array()); ?>
         </div>
         <!--End anniversary Component-->
+         <!--Start Birthday Component-->
+         <div id="birthdayComponent">
+            <?php include_component('buzz', 'viewBirthday', array()); ?>
+        </div>
+        <!--End Birthday Component-->
         <!--Start Most Liked Shares Component-->
         <div id="statisticsComponent">
             <?php include_component('buzz', 'mostLikedShares', array()); ?>

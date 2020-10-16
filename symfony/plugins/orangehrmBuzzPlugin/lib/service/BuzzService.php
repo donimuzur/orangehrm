@@ -71,7 +71,16 @@ class BuzzService extends BaseService {
 
         return $this->getBuzzDao()->getEmployeesHavingAnniversaryOnMonth($date);
     }
-    
+
+     /**
+     * get employee having Birthdays on month from this date 
+     * @param type $date
+     * @return array Employee
+     */
+    public function getEmployeesHavingBirthdayOnMonth($date) {
+
+        return $this->getBuzzDao()->getEmployeesHavingBirthdayOnMonth($date);
+    }
     
     /**
      * get Employees Having Anniversaries Next Year
@@ -81,6 +90,16 @@ class BuzzService extends BaseService {
     public function getEmployeesHavingAnniversariesNextYear($date) {
 
         return $this->getBuzzDao()->getEmployeesHavingAnniversariesNextYear($date);
+    }
+
+    /**
+     * get Employees Having Birthdays Next Year
+     * @param type $date
+     * @return type
+     */
+    public function getEmployeesHavingBirthdayNextYear($date) {
+
+        return $this->getBuzzDao()->getEmployeesHavingBirthdayNextYear($date);
     }
 
     /**

@@ -4,14 +4,9 @@ class FingerspotRecordHeaderFactory extends ohrmListConfigurationFactory {
 
     protected function init() {
 
-		$header0 = new ListHeader();
         $header1 = new ListHeader();
         $header2 = new ListHeader();
         $header3 = new ListHeader();
-        $header4 = new ListHeader();
-        $header5 = new ListHeader();
-        $header6 = new ListHeader();
-        $header7 = new ListHeader();
 
 		$header1->populateFromArray(array(
             'name' => 'Tanggal',
@@ -29,7 +24,7 @@ class FingerspotRecordHeaderFactory extends ohrmListConfigurationFactory {
         
         $header3->populateFromArray(array(
             'name' => 'Scan log',
-            'width' => '40%',
+            'width' => '50%',
             'elementType' => 'label',
             'elementProperty' => array('getter' => 'getscan_date'),
         ));
