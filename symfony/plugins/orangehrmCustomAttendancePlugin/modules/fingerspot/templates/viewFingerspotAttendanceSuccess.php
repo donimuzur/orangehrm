@@ -6,7 +6,7 @@
         <h1><?php echo __('Fingerspot Attendance Records'); ?></h1>
     </div>
     <div class="inner">
-        <form action="<?php echo url_for("fingerspot/viewFingerspotAttendance"); ?>" id="reportForm" method="post">
+        <form action="<?php echo url_for("fingerspot/viewFingerspotAttendance"); ?>" id="reportForm" name="frmFingerspotReport" method="post">
             <fieldset>
                 <ol class="normal">
 					<li>
@@ -89,8 +89,8 @@
 	var lang_dateError = '<?php echo __js("To date should be after from date") ?>';
 
     function submitPage(pageNo) {
-        document.frmAttendanceReport.pageNo.value = pageNo;
-        document.frmAttendanceReport.hdnAction.value = 'paging';
+        document.frmFingerspotReport.pageNo.value = pageNo;
+        document.frmFingerspotReport.hdnAction.value = 'paging';
         document.getElementById('reportForm').submit();
     }
 </script>

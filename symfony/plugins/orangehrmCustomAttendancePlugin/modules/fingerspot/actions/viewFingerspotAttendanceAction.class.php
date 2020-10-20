@@ -59,10 +59,8 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
         $this->actionRecorder="ViewFingerspotAttendance";
         $values = array('toDate' => $this->toDate, 'fromDate' => $this->fromDate , 'employeeId' => $this->employeeId, 'trigger' => $this->trigger);
         $this->form = new FingerspotSearchForm(array(), $values);
-		
-		
+
         $this->parmetersForListCompoment = array();
-        $this->showEdit = false;
 
 		$isPaging = $request->getParameter('pageNo');
         $pageNumber = $isPaging;
@@ -75,7 +73,7 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
         $this->attendancePermissions = $this->getDataGroupPermissions('attendance_records');
 
         if ($this->attendancePermissions->canRead()) {
-            $this->_setListComponent($records, $noOfRecords, $pageNumber, null, $this->showEdit);
+            $this->_setListComponent($records, $noOfRecords, $pageNumber, null);
         }
 		
         if (!($this->trigger)) {
@@ -106,35 +104,37 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
 					if (!$this->employeeId) {
 //                      $empRecords = $this->employeeService->getEmployeeList('firstName', 'ASC', false);
                         $empRecords = UserRoleManagerFactory::getUserRoleManager()->getAccessibleEntities('Employee');
-                        $count = count($empRecords);
+                        // $count = count($empRecords);
                     } else {
                         $empRecords = $this->employeeService->getEmployee($this->employeeId);
                         $empRecords = array($empRecords);
-                        $count = 1;
+                        // $count = 1;
                     }
-					
-                     $records = array();
-                     $arrPin = "";
+
+                    $arrPin =array();
                     foreach ($empRecords as $employee) {
-                        $hasRecords = false;
-                        $attendanceRecords = $this->fingerspotService->getFingerspotRecord($employee->getpin(), $this->fromDate, $this->toDate);
-                        $total = 0;
-                        foreach ($attendanceRecords as $attendance) {
-                            $from = $this->fromDate . " " . "00:" . "00:" . "00";
-                            $end = $this->toDate . " " . "23:" . "59:" . "59";
-                            
-                            $records[] = $attendance;
-                            $hasRecords = true;
-                        }
-                        if (!$hasRecords) {
-                            $fingerspotAttendance = new FingerspotRecord();
-                            $fingerspotAttendance->setEmployee($employee);
-                            $fingerspotAttendance->setscan_date('---');
-                            $records[] = $fingerspotAttendance;
-                        }
+                        
+                        array_push($arrPin,$employee->getpin());
                     }
-					$this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
+
+                    $hasRecords = false;
                     
+                    $attendanceRecords = $this->fingerspotService->getFingerspotRecordWithLimit($arrPin, $this->fromDate, $this->toDate,$noOfRecords,$offset);
+                    $count = $this->fingerspotService->getFingerspotRecordCount($arrPin, $this->fromDate, $this->toDate);
+                   
+                    foreach ($attendanceRecords as $attendance) {
+                        $records[] = $attendance;
+                        $hasRecords = true;
+                    }
+
+                    if (!$hasRecords) {
+                        $fingerspotAttendance = new FingerspotRecord();
+                        $fingerspotAttendance->setEmployee($employee);
+                        $fingerspotAttendance->setscan_date('---');
+                        $records[] = $fingerspotAttendance;
+                    }
+                    // $this->getUser()->setFlash('warning',"count : ".$count."| noOfRecords :".$noOfRecords."| page Number : ".$pageNumber."|offset : ".$offset, false);
+                    $this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
                 } else {
                     $this->handleBadRequest();
                     $this->getUser()->setFlash('warning', __(TopLevelMessages::VALIDATION_FAILED), false);
@@ -151,6 +151,7 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
 
         ohrmListComponent::setActivePlugin('orangehrmCustomAttendancePlugin');
         ohrmListComponent::setConfigurationFactory($configurationFactory);
+        
         ohrmListComponent::setListData($records);
         ohrmListComponent::setPageNumber($pageNumber);
         ohrmListComponent::setItemsPerPage($noOfRecords);

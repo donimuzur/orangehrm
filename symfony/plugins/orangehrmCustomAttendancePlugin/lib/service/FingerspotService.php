@@ -55,6 +55,16 @@ class FingerspotService {
         return $this->getFingerspotDao()->getFingerspotRecord($pin, $fromDate, $toDate);
     }
 
+    public function getFingerspotRecordCount($arrpin, $fromDate, $toDate)
+    {
+        return $this->getFingerspotDao()->getFingerspotRecordCount($arrpin, $fromDate, $toDate);   
+    }
+
+    public function getFingerspotRecordWithLimit($pin, $fromDate, $toDate,$limit,$offset) {
+
+        return $this->getFingerspotDao()->getFingerspotRecordWithLimit($pin, $fromDate, $toDate, $limit,$offset);
+    }
+
     /**
      * Get Timezone Array 
      * @param 

@@ -35,7 +35,58 @@ class FingerspotDao {
                     ->where("pin = ?", $pin)
                     ->andWhere("scan_date >= ?", $fromDate)
                     ->andWhere("scan_date <= ?", $toDate);
+                    
+            $records = $query->execute();
+            if (is_null($records[0]->getpin())) {
 
+                return null;
+            } else {
+
+                return $records;
+            }
+        } catch (Exception $ex) {
+            throw new DaoException($ex->getMessage());
+        }
+    }
+    public function getFingerspotRecordCount($arrpin, $fromDate, $toDate)
+    {
+        $from = $fromDate . " " . "00:" . "00:" . "00";
+        $end = $toDate . " " . "23:" . "59:" . "59";
+
+        try {
+
+            $query = Doctrine_Query::create()
+                    ->from("FingerspotRecord")
+                    ->whereIn("pin", $arrpin)
+                    ->andWhere("scan_date >= ?", $from)
+                    ->andWhere("scan_date <= ?",$end);
+                    
+            $records = $query->execute();
+            if (is_null($records[0]->getpin())) {
+
+                return 0;
+            } else {
+                return count($records);
+            }
+        } catch (Exception $ex) {
+            throw new DaoException($ex->getMessage());
+        }
+    }   
+    public function getFingerspotRecordWithLimit($arrpin, $fromDate, $toDate, $limit, $offset) {
+
+        $from = $fromDate . " " . "00:" . "00:" . "00";
+        $end = $toDate . " " . "23:" . "59:" . "59";
+
+        try {
+
+            $query = Doctrine_Query::create()
+                    ->from("FingerspotRecord")
+                    ->whereIn("pin", $arrpin)
+                    ->andWhere("scan_date >= ?", $from)
+                    ->andWhere("scan_date <= ?",$end)
+                    ->limit($limit)
+                    ->offset($offset);
+                    
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {
 

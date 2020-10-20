@@ -72,7 +72,6 @@ $(document).ready(function(){
 }
 });
 
-
 function isValidForm(){
 	
         var validator = $("#reportForm").validate({
