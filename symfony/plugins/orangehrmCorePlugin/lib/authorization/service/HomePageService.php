@@ -72,6 +72,10 @@ class HomePageService {
         return $this->getModuleDefaultPage('performance');        
     }
     
+    public function getFingerspotModuleDefaultPath() {
+        return $this->getModuleDefaultPage('fingerspot');   
+    }
+    
     public function getModuleDefaultPage($module) {
         return $this->getUserRoleManager()->getModuleDefaultPage($module);
     }
