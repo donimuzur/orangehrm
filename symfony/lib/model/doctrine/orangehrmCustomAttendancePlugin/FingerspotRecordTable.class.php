@@ -17,3 +17,4 @@ class FingerspotRecordTable extends PluginFingerspotRecordTable
         return Doctrine_Core::getTable('FingerspotRecord');
     }
 }
+?>

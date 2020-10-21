@@ -101,3 +101,5 @@ abstract class BaseFingerspotRecord extends sfDoctrineRecord
             'foreign' => 'pin'));
      }
 }
+
+?>

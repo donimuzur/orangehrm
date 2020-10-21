@@ -27,3 +27,8 @@ abstract class PluginFingerspotRecord extends BaseFingerspotRecord
     }
 
 }
+
+abstract class PluginFingerspotDevices extends BaseFingerspotDevices 
+{	
+}
+?>

@@ -25,3 +25,17 @@ FingerspotRecord:
     Employee:     
       local: pin
       foreign: pin
+
+FingerspotDevices:
+  tableName: ohrm_devices
+  columns:
+    No:  
+      type: integer
+      primary: true
+      autoincrement: true
+    server_IP:
+       type: string(255)
+    server_port:
+      type: string(255)
+    device_sn:
+      type: string(255)
