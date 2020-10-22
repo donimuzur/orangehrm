@@ -80,7 +80,6 @@ class FingerspotActions extends sfActions {
             $json=json_decode($response,true);
             if($json["Result"])
             {
-                $this->getUser()->setFlash('fingerspotDevices.success',"server IP: ".$this->ServerIp."|Server Port".$this->ServerPort."|Serial Number".$this->SerialNumber."|".$response);
                 $this->records =  $response;
                 $this->Jam =$json["DEVINFO"]["Jam"];
                 $this->Admin =$json["DEVINFO"]["Admin"];
@@ -102,5 +101,52 @@ class FingerspotActions extends sfActions {
             
         }
     }
+
+    
+    public function executeSyncTime($request) {
+     
+        $userRoleManager = $this->getContext()->getUserRoleManager();        
+        $userEmployeeNumber = $userRoleManager->getUser()->getEmpNumber();
+
+        $this->ServerIp = $request->getParameter('ServerIp');
+        $this->ServerPort = $request->getParameter('ServerPort');
+        $this->SerialNumber = $request->getParameter('SerialNumber');
+        $this->actionRecorder = $request->getParameter('actionRecorder');
+        
+        $this->listForm = new DefaultListForm();
+
+        //Get Device Info
+        $curl = curl_init();
+        set_time_limit(0);
+        curl_setopt_array($curl, array(
+            CURLOPT_PORT => $this->ServerPort,
+            CURLOPT_URL => "http://".$this->ServerIp."/dev/settime",
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => "",
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => "POST",
+            CURLOPT_POSTFIELDS => "sn=".$this->SerialNumber,
+            CURLOPT_HTTPHEADER => array(
+                "cache-control: no-cache",
+                "content-type: application/x-www-form-urlencoded"
+                ),
+            )
+        );
+        $response = curl_exec($curl);
+        $err = curl_error($curl);
+        curl_close($curl);
+        if ($err) {
+            $response = ($err);
+            $this->Errors = $response ;
+            $this->getUser()->setFlash('fingerspotDevices.warning',$response);
+        }
+        else
+        {
+            $this->getUser()->setFlash('fingerspotDevices.success',"Sync Date Time Success");
+        }
+    }
 }
 
+?>

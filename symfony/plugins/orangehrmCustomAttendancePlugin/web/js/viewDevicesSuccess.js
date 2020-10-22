@@ -23,6 +23,10 @@ $(document).ready(function() {
         getDeviceInfo();
     });
     
+    $("#btnSyncTime").click(function() {
+        $("#btnSyncTime").val(lang_processing);
+        getSyncTime();
+    });
 
 
     $("#btnSave").click(function() {
@@ -59,11 +63,35 @@ $(document).ready(function() {
                 actionRecorder:actionRecorder
             },
             function(data, textStatus) {
-                console.log(data);
                 if( data != ''){
                     $("#DeviceInfo").show();
                     $('#DeviceInfo1').html(data); 
                     $("#btnInfo").val("Get Device Info"); 
+                }  
+            });
+                        
+        return false;
+            
+    }
+
+    function getSyncTime(){
+        var ServerIp = $('#fingerspotDevices_serverIp').val();
+        var ServerPort = $('#fingerspotDevices_serverPort').val();
+        var SerialNumber = $('#fingerspotDevices_devicesSn').val();
+        $.get(
+            linkForSyncTime,
+            {
+                ServerIp: ServerIp,
+                ServerPort: ServerPort,
+                SerialNumber : SerialNumber,
+                actionRecorder:actionRecorder
+            },
+            function(data, textStatus) {
+                location.reload(); 
+                if( data != ''){
+                    $("#DeviceInfo").show();
+                    $('#DeviceInfo1').html(data); 
+                    $("#btnSyncTime").val("Sync Date Time"); 
                 }  
             });
                         
