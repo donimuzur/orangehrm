@@ -17,6 +17,14 @@ $(document).ready(function() {
         $(this).attr("disabled", "disabled");
     });
 
+    $("#btnInfo").click(function() {
+        $('#DeviceInfo1').html(''); 
+        $("#btnInfo").val(lang_processing);
+        getDeviceInfo();
+    });
+    
+
+
     $("#btnSave").click(function() {
         //if user clicks on Edit make all fields editable
         if($("#btnSave").attr('value') == edit) {
@@ -37,4 +45,28 @@ $(document).ready(function() {
         }
     });
     
-    });
+});
+    function getDeviceInfo(){
+        var ServerIp = $('#fingerspotDevices_serverIp').val();
+        var ServerPort = $('#fingerspotDevices_serverPort').val();
+        var SerialNumber = $('#fingerspotDevices_devicesSn').val();
+        $.get(
+            linkForGetDeviceInfo,
+            {
+                ServerIp: ServerIp,
+                ServerPort: ServerPort,
+                SerialNumber : SerialNumber,
+                actionRecorder:actionRecorder
+            },
+            function(data, textStatus) {
+                console.log(data);
+                if( data != ''){
+                    $("#DeviceInfo").show();
+                    $('#DeviceInfo1').html(data); 
+                    $("#btnInfo").val("Get Device Info"); 
+                }  
+            });
+                        
+        return false;
+            
+    }

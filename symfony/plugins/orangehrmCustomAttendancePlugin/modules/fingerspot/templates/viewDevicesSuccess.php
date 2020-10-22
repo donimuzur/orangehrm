@@ -30,13 +30,16 @@
                 <p class="formbuttons">
                     <input type="button" id="btnSave" value="<?php echo __("Edit"); ?>" />
                     <input type="button" id="btnInfo" value="<?php echo __("Device Info"); ?>" />
-                    <input type="button" id="btnGetAllScanLog" value="<?php echo __("Get All Scanlog"); ?>" />
+                    <input type="button" id="btnGetAllScanLog"  value="<?php echo __("Get All Scanlog"); ?>" />
                     <input type="button" id="btnGetNewScanLog" value="<?php echo __("Get New Scanlog"); ?>" />
+                    <input type="button" id="btnSyncTime" value="<?php echo __("Get New Scanlog"); ?>" />
                 </p>
             </fieldset>
         </form>
     </div>
 </div>
+
+<div id="DeviceInfo1"><!-- To appear table when search success --></div>
 
 <script type="text/javascript">
     //<![CDATA[
@@ -46,10 +49,11 @@
     var lang_Required = "This Field is mandatory";
     var lang_lastNameRequired = "<?php echo __js(ValidationMessages::REQUIRED); ?>";
     var lang_selectGender = "<?php echo __js(ValidationMessages::REQUIRED); ?>";
-    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING);?>';
+    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
     var lang_invalidDate = '<?php echo __js(ValidationMessages::DATE_FORMAT_INVALID, array('%format%' => str_replace('yy', 'yyyy', get_datepicker_date_format($sf_user->getDateFormat())))) ?>';
-
+    var linkForGetDeviceInfo='<?php echo url_for('fingerspot/getDeviceInfo'); ?>';
+    var actionRecorder='<?php echo $actionRecorder; ?>';
     var fileModified = 0;
-    
+    var trigger='<?php echo $trigger; ?>';
 </script>
 <?php echo javascript_include_tag(plugin_web_path('orangehrmCustomAttendancePlugin', 'js/viewDevicesSuccess')); ?>

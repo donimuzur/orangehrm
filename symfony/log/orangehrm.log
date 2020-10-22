@@ -694,3 +694,78 @@ Stack trace:
 #29 {main}
 [21-Oct-2020 16:38:10 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
 [21-Oct-2020 16:38:10 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[22-Oct-2020 10:05:33 Asia/Krasnoyarsk] Action "fingerspot/executeGetDeviceInfo" does not exist.
+[22-Oct-2020 10:05:37 Asia/Krasnoyarsk] Action "fingerspot/executeGetDeviceInfo" does not exist.
+[22-Oct-2020 11:16:22 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Object of class sfOutputEscaperArrayDecorator could not be converted to string in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:14
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml. in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 14
+[22-Oct-2020 11:17:13 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Object of class sfOutputEscaperArrayDecorator could not be converted to string in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:14
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml. in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 14
+[22-Oct-2020 13:32:06 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:25
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 25
+[22-Oct-2020 13:35:11 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:25
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 25
+[22-Oct-2020 13:35:36 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:25
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 25
+[22-Oct-2020 13:38:45 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:26
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 26
+[22-Oct-2020 13:38:58 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:26
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 26
+[22-Oct-2020 13:41:40 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:26
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 26
+[22-Oct-2020 13:41:53 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function renderLabel() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php:26
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->e in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\getDeviceInfoSuccess.php on line 26
+[22-Oct-2020 13:51:38 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 

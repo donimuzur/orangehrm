@@ -101,6 +101,7 @@ function isRowsSelected(){
 }
 
 function getRelatedAttendanceRecords(employeeId,date,actionRecorder) {
+    console.log("Link : "+linkForGetRecords+"| actionrecord : "+actionRecorder);
     $.get(
         linkForGetRecords,
         {
