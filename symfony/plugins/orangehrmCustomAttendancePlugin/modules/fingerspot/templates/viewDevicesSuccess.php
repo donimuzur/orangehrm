@@ -53,6 +53,9 @@
     var lang_invalidDate = '<?php echo __js(ValidationMessages::DATE_FORMAT_INVALID, array('%format%' => str_replace('yy', 'yyyy', get_datepicker_date_format($sf_user->getDateFormat())))) ?>';
     var linkForGetDeviceInfo='<?php echo url_for('fingerspot/getDeviceInfo'); ?>';
     var linkForSyncTime='<?php echo url_for('fingerspot/syncTime'); ?>';
+    var linkForGetAllScanlog='<?php echo url_for('fingerspot/getAllScanlog'); ?>';
+    var linkForGetNewScanlog='<?php echo url_for('fingerspot/getNewScanlog'); ?>';
+    var linkForSaveScanlog='<?php echo url_for('fingerspot/saveScanlog'); ?>';
     var actionRecorder='<?php echo $actionRecorder; ?>';
     var fileModified = 0;
     var trigger='<?php echo $trigger; ?>';

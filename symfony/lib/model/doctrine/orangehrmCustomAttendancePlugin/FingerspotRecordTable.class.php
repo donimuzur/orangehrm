@@ -17,4 +17,16 @@ class FingerspotRecordTable extends PluginFingerspotRecordTable
         return Doctrine_Core::getTable('FingerspotRecord');
     }
 }
+class FingerspotRecorTempdTable extends PluginFingerspotRecordTempTable
+{
+    /**
+     * Returns an instance of this class.
+     *
+     * @return object AttendanceRecordTable
+     */
+    public static function getInstance()
+    {
+        return Doctrine_Core::getTable('FingerspotRecordTemp');
+    }
+}
 ?>

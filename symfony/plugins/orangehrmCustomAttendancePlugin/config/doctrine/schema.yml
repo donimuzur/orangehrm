@@ -1,5 +1,5 @@
 FingerspotRecord:
-  tableName: view_ohrm_att_log
+  tableName: ohrm_att_log
   columns:
     sn:  
       type: string(32)
@@ -20,6 +20,30 @@ FingerspotRecord:
       type: integer
     att_id:
       type: string(50)
+
+  relations:
+    Employee:     
+      local: pin
+      foreign: pin
+
+FingerspotRecordTemp:
+  tableName: ohrm_att_log_tmp
+  columns:
+    sn:  
+      type: string(32)
+      primary: true
+    scan_date:
+      type: datetime
+      primary: true
+    pin:
+      type: string(30)
+      primary: true
+    verifymode:
+      type: integer
+    iomode:
+      type: integer
+    workcode:
+      type: integer
 
   relations:
     Employee:     

@@ -17,9 +17,9 @@
  * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301, USA
  */
-class FingerspotService {
+class FingerspotRecordTempService {
 
-    private $fingerspotDao;
+    private $fingerspotRecordTempDao;
 
     /**
      * Get Attendance Data Access Object
@@ -27,12 +27,12 @@ class FingerspotService {
      */
     public function getFingerspotDao() {
 
-        if (is_null($this->fingerspotDao)) {
+        if (is_null($this->fingerspotRecordTempDao)) {
 
-            $this->fingerspotDao = new FingerspotDao();
+            $this->fingerspotRecordTempDao = new fingerspotRecordTempDao();
         }
 
-        return $this->fingerspotDao;
+        return $this->fingerspotRecordTempDao;
     }
 
     /**
@@ -40,9 +40,9 @@ class FingerspotService {
      * @param AttendanceDao $AttendanceDao
      * @return void
      */
-    public function setFingerspotDao(FingerspotDao $fingerspotDao) {
+    public function setFingerspotDao(fingerspotRecordTempDao $fingerspotRecordTempDao) {
 
-        $this->fingerspotDao = $fingerspotDao;
+        $this->fingerspotRecordTempDao = $fingerspotRecordTempDao;
     }
 
     /**
@@ -50,24 +50,29 @@ class FingerspotService {
      * @param $pin, $fromDate, $toDate
      * @return array of records 
      */
-    public function getFingerspotRecord($pin, $fromDate, $toDate) {
+    public function getFingerspotRecord() {
 
-        return $this->getFingerspotDao()->getFingerspotRecord($pin, $fromDate, $toDate);
+        return $this->getFingerspotDao()->getFingerspotRecord();
     }
 
-    public function getFingerspotRecordCount($arrpin, $fromDate, $toDate)
+    public function getFingerspotRecordCount()
     {
-        return $this->getFingerspotDao()->getFingerspotRecordCount($arrpin, $fromDate, $toDate);   
+        return $this->getFingerspotDao()->getFingerspotRecordCount();   
     }
 
     public function getFingerspotRecordWithLimit($pin, $fromDate, $toDate,$limit,$offset) {
 
         return $this->getFingerspotDao()->getFingerspotRecordWithLimit($pin, $fromDate, $toDate, $limit,$offset);
     }
+    public function deleteFingerspotRecord() {
+
+        return $this->getFingerspotDao()->deleteFingerspotRecordTemp();
+    }
     public function saveFingerspotRecord($saveFingerspotRecord) {
 
         return $this->getFingerspotDao()->saveFingerspotRecord($saveFingerspotRecord);
     }
+    
     /**
      * Get Timezone Array 
      * @param 

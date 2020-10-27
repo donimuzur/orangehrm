@@ -17,25 +17,18 @@
  * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301, USA
  */
-class FingerspotDao {
+class FingerspotRecordTempDao {
     /**
      * Get Attendance Record
      * @param $$pin,$fromDate,$toDate
      * @return attendance records
      */
-    public function getFingerspotRecord($pin, $fromDate, $toDate) {
-
-        $from = $fromDate . " " . "00:" . "00:" . "00";
-        $end = $toDate . " " . "23:" . "59:" . "59";
+    public function getFingerspotRecord() {
 
         try {
 
             $query = Doctrine_Query::create()
-                    ->from("FingerspotRecord")
-                    ->where("pin = ?", $pin)
-                    ->andWhere("scan_date >= ?", $fromDate)
-                    ->andWhere("scan_date <= ?", $toDate)
-                    ->addOrderBy("scan_date");
+                    ->from("FingerspotRecordTemp");
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {
@@ -49,22 +42,16 @@ class FingerspotDao {
             throw new DaoException($ex->getMessage());
         }
     }
-    public function getFingerspotRecordCount($arrpin, $fromDate, $toDate)
+    public function getFingerspotRecordCount()
     {
-        $from = $fromDate . " " . "00:" . "00:" . "00";
-        $end = $toDate . " " . "23:" . "59:" . "59";
-
         try {
 
             $query = Doctrine_Query::create()
-                    ->from("FingerspotRecord")
-                    ->whereIn("pin", $arrpin)
-                    ->andWhere("scan_date >= ?", $from)
-                    ->andWhere("scan_date <= ?",$end);
+                    ->from("FingerspotRecordTemp");
                     
             $records = $query->execute();
-            if (is_null($records[0]->getpin())) {
-
+            
+            if (is_null($records)) {
                 return 0;
             } else {
                 return count($records);
@@ -81,14 +68,12 @@ class FingerspotDao {
         try {
 
             $query = Doctrine_Query::create()
-                    ->from("FingerspotRecord")
+                    ->from("FingerspotRecordTemp")
                     ->whereIn("pin", $arrpin)
                     ->andWhere("scan_date >= ?", $from)
                     ->andWhere("scan_date <= ?",$end)
                     ->limit($limit)
-                    ->offset($offset)
-                    ->addOrderBy("pin")
-                    ->addOrderBy("scan_date");
+                    ->offset($offset);
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {
@@ -102,20 +87,36 @@ class FingerspotDao {
             throw new DaoException($ex->getMessage());
         }
     }
-
     
-    public function saveFingerspotRecord(FingerspotRecord $fingerspotRecord) {
+    public function saveFingerspotRecord(FingerspotRecordTemp $fingerspotRecordTemp) {
         
         try {
             
-            $fingerspotRecord->save();
-            return $fingerspotRecord;
+            $fingerspotRecordTemp->save();
+            
+            return $fingerspotRecordTemp;
             
         // @codeCoverageIgnoreStart
         } catch (Exception $e) {
             throw new DaoException($e->getMessage(), $e->getCode(), $e);
         }
         
+    }
+    public function deleteFingerspotRecordTemp() {
+        try {
+
+            $query = Doctrine_Query::create()
+                    ->delete("FingerspotRecordTemp");
+                     
+            $records = $query->execute();
+            if (!empty($records)) {
+                return true;
+            } else {
+                return false;
+            }      
+        } catch (Exception $ex) {
+            throw new DaoException($ex->getMessage());
+        }
     }
 }
 

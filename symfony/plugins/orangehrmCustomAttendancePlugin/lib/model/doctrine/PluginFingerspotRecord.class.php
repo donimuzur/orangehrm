@@ -31,4 +31,21 @@ abstract class PluginFingerspotRecord extends BaseFingerspotRecord
 abstract class PluginFingerspotDevices extends BaseFingerspotDevices 
 {	
 }
+
+abstract class PluginFingerspotRecordTemp extends BaseFingerspotRecordTemp 
+{	
+    private $date_ymd = '';
+    public function setdate_ymd($date_ymd) {
+        
+       $this->date_ymd = $date_ymd;
+    }
+    public function getdate_ymd(){
+        $ymdDate ='';
+        if($this->getscan_date() != null && $this->getscan_date() != '---' )
+        {
+            $ymdDate = date('Y-m-d', strtotime($this->getscan_date()));    
+        }
+        return  $ymdDate;
+    }
+}
 ?>

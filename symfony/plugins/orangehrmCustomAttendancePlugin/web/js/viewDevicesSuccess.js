@@ -24,10 +24,22 @@ $(document).ready(function() {
     });
     
     $("#btnSyncTime").click(function() {
+        $('#DeviceInfo1').html(''); 
         $("#btnSyncTime").val(lang_processing);
         getSyncTime();
     });
 
+    $("#btnGetAllScanLog").click(function() {
+        $('#DeviceInfo1').html(''); 
+        $("#btnGetAllScanLog").val(lang_processing);
+        getAllScanLog();
+    });
+
+    $("#btnGetNewScanLog").click(function() {
+        $('#DeviceInfo1').html(''); 
+        $("#btnGetNewScanLog").val(lang_processing);
+        getNewScanLog();
+    });
 
     $("#btnSave").click(function() {
         //if user clicks on Edit make all fields editable
@@ -88,13 +100,74 @@ $(document).ready(function() {
             },
             function(data, textStatus) {
                 location.reload(); 
-                if( data != ''){
-                    $("#DeviceInfo").show();
-                    $('#DeviceInfo1').html(data); 
-                    $("#btnSyncTime").val("Sync Date Time"); 
-                }  
             });
                         
         return false;
             
+    }
+    
+    function getAllScanLog(){
+        var ServerIp = $('#fingerspotDevices_serverIp').val();
+        var ServerPort = $('#fingerspotDevices_serverPort').val();
+        var SerialNumber = $('#fingerspotDevices_devicesSn').val();
+        $.ajax({
+            type:     "get",
+            data:    {
+                ServerIp: ServerIp,
+                ServerPort: ServerPort,
+                SerialNumber : SerialNumber,
+                actionRecorder:actionRecorder
+            },
+            timeout: 0,
+            cache:    false,
+            url:      linkForGetAllScanlog,
+            dataType: "text",
+            error: function(xhr, status, error) {
+                $("#DeviceInfo").show();
+                $('#DeviceInfo1').html(xhr.responseText); 
+                $("#btnGetAllScanLog").val("Get All Scanlog"); 
+            },
+            success: function (data) {
+                if( data != ''){
+                    $("#DeviceInfo").show();
+                    $('#DeviceInfo1').html(data); 
+                    $("#btnGetAllScanLog").val("Get All Scanlog"); 
+                }  
+            }
+        });  
+        return false;
+            
+    }
+
+    function getNewScanLog(){
+        var ServerIp = $('#fingerspotDevices_serverIp').val();
+        var ServerPort = $('#fingerspotDevices_serverPort').val();
+        var SerialNumber = $('#fingerspotDevices_devicesSn').val();
+        $.ajax({
+            type:     "get",
+            data:    {
+                ServerIp: ServerIp,
+                ServerPort: ServerPort,
+                SerialNumber : SerialNumber,
+                actionRecorder:actionRecorder
+            },
+            timeout: 0,
+            cache:    false,
+            url:      linkForGetNewScanlog,
+            dataType: "text",
+            error: function(xhr, status, error) {
+                alert(xhr.responseText);
+                $("#DeviceInfo").show();
+                $('#DeviceInfo1').html(xhr.responseText); 
+                $("#btnGetNewScanLog").val("Get New Scanlog"); 
+            },
+            success: function (data) {
+                if( data != ''){
+                    $("#DeviceInfo").show();
+                    $('#DeviceInfo1').html(data); 
+                    $("#btnGetNewScanLog").val("Get New Scanlog"); 
+                }  
+            }
+        });  
+        return false;
     }

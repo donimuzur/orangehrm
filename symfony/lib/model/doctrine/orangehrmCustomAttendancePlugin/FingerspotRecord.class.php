@@ -13,6 +13,9 @@
 class FingerspotRecord extends PluginFingerspotRecord
 {
 }
+class FingerspotRecordTemp extends PluginFingerspotRecordTemp
+{
+}
 
 
 ?>

@@ -52,6 +52,10 @@
                         <input class="block default" maxlength="50" type="text" name="Devices[NewOperasional]" value="<?php echo __($NewOperasional) ?>" disabled="disabled">
                     </li>
                     <li>
+                        <label for="Devices_AllPresensi">All Presensi</label>
+                        <input class="block default" maxlength="50" type="text" name="Devices[AllPresensi]" value="<?php echo __($AllPresensi) ?>" disabled="disabled">
+                    </li>
+                    <li>
                         <label for="Devices_NewPresensi">New Presensi</label>
                         <input class="block default" maxlength="50" type="text" name="Devices[NewPresensi]" value="<?php echo __($NewPresensi) ?>" disabled="disabled">
                     </li>
