@@ -13,6 +13,9 @@
 abstract class PluginFingerspotRecord extends BaseFingerspotRecord 
 {	
     private $date_ymd = '';
+    private $jobTitleName = '';
+    private $subUnit = '';
+
     public function setdate_ymd($date_ymd) {
         
        $this->date_ymd = $date_ymd;
@@ -25,8 +28,25 @@ abstract class PluginFingerspotRecord extends BaseFingerspotRecord
         }
         return  $ymdDate;
     }
-
+    public function setjobTitleName($jobTitleName){
+        $this->jobTitleName = $jobTitleName;
+    }
+    public function getjobTitleName(){
+        $jobTitleName = $this->getEmployee()->getJobTitle()->getjobTitleName();
+        return  $jobTitleName;
+    }
+    public function setsubUnit($subUnit){
+        $this->subUnit = $subUnit;
+    }
+    public function getsubUnit(){
+        if( $this->getEmployee()->getsubDivision()->getname() != null)
+        {
+            $subUnit = $this->getEmployee()->getsubDivision()->getname().' ('.$this->getEmployee()->getsubDivision()->getunitId().')';
+        }
+        return  $subUnit;
+    }
 }
+
 
 abstract class PluginFingerspotDevices extends BaseFingerspotDevices 
 {	

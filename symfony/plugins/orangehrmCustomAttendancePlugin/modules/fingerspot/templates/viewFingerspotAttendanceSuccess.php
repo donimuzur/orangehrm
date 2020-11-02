@@ -6,6 +6,7 @@
         <h1><?php echo __('Fingerspot Attendance Records'); ?></h1>
     </div>
     <div class="inner">
+        <?php include_partial('global/flash_messages', array('prefix' => 'fingerspotDevices')); ?>
         <form action="<?php echo url_for("fingerspot/viewFingerspotAttendance"); ?>" id="reportForm" name="frmFingerspotReport" method="post">
             <fieldset>
                 <ol class="normal">
@@ -28,6 +29,7 @@
                 </ol>
 				 <p class="formbuttons">
                     <input type="button" class="" id="btView" value="<?php echo __('View') ?>" />
+                    <input type="button" class="" id="btnExport" value="<?php echo __('Export to Excel') ?>" />
                     <input type="hidden" name="pageNo" id="pageNo" value="" />
                     <input type="hidden" name="hdnAction" id="hdnAction" value="search" />
                 </p>
@@ -87,6 +89,9 @@
     var closeText = '<?php echo __js('Close');?>';
     var lang_NameRequired = '<?php echo __js(ValidationMessages::REQUIRED); ?>';
 	var lang_dateError = '<?php echo __js("To date should be after from date") ?>';
+    var lang_Required = "This Field is mandatory";
+    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
+    var linkToExport='<?php echo url_for('fingerspot/exportAttendanceToExcel'); ?>';
 
     function submitPage(pageNo) {
         document.frmFingerspotReport.pageNo.value = pageNo;

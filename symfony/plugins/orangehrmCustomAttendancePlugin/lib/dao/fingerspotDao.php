@@ -23,7 +23,7 @@ class FingerspotDao {
      * @param $$pin,$fromDate,$toDate
      * @return attendance records
      */
-    public function getFingerspotRecord($pin, $fromDate, $toDate) {
+    public function getFingerspotRecord($arrpin, $fromDate, $toDate) {
 
         $from = $fromDate . " " . "00:" . "00:" . "00";
         $end = $toDate . " " . "23:" . "59:" . "59";
@@ -32,10 +32,11 @@ class FingerspotDao {
 
             $query = Doctrine_Query::create()
                     ->from("FingerspotRecord")
-                    ->where("pin = ?", $pin)
+                    ->whereIn("pin", $arrpin)
                     ->andWhere("scan_date >= ?", $fromDate)
                     ->andWhere("scan_date <= ?", $toDate)
-                    ->addOrderBy("scan_date");
+                    ->addOrderBy("scan_date")
+                    ->addOrderBy("pin");
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {
@@ -87,8 +88,8 @@ class FingerspotDao {
                     ->andWhere("scan_date <= ?",$end)
                     ->limit($limit)
                     ->offset($offset)
-                    ->addOrderBy("pin")
-                    ->addOrderBy("scan_date");
+                    ->addOrderBy("scan_date")
+                    ->addOrderBy("pin");
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {

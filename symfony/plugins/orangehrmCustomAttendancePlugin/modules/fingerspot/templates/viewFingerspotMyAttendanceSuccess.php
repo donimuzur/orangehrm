@@ -1,10 +1,11 @@
-<?php echo javascript_include_tag(plugin_web_path('orangehrmCustomAttendancePlugin', 'js/viewFingerspotAttendanceSuccess')); ?>
+<?php echo javascript_include_tag(plugin_web_path('orangehrmCustomAttendancePlugin', 'js/viewFingerspotMyAttendanceSuccess')); ?>
 
 <div class="box">
     <div class="head">
         <h1><?php echo __('Fingerspot My Attendance Records'); ?></h1>
     </div>
     <div class="inner">
+        <?php include_partial('global/flash_messages', array('prefix' => 'fingerspotDevices')); ?>
         <form action="<?php echo url_for("fingerspot/viewFingerspotMyAttendance"); ?>" id="reportForm" name="frmFingerspotReport" method="post">
             <fieldset>
                 <ol class="normal">
@@ -23,6 +24,7 @@
                 </ol>
 				 <p class="formbuttons">
                     <input type="button" class="" id="btView" value="<?php echo __('View') ?>" />
+                    <input type="button" class="" id="btnExport" value="<?php echo __('Export to Excel') ?>" />
                     <input type="hidden" name="pageNo" id="pageNo" value="" />
                     <input type="hidden" name="hdnAction" id="hdnAction" value="search" />
                 </p>
@@ -32,7 +34,7 @@
 </div>
 
 
-<div id="recordsTable">
+<div id="recordsTable">    
     <div id="msg" ><?php echo isset($messageData[0]) ? displayMainMessage($messageData[0], $messageData[1]) : ''; ?></div>
     <?php include_component('core', 'ohrmList', $parmetersForListCompoment); ?>
 </div>
@@ -64,6 +66,7 @@
     var errorMsge;
     var linkForGetRecords='<?php echo url_for('attendance/getRelatedAttendanceRecords'); ?>'
     var linkForProxyPunchInOut='<?php echo url_for('attendance/proxyPunchInPunchOut'); ?>'
+    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
     var trigger='<?php echo $trigger; ?>';
     var employeeAll='<?php echo __js('All'); ?>';
     var employeeId='<?php echo $employeeId; ?>';
@@ -76,6 +79,7 @@
     var date='<?php echo $date; ?>';
     var linkToEdit='<?php echo url_for('attendance/editAttendanceRecord'); ?>'
     var linkToDeleteRecords='<?php echo url_for('attendance/deleteAttendanceRecords'); ?>'
+    var linkToExport='<?php echo url_for('fingerspot/exportMyAttendanceToExcel'); ?>'
     var lang_noRowsSelected='<?php echo __js(TopLevelMessages::SELECT_RECORDS); ?>';
     var closeText = '<?php echo __js('Close');?>';
     var lang_NameRequired = '<?php echo __js(ValidationMessages::REQUIRED); ?>';

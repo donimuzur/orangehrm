@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
     var rDate = trim($("#form_attendance_date").val());
     if (rDate == '') {
         $("#from_attendance_date").val(displayDateFormat);
@@ -8,20 +7,22 @@ $(document).ready(function(){
     if (rDate == '') {
         $("#to_attendance_date").val(displayDateFormat);
     }
-
-    if(trigger){
-        $("#reportForm").submit();     
-    }
-
+    
     $('#btView').click(function() {
         if(isValidForm()){
             $("#reportForm").submit();                 
         }
     });
+
+    $("#btnExport").click(function() {
+        $("#btnExport").val(lang_processing);
+         if(isValidForm()){
+            exportToExcel();            
+        }
+    });
 });
 
 function isValidForm(){
-	
         var validator = $("#reportForm").validate({
 
             rules: {
@@ -30,7 +31,7 @@ function isValidForm(){
                     valid_date: function() {
                         return {
                             format:datepickerDateFormat,
-                            required:false,
+                            required:true,
                             displayFormat:displayDateFormat
                         }
                     }},
@@ -39,7 +40,7 @@ function isValidForm(){
                     valid_date: function() {
                         return {
                             format:datepickerDateFormat,
-                            required:false,
+                            required:true,
                             displayFormat:displayDateFormat
                         }
                     },
@@ -69,4 +70,29 @@ function isValidForm(){
             }            
         });
     return true;
+}
+
+function exportToExcel(){
+    var fromDate = $('#from_attendance_date').val();
+    var toDate = $('#to_attendance_date').val();
+    $.ajax({
+        type:     "post",
+        data:    {
+            fromDate: fromDate,
+            toDate: toDate,
+        },
+        timeout: 0,
+        cache:    false,
+        url:      linkToExport,
+        dataType: "text",
+        error: function(xhr, status, error) {
+            alert("Error hubungi admin atau team IT \n"+xhr.responseText)
+            $("#btnExport").val("Export to Excel");
+        },
+        success: function (data) {
+          location.reload();
+        }
+    });  
+    return false;
+        
 }

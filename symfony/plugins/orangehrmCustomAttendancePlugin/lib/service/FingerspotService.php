@@ -50,9 +50,9 @@ class FingerspotService {
      * @param $pin, $fromDate, $toDate
      * @return array of records 
      */
-    public function getFingerspotRecord($pin, $fromDate, $toDate) {
+    public function getFingerspotRecord($arrpin, $fromDate, $toDate) {
 
-        return $this->getFingerspotDao()->getFingerspotRecord($pin, $fromDate, $toDate);
+        return $this->getFingerspotDao()->getFingerspotRecord($arrpin, $fromDate, $toDate);
     }
 
     public function getFingerspotRecordCount($arrpin, $fromDate, $toDate)

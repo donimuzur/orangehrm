@@ -1,5 +1,11 @@
 $(document).ready(function(){
 	
+    $("#btnExport").click(function() {
+        $("#btnExport").val(lang_processing);
+         if(isValidForm()){
+            exportToExcel();            
+        }
+    });
     if(employeeId != '') {
         $('#employeeRecordsForm').append($('.actionbar > .formbuttons').html());
         $('.actionbar > .formbuttons').html('');
@@ -71,7 +77,6 @@ $(document).ready(function(){
     return false;
 }
 });
-
 function isValidForm(){
 	
         var validator = $("#reportForm").validate({
@@ -127,4 +132,31 @@ function isValidForm(){
             }            
         });
     return true;
+}
+
+function exportToExcel(){
+    var employeeId = $('#fingerspot_employeeName_empId').val();
+    var fromDate = $('#from_attendance_date').val();
+    var toDate = $('#to_attendance_date').val();
+    $.ajax({
+        type:     "post",
+        data:    {
+            employeeId: employeeId,
+            fromDate: fromDate,
+            toDate: toDate,
+        },
+        timeout: 0,
+        cache:    false,
+        url:      linkToExport,
+        dataType: "text",
+        error: function(xhr, status, error) {
+            alert("Error hubungi admin atau team IT \n"+xhr.responseText)
+            $("#btnExport").val("Export to Excel");
+        },
+        success: function (data) {
+          location.reload();
+        }
+    });  
+    return false;
+        
 }

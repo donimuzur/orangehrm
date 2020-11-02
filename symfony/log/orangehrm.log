@@ -1,91 +1,87 @@
-[26-Oct-2020 15:58:12 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
-[27-Oct-2020 09:57:44 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
+Mon Nov  2 16:10:30 2020,188 [828] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Record_UnknownPropertyException: Unknown record property / related component "sub_unit" on "FingerspotRecord" in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record\Filter\Standard.php:55
 Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 09:58:21 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1394): Doctrine_Record_Filter_Standard->filterGet()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1349): Doctrine_Record->_get()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\plugins\sfDoctrinePlugin\lib\record\sfDoctrineRecord.class.php(185): Doctrine_Record->get()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\escaper\sfOutputEscaperObjectDecorator.class.php(64): sfDoctrineRecord->__call()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\component\Cell.php(73): sfOutputEscaperObjectDecorator->__call()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\component\LabelCell.php(10): Cell->getValue()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\modules\core\templates\_ohrmList.php(298): LabelCell->__toString()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\view\sfPartialView.class.php(124): sfPHPView->renderFile()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\helper\PartialHelper.php(157): sfPartialView->render()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\helper\PartialHelper.php(115): get_component()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\viewFingerspotAttendanceSuccess.php(44): include_component()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#32 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#33 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#34 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#35 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#36 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#37 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#38 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#39 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#40 {main}
+Mon Nov  2 16:11:22 2020,651 [10896] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Record_UnknownPropertyException: Unknown record property / related component "sub_unit" on "FingerspotRecord" in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record\Filter\Standard.php:55
 Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 09:59:49 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 10:05:02 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 10:06:56 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 10:07:02 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 10:07:23 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function FingerspotRecordTempDao::getFingerspotRecordCount(), 0 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php on line 60 and exactly 3 expected in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php:51
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\service\FingerspotRecordTempService.php(60): FingerspotRecordTempDao->getFingerspotRecordCount()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php(336): FingerspotRecordTempService->getFingerspotRecordCount()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeGetNewScanlog()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangeh in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\lib\dao\fingerspotRecordTempDao.php on line 51
-[27-Oct-2020 10:41:09 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method Doctrine_Collection::getsn() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php:386
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeSaveScanlog()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
-#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
-#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\co in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php on line 386
-[27-Oct-2020 10:41:15 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method Doctrine_Collection::getsn() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php:386
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): FingerspotActions->executeSaveScanlog()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
-#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
-#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\co in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php on line 386
-Tue Oct 27 10:47:46 2020,248 [9400] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: sfRenderException: The template "saveScanlogSuccess.php" does not exist or is unreadable in "". in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:2032
-Stack trace:
-#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4395): sfView->preRenderCheck()
-#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
-#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
-#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
-#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
-#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
-#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
-#7 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
-#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
-#9 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
-#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
-#11 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
-#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
-#13 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
-#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
-#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
-#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
-#17 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
-#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
-#19 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
-#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
-#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
-#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
-#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
-#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
-#25 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
-#26 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
-#27 {main}
-[27-Oct-2020 11:08:11 Asia/Krasnoyarsk] PHP Parse error:  syntax error, unexpected '}' in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php on line 340
-[27-Oct-2020 11:08:13 Asia/Krasnoyarsk] PHP Parse error:  syntax error, unexpected '}' in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\actions\actions.class.php on line 340
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1394): Doctrine_Record_Filter_Standard->filterGet()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1349): Doctrine_Record->_get()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\plugins\sfDoctrinePlugin\lib\record\sfDoctrineRecord.class.php(185): Doctrine_Record->get()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\escaper\sfOutputEscaperObjectDecorator.class.php(64): sfDoctrineRecord->__call()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\component\Cell.php(73): sfOutputEscaperObjectDecorator->__call()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\component\LabelCell.php(10): Cell->getValue()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\modules\core\templates\_ohrmList.php(298): LabelCell->__toString()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\view\sfPartialView.class.php(124): sfPHPView->renderFile()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\helper\PartialHelper.php(157): sfPartialView->render()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\helper\PartialHelper.php(115): get_component()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCustomAttendancePlugin\modules\fingerspot\templates\viewFingerspotAttendanceSuccess.php(44): include_component()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#32 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#33 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#34 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#35 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#36 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#37 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#38 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#39 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#40 {main}
+[02-Nov-2020 16:33:55 Asia/Krasnoyarsk] Empty module and/or action after parsing the URL "/files.data.xlsx" (/).

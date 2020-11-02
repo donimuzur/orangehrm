@@ -1,5 +1,8 @@
 <?php
 
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 /**
  * OrangeHRM is a comprehensive Human Resource Management (HRM) System that captures
  * all the essential functionalities required for any enterprise.
@@ -21,7 +24,23 @@ class FingerspotActions extends sfActions {
     private $fingerspotDevicesService;
     private $fingerspotRecordTempService;
 	private $fingerspotService;
+    private $employeeService;
     
+	public function getEmployeeService() {
+
+        if (is_null($this->employeeService)) {
+
+            $this->employeeService = new EmployeeService();
+        }
+
+        return $this->employeeService;
+    }
+
+    public function setEmployeeService(EmployeeService $employeeService) {
+
+        $this->employeeService = $employeeService;
+    }
+	
 	public function getFingerspotService() {
 
         if (is_null($this->fingerspotService)) {
@@ -204,7 +223,8 @@ class FingerspotActions extends sfActions {
         $pagingLimit= 100;
        
         while ($session)
-        { $curl = curl_init();
+        { 
+            $curl = curl_init();
             set_time_limit(0);
             curl_setopt_array($curl, array(
                 CURLOPT_PORT => $this->ServerPort,
@@ -236,7 +256,6 @@ class FingerspotActions extends sfActions {
                 $content = json_decode($response);
                 if(!($content->Result))
                 {
-                    
                     $this->Errors = "Return is false";
                     $this->records = null;
                     $this->getUser()->setFlash('fingerspotDevices.warning',"Download scanlo gagal");
@@ -299,7 +318,6 @@ class FingerspotActions extends sfActions {
         $this->actionRecorder = $request->getParameter('actionRecorder');
         
         $delSession=true;
-       
         $curl = curl_init();
         set_time_limit(0);
         curl_setopt_array($curl, array(
@@ -411,6 +429,97 @@ class FingerspotActions extends sfActions {
         $this->records =count($getAllFingerspotRecordTemp);
         $this->getUser()->setFlash('fingerspotDevices.success',$this->records." data berhasil tersimpan");
           
+    }
+
+    public function executeExportMyAttendanceToExcel($request) { 
+        try {
+            $this->fingerspotRecordTempService = $this->getfingerspotRecordTempService();
+            $this->fingerspotService = $this->getFingerspotService();
+            $this->employeeService = $this->getEmployeeService();
+
+            $this->fromDate = $request->getParameter('fromDate');
+            $this->toDate = $request->getParameter('toDate');
+
+            $userRoleManager = $this->getContext()->getUserRoleManager();   
+            $this->employeeId = $this->getContext()->getUser()->getEmployeeNumber();
+
+            
+            $empRecords = array();
+            $empRecords = $this->employeeService->getEmployee($this->employeeId);
+            $empRecords = array($empRecords);
+
+            $arrPin =array();
+            foreach ($empRecords as $employee) {
+                array_push($arrPin,$employee->getpin());
+            }
+            $attendanceRecords = $this->fingerspotService->getFingerspotRecord($arrPin, $this->fromDate, $this->toDate);
+            
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+
+            $header = array("Tanggal", "Employee Name","Job Title", "Sub Unit", "Scan Date");
+            $sheet->fromArray([$header], NULL, 'A1');
+            $count = 2;
+            foreach($attendanceRecords as $attendance)
+            {
+                $sheet->setCellValue("A".$count,$attendance->getdate_ymd());
+                $sheet->setCellValue("B".$count,$attendance->getEmployee()->getFullName());
+                $sheet->setCellValue("C".$count,$attendance->getjobTitleName());
+                $sheet->setCellValue("D".$count,$attendance->getsubUnit());
+                $sheet->setCellValue("E".$count,$attendance->getscan_date());
+                $count++;
+            }
+            $writer = new Xlsx($spreadsheet);
+            $writer->save('files/data.xlsx');
+            $this->getUser()->setFlash('fingerspotDevices.success',"Sukses Export Data");
+        }catch (Exception $ex) {
+            $this->getUser()->setFlash('fingerspotDevices.warning',"Error ".$ex->getMessage());
+        }  
+    }
+    public function executeExportAttendanceToExcel($request) { 
+        try {
+            $this->fingerspotRecordTempService = $this->getfingerspotRecordTempService();
+            $this->fingerspotService = $this->getFingerspotService();
+            $this->employeeService = $this->getEmployeeService();
+            
+            $this->fromDate = $request->getParameter('fromDate');
+            $this->toDate = $request->getParameter('toDate');
+            $this->employeeId = $request->getParameter('employeeId');
+
+            if (!$this->employeeId) {
+                $empRecords = UserRoleManagerFactory::getUserRoleManager()->getAccessibleEntities('Employee');
+            } else {
+                $empRecords = $this->employeeService->getEmployee($this->employeeId);
+                $empRecords = array($empRecords);
+            }
+            
+            $arrPin =array();
+            foreach ($empRecords as $employee) {
+                array_push($arrPin,$employee->getpin());
+            }
+            $attendanceRecords = $this->fingerspotService->getFingerspotRecord($arrPin, $this->fromDate, $this->toDate);
+            
+            $spreadsheet = new Spreadsheet();
+            $sheet = $spreadsheet->getActiveSheet();
+
+            $header = array("Tanggal", "Employee Name","Job Title", "Sub Unit", "Scan Date");
+            $sheet->fromArray([$header], NULL, 'A1');
+            $count = 2;
+            foreach($attendanceRecords as $attendance)
+            {
+                $sheet->setCellValue("A".$count,$attendance->getdate_ymd());
+                $sheet->setCellValue("B".$count,$attendance->getEmployee()->getFullName());
+                $sheet->setCellValue("C".$count,$attendance->getjobTitleName());
+                $sheet->setCellValue("D".$count,$attendance->getsubUnit());
+                $sheet->setCellValue("E".$count,$attendance->getscan_date());
+                $count++;
+            }
+            $writer = new Xlsx($spreadsheet);
+            $writer->save('files/data.xlsx');
+            $this->getUser()->setFlash('fingerspotDevices.success',"Sukses Export Data");
+        }catch (Exception $ex) {
+            $this->getUser()->setFlash('fingerspotDevices.warning',"Error ".$ex->getMessage());
+        }  
     }
 }
 ?>

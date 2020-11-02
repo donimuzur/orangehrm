@@ -81,7 +81,6 @@ class viewFingerspotAttendanceAction extends ohrmBaseAction {
                 $this->form->bind($request->getParameter('fingerspot'));
                 if ($this->form->isValid()) {
 					$post = $this->form->getValues();
-					
 					if (!$this->employeeId) {
                         $empData = $post['employeeName'];
                         $this->employeeId = $empData['empId'];
