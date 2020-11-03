@@ -24,6 +24,7 @@ $(document).ready(function(){
 
 function isValidForm(){
         var validator = $("#reportForm").validate({
+
             rules: {
                 'fingerspot[fromDate]' : {
 					required: true, 
@@ -89,7 +90,13 @@ function exportToExcel(){
             $("#btnExport").val("Export to Excel");
         },
         success: function (data) {
-          location.reload();
+            if(data.includes("sukses")){
+                window.location = linkToDownloadFile;
+                $("#btnExport").val("Export to Excel");
+            }
+            else{
+                location.reload();
+            }
         }
     });  
     return false;

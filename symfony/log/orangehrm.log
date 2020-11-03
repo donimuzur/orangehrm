@@ -85,3 +85,29 @@ Stack trace:
 #39 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
 #40 {main}
 [02-Nov-2020 16:33:55 Asia/Krasnoyarsk] Empty module and/or action after parsing the URL "/files.data.xlsx" (/).
+[03-Nov-2020 08:26:09 Asia/Krasnoyarsk] Action "fingerspot/downloadFile" does not exist.
+[03-Nov-2020 08:26:24 Asia/Krasnoyarsk] Action "fingerspot/downloadFile" does not exist.
+[03-Nov-2020 08:30:57 Asia/Krasnoyarsk] Action "fingerspot/downloadFile" does not exist.
+[03-Nov-2020 08:48:41 Asia/Krasnoyarsk] Action "downloadFile/index" does not exist.
+[03-Nov-2020 08:50:37 Asia/Krasnoyarsk] Action "fingerspot/downloadFile" does not exist.
+[03-Nov-2020 08:55:27 Asia/Krasnoyarsk] Action "fingerspot/downloadFile" does not exist.
+[03-Nov-2020 08:56:42 Asia/Krasnoyarsk] Action "fingerspot/dowloadFile" does not exist.
+[03-Nov-2020 09:00:11 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Class 'downloadFileAction' not found in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:719
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(700): sfController->getController()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(661): sfController->getAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#5 {main}
+  thrown in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php on line 719
+[03-Nov-2020 09:00:13 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Class 'downloadFileAction' not found in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:719
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(700): sfController->getController()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(661): sfController->getAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#5 {main}
+  thrown in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php on line 719
+[03-Nov-2020 09:17:14 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 

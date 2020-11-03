@@ -80,6 +80,7 @@
     var linkToEdit='<?php echo url_for('attendance/editAttendanceRecord'); ?>'
     var linkToDeleteRecords='<?php echo url_for('attendance/deleteAttendanceRecords'); ?>'
     var linkToExport='<?php echo url_for('fingerspot/exportMyAttendanceToExcel'); ?>'
+    var linkToDownloadFile='<?php echo url_for('fingerspot/downloadFile'); ?>'
     var lang_noRowsSelected='<?php echo __js(TopLevelMessages::SELECT_RECORDS); ?>';
     var closeText = '<?php echo __js('Close');?>';
     var lang_NameRequired = '<?php echo __js(ValidationMessages::REQUIRED); ?>';

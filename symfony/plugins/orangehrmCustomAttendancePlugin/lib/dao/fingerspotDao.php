@@ -35,8 +35,8 @@ class FingerspotDao {
                     ->whereIn("pin", $arrpin)
                     ->andWhere("scan_date >= ?", $fromDate)
                     ->andWhere("scan_date <= ?", $toDate)
-                    ->addOrderBy("scan_date")
-                    ->addOrderBy("pin");
+                    ->addOrderBy("pin")
+                    ->addOrderBy("scan_date");
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {
@@ -88,8 +88,8 @@ class FingerspotDao {
                     ->andWhere("scan_date <= ?",$end)
                     ->limit($limit)
                     ->offset($offset)
-                    ->addOrderBy("scan_date")
-                    ->addOrderBy("pin");
+                    ->addOrderBy("pin")
+                    ->addOrderBy("scan_date");
                     
             $records = $query->execute();
             if (is_null($records[0]->getpin())) {

@@ -92,6 +92,7 @@
     var lang_Required = "This Field is mandatory";
     var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
     var linkToExport='<?php echo url_for('fingerspot/exportAttendanceToExcel'); ?>';
+    var linkToDownloadFile='<?php echo url_for('fingerspot/downloadFile'); ?>'
 
     function submitPage(pageNo) {
         document.frmFingerspotReport.pageNo.value = pageNo;

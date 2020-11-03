@@ -471,8 +471,10 @@ class FingerspotActions extends sfActions {
             }
             $writer = new Xlsx($spreadsheet);
             $writer->save('files/data.xlsx');
+            $this->records = "sukses";
             $this->getUser()->setFlash('fingerspotDevices.success',"Sukses Export Data");
         }catch (Exception $ex) {
+            $this->records = "error";
             $this->getUser()->setFlash('fingerspotDevices.warning',"Error ".$ex->getMessage());
         }  
     }
@@ -516,8 +518,10 @@ class FingerspotActions extends sfActions {
             }
             $writer = new Xlsx($spreadsheet);
             $writer->save('files/data.xlsx');
+            $this->records = "sukses";
             $this->getUser()->setFlash('fingerspotDevices.success',"Sukses Export Data");
         }catch (Exception $ex) {
+            $this->records = "error";
             $this->getUser()->setFlash('fingerspotDevices.warning',"Error ".$ex->getMessage());
         }  
     }
