@@ -16,11 +16,11 @@ link2:
   requiredPermissions: {'data_group': {'leave_list': {'canRead': true, 'canCreate': false, 'canUpdate': false, 'canDelete': false}}}
   ohrm_module: 'leave'
   
-link3:
-  name: Timesheets
-  url: 'time/viewEmployeeTimesheet'
-  plugin: orangehrmTimePlugin
-  target: '_self'
-  image: 'MyTimesheet.png'
-  requiredPermissions: {'data_group': {'time_employee_timesheets': {'canRead': true, 'canCreate': false, 'canUpdate': false, 'canDelete': false}}}
-  ohrm_module: 'time'
+# link3:
+#   name: Timesheets
+#   url: 'time/viewEmployeeTimesheet'
+#   plugin: orangehrmTimePlugin
+#   target: '_self'
+#   image: 'MyTimesheet.png'
+#   requiredPermissions: {'data_group': {'time_employee_timesheets': {'canRead': true, 'canCreate': false, 'canUpdate': false, 'canDelete': false}}}
+#   ohrm_module: 'time'

@@ -63,7 +63,7 @@ class indexAction extends BaseDashboardAction {
                         'action_name' => 'quickLaunchPanel',
                         'top' => 4,
                         'left' => 5,
-                        'ohrm_module' => 'time,leave',
+                        'ohrm_module' => 'leave',
                         'loadDefault' => 'true'
                     ))
         ));
