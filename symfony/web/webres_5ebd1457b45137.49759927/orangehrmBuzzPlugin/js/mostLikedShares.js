@@ -4,6 +4,8 @@ $(document).ready(function () {
         $("#upcomingAnnivList").hide(300);
         $("#mc_componentContainer").toggle(300);
         $("#ml_componentContainer").hide(300);
+        $("#upcomingBirthdayMonth").hide(300);
+        $("#upcomingBirthdayList").hide(300);
         $("#morePostLiked").show();
         $("#lessPostLiked").hide();
         $("#moreCommentLiked").toggle();
@@ -28,6 +30,8 @@ $(document).ready(function () {
         $("#upcomingAnnivList").hide(300);
         $("#mc_componentContainer").hide(300);
         $("#ml_componentContainer").toggle(300);
+        $("#upcomingBirthdayMonth").hide(300);
+        $("#upcomingBirthdayList").hide(300);
         $("#morePostLiked").toggle();
         $("#lessPostLiked").toggle();
         $("#moreCommentLiked").show();

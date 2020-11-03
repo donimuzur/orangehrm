@@ -29,7 +29,8 @@
 
 #birthdayUserName{
     float: left;
-    font-size: 18px;
+    font-size: 12px;
+    font-weight: bold;
 }
 
 #birthdayText{

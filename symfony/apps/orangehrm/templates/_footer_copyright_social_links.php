@@ -2,7 +2,7 @@
 $imagePath = theme_path("images/login");
 ?>
 <div id="footer" >
-    <div>
+    <!-- <div>
     <?php include_partial('global/copyright'); ?>
     </div>
     <div id="social-icons">
@@ -14,5 +14,5 @@ $imagePath = theme_path("images/login");
             <img src="<?php echo "{$imagePath}/twiter.png"; ?>" alt="OrangeHRM on twitter"/></a>&nbsp;
         <a href="http://www.youtube.com/orangehrm" target="_blank">
             <img src="<?php echo "{$imagePath}/youtube.png"; ?>" alt="OrangeHRM on youtube"/></a>&nbsp;
-    </div>
+    </div> -->
 </div>

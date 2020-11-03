@@ -8,6 +8,8 @@ $(document).ready(function () {
         $("#lessAniversary").toggle();
         $("#moreCommentLiked").show();
         $("#lessCommentLiked").hide();
+        $("#upcomingBirthdayMonth").hide(300);
+        $("#upcomingBirthdayList").hide(300);
         $("#moreBirthday").show();
         $("#lessBirthday").hide();
         $("#morePostLiked").show();

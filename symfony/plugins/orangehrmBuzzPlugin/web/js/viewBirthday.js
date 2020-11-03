@@ -1,5 +1,7 @@
 $(document).ready(function () {
     $("#rightBarHeadingBirthday").on('click', function () {
+        $("#upcomingAnnivMonth").hide(300);
+        $("#upcomingAnnivList").hide(300);
         $("#upcomingBirthdayMonth").toggle(300);
         $("#upcomingBirthdayList").toggle(300);
         $("#mc_componentContainer").hide(300);

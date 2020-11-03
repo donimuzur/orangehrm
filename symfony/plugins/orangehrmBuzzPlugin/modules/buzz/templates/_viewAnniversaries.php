@@ -47,7 +47,7 @@ use_javascript(plugin_web_path('orangehrmBuzzPlugin', 'js/viewAnniversaries'));
                                 <img alt="<?php echo __("Employee Photo"); ?>" 
                                      src="<?php echo url_for("buzz/viewPhoto?empNumber=" . $employee->getEmpNumber()); ?>" id="empPic"/>
                             </div>  
-                            <?php $employeeFirstAndLastNames = $employee->getFirstName() . " " . $employee->getLastName(); ?>
+                            <?php $employeeFirstAndLastNames = $employee->getFullName(); ?>
                             <div id="anniversaryUserName" title="<?php echo $employeeFirstAndLastNames; ?>">
                                     <?php
                                     if (strlen($employeeFirstAndLastNames) > 18) {
