@@ -2,14 +2,14 @@ all:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=SERVER2;dbname=orangehrm_mysql;charset=utf8mb4'
+      dsn: 'mysql:host=localhost;dbname=orangehrm_mysql;charset=utf8mb4'
       username: root
-      password: Polowijo605421
+      password: 
       attributes: { export: tables }
 test:
   doctrine:
     class: sfDoctrineDatabase
     param:
-      dsn: 'mysql:host=SERVER2;dbname=orangehrm_mysql;charset=utf8mb4'
+      dsn: 'mysql:host=localhost;dbname=orangehrm_mysql;charset=utf8mb4'
       username: root
-      password: Polowijo605421
+      password: 

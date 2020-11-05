@@ -1,0 +1,1 @@
+[05-Nov-2020 10:17:07 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [1045] Access denied for user 'root'@'fe80::a901:232c:6bcc:36c9%12' (using password: NO)

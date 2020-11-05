@@ -111,7 +111,9 @@ class PimCsvDataImport extends CsvDataImport {
 		if ($this->isValidEmail($data[21]) && strlen($data[21]) <= 50 && $this->isUniqueEmail($data[21])) {
 			$employee->setEmpOthEmail($data[21]);
 		}
-
+		if (strlen($data[22]) <= 50) {
+			$employee->setpin($data[22]);
+		}
 		$empService = new EmployeeService();
 		$empService->saveEmployee($employee);
 		return true;
