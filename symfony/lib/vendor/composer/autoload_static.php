@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
+class ComposerStaticInitd792ee1a84a9233097aa2a0fd29f41db
 {
     public static $files = array (
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
@@ -334,13 +334,6 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
             'Prophecy\\' => 
             array (
                 0 => __DIR__ . '/..' . '/phpspec/prophecy/src',
-            ),
-        ),
-        'O' => 
-        array (
-            'OAuth2' => 
-            array (
-                0 => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src',
             ),
         ),
         'G' => 
@@ -10904,74 +10897,6 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
         'Monolog\\ResettableInterface' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/ResettableInterface.php',
         'Monolog\\SignalHandler' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/SignalHandler.php',
         'Monolog\\Utils' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Utils.php',
-        'OAuth2\\Autoloader' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Autoloader.php',
-        'OAuth2\\ClientAssertionType\\ClientAssertionTypeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ClientAssertionType/ClientAssertionTypeInterface.php',
-        'OAuth2\\ClientAssertionType\\HttpBasic' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ClientAssertionType/HttpBasic.php',
-        'OAuth2\\Controller\\AuthorizeController' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/AuthorizeController.php',
-        'OAuth2\\Controller\\AuthorizeControllerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/AuthorizeControllerInterface.php',
-        'OAuth2\\Controller\\ResourceController' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/ResourceController.php',
-        'OAuth2\\Controller\\ResourceControllerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/ResourceControllerInterface.php',
-        'OAuth2\\Controller\\TokenController' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/TokenController.php',
-        'OAuth2\\Controller\\TokenControllerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Controller/TokenControllerInterface.php',
-        'OAuth2\\Encryption\\EncryptionInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Encryption/EncryptionInterface.php',
-        'OAuth2\\Encryption\\FirebaseJwt' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Encryption/FirebaseJwt.php',
-        'OAuth2\\Encryption\\Jwt' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Encryption/Jwt.php',
-        'OAuth2\\GrantType\\AuthorizationCode' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/AuthorizationCode.php',
-        'OAuth2\\GrantType\\ClientCredentials' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/ClientCredentials.php',
-        'OAuth2\\GrantType\\GrantTypeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/GrantTypeInterface.php',
-        'OAuth2\\GrantType\\JwtBearer' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/JwtBearer.php',
-        'OAuth2\\GrantType\\RefreshToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/RefreshToken.php',
-        'OAuth2\\GrantType\\UserCredentials' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/GrantType/UserCredentials.php',
-        'OAuth2\\OpenID\\Controller\\AuthorizeController' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Controller/AuthorizeController.php',
-        'OAuth2\\OpenID\\Controller\\AuthorizeControllerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Controller/AuthorizeControllerInterface.php',
-        'OAuth2\\OpenID\\Controller\\UserInfoController' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Controller/UserInfoController.php',
-        'OAuth2\\OpenID\\Controller\\UserInfoControllerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Controller/UserInfoControllerInterface.php',
-        'OAuth2\\OpenID\\GrantType\\AuthorizationCode' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/GrantType/AuthorizationCode.php',
-        'OAuth2\\OpenID\\ResponseType\\AuthorizationCode' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/AuthorizationCode.php',
-        'OAuth2\\OpenID\\ResponseType\\AuthorizationCodeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/AuthorizationCodeInterface.php',
-        'OAuth2\\OpenID\\ResponseType\\CodeIdToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/CodeIdToken.php',
-        'OAuth2\\OpenID\\ResponseType\\CodeIdTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/CodeIdTokenInterface.php',
-        'OAuth2\\OpenID\\ResponseType\\IdToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/IdToken.php',
-        'OAuth2\\OpenID\\ResponseType\\IdTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/IdTokenInterface.php',
-        'OAuth2\\OpenID\\ResponseType\\IdTokenToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/IdTokenToken.php',
-        'OAuth2\\OpenID\\ResponseType\\IdTokenTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/ResponseType/IdTokenTokenInterface.php',
-        'OAuth2\\OpenID\\Storage\\AuthorizationCodeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Storage/AuthorizationCodeInterface.php',
-        'OAuth2\\OpenID\\Storage\\UserClaimsInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/OpenID/Storage/UserClaimsInterface.php',
-        'OAuth2\\Request' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Request.php',
-        'OAuth2\\RequestInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/RequestInterface.php',
-        'OAuth2\\Response' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Response.php',
-        'OAuth2\\ResponseInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseInterface.php',
-        'OAuth2\\ResponseType\\AccessToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/AccessToken.php',
-        'OAuth2\\ResponseType\\AccessTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/AccessTokenInterface.php',
-        'OAuth2\\ResponseType\\AuthorizationCode' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/AuthorizationCode.php',
-        'OAuth2\\ResponseType\\AuthorizationCodeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/AuthorizationCodeInterface.php',
-        'OAuth2\\ResponseType\\JwtAccessToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/JwtAccessToken.php',
-        'OAuth2\\ResponseType\\ResponseTypeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ResponseType/ResponseTypeInterface.php',
-        'OAuth2\\Scope' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Scope.php',
-        'OAuth2\\ScopeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/ScopeInterface.php',
-        'OAuth2\\Server' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Server.php',
-        'OAuth2\\Storage\\AccessTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/AccessTokenInterface.php',
-        'OAuth2\\Storage\\AuthorizationCodeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/AuthorizationCodeInterface.php',
-        'OAuth2\\Storage\\Cassandra' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/Cassandra.php',
-        'OAuth2\\Storage\\ClientCredentialsInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/ClientCredentialsInterface.php',
-        'OAuth2\\Storage\\ClientInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/ClientInterface.php',
-        'OAuth2\\Storage\\CouchbaseDB' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/CouchbaseDB.php',
-        'OAuth2\\Storage\\DynamoDB' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/DynamoDB.php',
-        'OAuth2\\Storage\\JwtAccessToken' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/JwtAccessToken.php',
-        'OAuth2\\Storage\\JwtAccessTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/JwtAccessTokenInterface.php',
-        'OAuth2\\Storage\\JwtBearerInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/JwtBearerInterface.php',
-        'OAuth2\\Storage\\Memory' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/Memory.php',
-        'OAuth2\\Storage\\Mongo' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/Mongo.php',
-        'OAuth2\\Storage\\MongoDB' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/MongoDB.php',
-        'OAuth2\\Storage\\Pdo' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/Pdo.php',
-        'OAuth2\\Storage\\PublicKeyInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/PublicKeyInterface.php',
-        'OAuth2\\Storage\\Redis' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/Redis.php',
-        'OAuth2\\Storage\\RefreshTokenInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/RefreshTokenInterface.php',
-        'OAuth2\\Storage\\ScopeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/ScopeInterface.php',
-        'OAuth2\\Storage\\UserCredentialsInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/Storage/UserCredentialsInterface.php',
-        'OAuth2\\TokenType\\Bearer' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/TokenType/Bearer.php',
-        'OAuth2\\TokenType\\Mac' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/TokenType/Mac.php',
-        'OAuth2\\TokenType\\TokenTypeInterface' => __DIR__ . '/..' . '/bshaffer/oauth2-server-php/src/OAuth2/TokenType/TokenTypeInterface.php',
         'OomphInc\\ComposerInstallersExtender\\Installer' => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src/Installer.php',
         'OomphInc\\ComposerInstallersExtender\\InstallerHelper' => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src/InstallerHelper.php',
         'OomphInc\\ComposerInstallersExtender\\Plugin' => __DIR__ . '/..' . '/oomphinc/composer-installers-extender/src/Plugin.php',
@@ -10990,7 +10915,6 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
         'Orangehrm\\Rest\\Api\\Exception\\RecordNotFoundException' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Exception/RecordNotFoundException.php',
         'Orangehrm\\Rest\\Api\\Integration\\IntegrationAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Integration/IntegrationAPI.php',
         'Orangehrm\\Rest\\Api\\Leave\\Entity\\Leave' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Entity/Leave.php',
-        'Orangehrm\\Rest\\Api\\Leave\\Entity\\LeaveBalance' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Entity/LeaveBalance.php',
         'Orangehrm\\Rest\\Api\\Leave\\Entity\\LeaveEntitlement' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Entity/LeaveEntitlement.php',
         'Orangehrm\\Rest\\Api\\Leave\\Entity\\LeaveRequest' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Entity/LeaveRequest.php',
         'Orangehrm\\Rest\\Api\\Leave\\Entity\\LeaveRequestComment' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Entity/LeaveRequestComment.php',
@@ -10999,11 +10923,8 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
         'Orangehrm\\Rest\\Api\\Leave\\LeavePeriodAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/LeavePeriodAPI.php',
         'Orangehrm\\Rest\\Api\\Leave\\LeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/LeaveRequestAPI.php',
         'Orangehrm\\Rest\\Api\\Leave\\LeaveTypeAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/LeaveTypeAPI.php',
-        'Orangehrm\\Rest\\Api\\Leave\\Model\\EmployeeLeaveRequestModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Model/EmployeeLeaveRequestModel.php',
-        'Orangehrm\\Rest\\Api\\Leave\\Model\\LeaveListLeaveRequestModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Model/LeaveListLeaveRequestModel.php',
         'Orangehrm\\Rest\\Api\\Leave\\SaveLeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/SaveLeaveRequestAPI.php',
         'Orangehrm\\Rest\\Api\\Leave\\Service\\APILeaveAssignmentService' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Leave/Service/APILeaveAssignmentService.php',
-        'Orangehrm\\Rest\\Api\\Model\\ModelTrait' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Model/ModelTrait.php',
         'Orangehrm\\Rest\\Api\\Performance\\Entity\\Kpi' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Performance/Entity/Kpi.php',
         'Orangehrm\\Rest\\Api\\Performance\\KpiAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Performance/KpiAPI.php',
         'Orangehrm\\Rest\\Api\\Performance\\PerformanceReviewAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Performance/PerformanceReviewAPI.php',
@@ -11031,8 +10952,6 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
         'Orangehrm\\Rest\\Api\\Pim\\Entity\\EmployeeJobDetail' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Pim/Entity/EmployeeJobDetail.php',
         'Orangehrm\\Rest\\Api\\Pim\\Entity\\Supervisor' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Pim/Entity/Supervisor.php',
         'Orangehrm\\Rest\\Api\\Pim\\Entity\\WorkExperience' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Pim/Entity/WorkExperience.php',
-        'Orangehrm\\Rest\\Api\\PublicApi\\ApiDefinitionAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/PublicApi/ApiDefinitionAPI.php',
-        'Orangehrm\\Rest\\Api\\PublicApi\\EnabledModulesAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/PublicApi/EnabledModulesAPI.php',
         'Orangehrm\\Rest\\Api\\Time\\ActivityAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/ActivityAPI.php',
         'Orangehrm\\Rest\\Api\\Time\\CustomerAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/CustomerAPI.php',
         'Orangehrm\\Rest\\Api\\Time\\EmployeeTimeSheetAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/EmployeeTimeSheetAPI.php',
@@ -11044,27 +10963,10 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
         'Orangehrm\\Rest\\Api\\Time\\Entity\\TimeSheet' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/Entity/TimeSheet.php',
         'Orangehrm\\Rest\\Api\\Time\\Entity\\TimeSheetItem' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/Entity/TimeSheetItem.php',
         'Orangehrm\\Rest\\Api\\Time\\ProjectAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Time/ProjectAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\ApplyLeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/ApplyLeaveRequestAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\AssignLeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/AssignLeaveRequestAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\EmployeeLeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/EmployeeLeaveRequestAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\EmployeesAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/EmployeesAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\LeaveConfigAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/LeaveConfigAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\Model\\LeaveEntitlementModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Model/LeaveEntitlementModel.php',
-        'Orangehrm\\Rest\\Api\\User\\Model\\LeaveRequestModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Model/LeaveRequestModel.php',
-        'Orangehrm\\Rest\\Api\\User\\Model\\LeaveTypeModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Model/LeaveTypeModel.php',
-        'Orangehrm\\Rest\\Api\\User\\Model\\UserModel' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Model/UserModel.php',
-        'Orangehrm\\Rest\\Api\\User\\MyInfoAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/MyInfoAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\MyLeaveEntitlementAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/MyLeaveEntitlementAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\MyLeaveRequestAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/MyLeaveRequestAPI.php',
-        'Orangehrm\\Rest\\Api\\User\\Service\\APILeaveApplicationService' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Service/APILeaveApplicationService.php',
-        'Orangehrm\\Rest\\Api\\User\\Service\\APILeaveAssignmentService' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/Service/APILeaveAssignmentService.php',
-        'Orangehrm\\Rest\\Api\\User\\SubordinateLeaveEntitlementAPI' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/User/SubordinateLeaveEntitlementAPI.php',
         'Orangehrm\\Rest\\Api\\Validator' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Api/Validator.php',
-        'Orangehrm\\Rest\\Http\\JsonResponse' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Http/JsonResponse.php',
         'Orangehrm\\Rest\\Http\\Request' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Http/Request.php',
         'Orangehrm\\Rest\\Http\\RequestParams' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Http/RequestParams.php',
         'Orangehrm\\Rest\\Http\\Response' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Http/Response.php',
-        'Orangehrm\\Rest\\Service\\ApiUsageService' => __DIR__ . '/../..' . '/../plugins/orangehrmRESTPlugin/lib/Service/ApiUsageService.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/AssertionFailedError.php',
         'PHPUnit\\Framework\\BaseTestListener' => __DIR__ . '/..' . '/phpunit/phpunit/src/ForwardCompatibility/BaseTestListener.php',
@@ -12791,10 +12693,10 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitc69022a59a343d96a741973d22cc9b2f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitc69022a59a343d96a741973d22cc9b2f::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitc69022a59a343d96a741973d22cc9b2f::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitc69022a59a343d96a741973d22cc9b2f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInitd792ee1a84a9233097aa2a0fd29f41db::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInitd792ee1a84a9233097aa2a0fd29f41db::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitd792ee1a84a9233097aa2a0fd29f41db::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInitd792ee1a84a9233097aa2a0fd29f41db::$classMap;
 
         }, null, ClassLoader::class);
     }

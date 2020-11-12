@@ -7,7 +7,6 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Prophecy\\' => array($vendorDir . '/phpspec/prophecy/src'),
-    'OAuth2' => array($vendorDir . '/bshaffer/oauth2-server-php/src'),
     'Google_Service_' => array($vendorDir . '/google/apiclient-services/src'),
     'Google_' => array($vendorDir . '/google/apiclient/src'),
     'Doctrine_' => array($vendorDir . '/lexpress/doctrine1/lib'),
