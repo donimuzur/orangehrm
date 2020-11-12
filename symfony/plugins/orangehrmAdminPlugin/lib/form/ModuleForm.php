@@ -62,7 +62,7 @@ class ModuleForm extends BaseForm {
             'help' => new sfValidatorPass(),
             'directory' => new sfValidatorPass(),
             'maintenance' => new sfValidatorPass(),
-			'customattendance' => new sfValidatorPass()
+			'customattendance' => new sfValidatorPass(),
             'mobile' => new sfValidatorPass(),
         ));
         
