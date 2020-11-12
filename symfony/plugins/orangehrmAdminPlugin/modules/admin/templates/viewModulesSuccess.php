@@ -85,6 +85,10 @@
                         <?php echo $form['customattendance']->renderLabel(__('Enable Custom Attendance module')); ?>
                         <?php echo $form['customattendance']->render(); ?>
                     </li>
+                    <li class="checkbox">
+                        <?php echo $form['mobile']->renderLabel(__('Enable Mobile')); ?>
+                        <?php echo $form['mobile']->render(); ?>
+                    </li>
                     <li class="required">
                         <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
                     </li>

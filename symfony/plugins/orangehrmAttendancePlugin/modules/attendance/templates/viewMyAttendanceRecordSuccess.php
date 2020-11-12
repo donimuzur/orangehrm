@@ -14,11 +14,7 @@
                 <ol class="normal">
                     <li>
                         <?php echo $form['date']->renderLabel(__('Date')); ?>
-
                         <?php echo $form['date']->render(); ?>
-                        <?php echo $form->renderHiddenFields(); ?>
-						<?php echo $form['fromDate']->renderLabel(__('Date')); ?>
-                        <?php echo $form['fromDate']->render(); ?>
                         <?php echo $form->renderHiddenFields(); ?>
                     </li>
                 </ol>
