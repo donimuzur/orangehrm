@@ -198,30 +198,30 @@ a {
 	color:#fff;
 }
 .menu > ul > li.current > a {
-	background:#f28c38;
+	background:#303382;
 	color:#fff;
 }
 .menu > ul > li.current > a b {
-	background:#f28c38;
+	background:#303382;
 }
 .menu > ul > li.current > ul {
 	left:0;
 	opacity:1;
 }
 .menu > ul:hover > li.current > a {
-	background:#f28c38;
+	background:#303382;
 }
 .menu > ul:hover > li.current > a b {
-	background:#f28c38;
+	background:#303382;
 }
 .menu > ul:hover > li.current > ul {
 	left:-9999px;
 }
 .menu > ul:hover > li.current:hover > a {
-	background:#f28c38;
+	background:#303382;
 }
 .menu > ul:hover > li.current:hover > a b {
-	background:#f28c38;
+	background:#303382;
 }
 .menu > ul:hover > li.current:hover > ul {
 	left:0;
@@ -305,7 +305,7 @@ a {
 	text-decoration:underline;
 }
 #help {
-	color:#f28c38;
+	color:#303382;
 	background: url(../images/help-down.png) no-repeat center right;
 	padding:2px 15px 1px 1px;
 	text-decoration:none;

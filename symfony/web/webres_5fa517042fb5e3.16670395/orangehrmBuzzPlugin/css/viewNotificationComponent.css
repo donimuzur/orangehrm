@@ -103,7 +103,7 @@
 
 .notification {
     float: right;
-    padding-top: 68px;
+    margin-top: 5px;
     margin-right: 12px;
 }
 
@@ -186,11 +186,11 @@ svg.notification-icon > path {
 /*Following classes override main.css*/
 #welcome {
     float: right !important;
-    margin-top: 68px !important;
+    margin-top: 5px !important;
     margin-right: 8px !important;
     margin-left: 4px !important;
     position: relative !important;
-    top: auto !important;
+    /* top: auto !important; */
     right: auto !important;
 }
 

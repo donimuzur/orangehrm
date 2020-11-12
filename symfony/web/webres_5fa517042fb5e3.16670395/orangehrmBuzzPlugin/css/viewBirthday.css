@@ -1,15 +1,15 @@
-#annivProfilePicContainer{
+#birthdayProfilePicContainer{
     width: 53px;
     height: 53px;
     overflow: hidden;
 }
 
-#anniversaryPost{
+#birthdayPost{
     background-color: #6B6B6B;
     margin-bottom: 10px;
 }
 
-#annivProfilePicContainer img{
+#birthdayProfilePicContainer img{
     width: 100%;
     position:relative;
     top:0;
@@ -17,7 +17,7 @@
     margin:auto;
 }
 
-#annivProfilePicContainer{
+#birthdayProfilePicContainer{
     float: left;
     border: 2px solid white;
     vertical-align: middle;
@@ -27,13 +27,13 @@
     border-radius: 5px;
 }
 
-#anniversaryUserName{
+#birthdayUserName{
     float: left;
     font-size: 12px;
     font-weight: bold;
 }
 
-#anniversaryText{
+#birthdayText{
     background-color: #ebebeb;
     color: #9c9c9c;
     float: right;
@@ -44,16 +44,16 @@
     width: 268px;
 }
 
-#annivDate{
+#birthdayDate{
     font-size: 11px;
     font-style: italic;
 }
 
-#annivPicAndNameContainer div{
+#birthdayPicAndNameContainer div{
     /*float: left;*/
 }
 
-#anniversaryPost{
+#birthdayPost{
     height: 70px;
     border: 1px solid #d2d2d2;
     border-radius: 5px;
@@ -62,7 +62,7 @@
     margin: 10px auto;
     width: 263px;
 }
-#anniversaryPostNull{
+#birthdayPostNull{
     height: 70px;
     //border: 2px solid white;
 
@@ -70,14 +70,14 @@
 
 }
 
-#upcomingAnnivMonth{
+#upcomingBirthdayMonth{
     //background-color: #EBEBEB;
     color: #6B6B6B;
     font-size: 16px;
     padding: 10px;
 }
 
-#upcomingAnnivList{
+#upcomingBirthdayList{
     padding: 5px;
 
     // max-height: 100px;
@@ -99,7 +99,7 @@
     width: 50px;
 }
 
-#joinedDate{
+#birthDate{
 
     padding: 6px;
     background-color: #cfcfcf;
@@ -109,13 +109,13 @@
     margin-right: -5px;
 }
 
-#moreAniversary{
+#moreBirthday{
     float: right;
     margin-top: -3px;
     margin-right: -10px;
 }
 
-#lessAniversary{
+#lessBirthday{
     float: right;
     margin-top: -3px;
     margin-right: -10px;

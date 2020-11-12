@@ -8,15 +8,21 @@ $(document).ready(function () {
         $("#lessAniversary").toggle();
         $("#moreCommentLiked").show();
         $("#lessCommentLiked").hide();
+        $("#upcomingBirthdayMonth").hide(300);
+        $("#upcomingBirthdayList").hide(300);
+        $("#moreBirthday").show();
+        $("#lessBirthday").hide();
         $("#morePostLiked").show();
         $("#lessPostLiked").hide();
         if ($("#moreAniversary").is(":visible")) {
             $(this).css("border-radius", "10px");
-            $(".rightBarBody").css("border", "none");
+            $("#rightBarHeadingAnniv .rightBarBody").css("border", "none");
         } else {
-            $("#rightBarHeadingMl, #rightBarHeadingMc").css("border-radius", "10px");
+            $("#rightBarHeadingBirthday, #rightBarHeadingMl, #rightBarHeadingMc").css("border-radius", "10px");
             $(this).css("border-radius", "10px 10px 0px 0px");
-            $(".rightBarBody").css("border", "1px solid #dedede");
+            
+            $("#upcomingAnnivList").css("border", "1px solid #dedede");
+            $("#rightBarHeadingAnniv > .rightBarBody").css("border", "1px solid #dedede");
         }
     });
 });
