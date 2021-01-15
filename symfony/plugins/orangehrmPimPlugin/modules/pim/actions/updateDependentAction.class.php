@@ -67,7 +67,7 @@ class updateDependentAction extends basePimAction {
 
         $empNumber = $request->getParameter('empNumber');
 
-        $this->redirect('pim/viewDependents?empNumber=' . $empNumber);
+        $this->redirect('pim/viewPersonalDetails?empNumber='. $empNumber. '#dependent');
     }
 
 }

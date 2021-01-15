@@ -58,7 +58,7 @@ class deleteEmergencyContactsAction extends basePimAction {
             $this->forwardToSecureAction();
         }
 
-        $this->redirect('pim/viewEmergencyContacts?empNumber=' . $empNumber);
+        $this->redirect('pim/viewPersonalDetails?empNumber=' . $empNumber.'#emergencyContact');
     }
 
 }

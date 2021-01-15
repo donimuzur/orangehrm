@@ -137,14 +137,17 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtEmpFirstName' => new sfWidgetFormInputText(),
             'txtEmpMiddleName' => new sfWidgetFormInputText(),
             'txtEmpNickName' => new sfWidgetFormInputText(),
-			'txtPin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32)),
-            'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
+             'optGender' => new sfWidgetFormChoice(array('expanded' => true, 'choices' => array(1 => __("Male"), 2 => __("Female")))),
             'cmbNation' => new sfWidgetFormSelect(array('choices' => $this->getNationalityList())),
             'txtOtherID' => new sfWidgetFormInputText(),
             'cmbMarital' => new sfWidgetFormSelect(array('choices' => array('' => "-- " . __('Select') . " --", 'Single' => __('Single'), 'Married' => __('Married'), 'Other' => __('Other')))),
             'chkSmokeFlag' => new sfWidgetFormInputCheckbox(),
             'txtLicExpDate' => new ohrmWidgetDatePicker(array(), array('id' => 'personal_txtLicExpDate')),
             'txtMilitarySer' => new sfWidgetFormInputText(),
+            'txtNpwp' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
+            'txtBpjs' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
+			'txtPin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32))
+           
         );
 
         //setting default values
@@ -154,7 +157,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $widgets['txtEmpNickName']->setAttribute('value', $this->employee->nickName);
 
 		//setting default pin
-		$widgets['txtPin']->setAttribute('value', $this->employee->pin);
+        $widgets['txtPin']->setAttribute('value', $this->employee->pin);
+
+        //settting default npwp & bpjs
+        $widgets['txtNpwp']->setAttribute('value', $this->employee->npwp);
+        $widgets['txtBpjs']->setAttribute('value', $this->employee->bpjs);
 		
         //setting the default selected nation code
         $widgets['cmbNation']->setDefault($this->employee->nation_code);
@@ -191,12 +198,15 @@ class EmployeePersonalDetailsForm extends BaseForm {
                 'choices' => array(Employee::GENDER_MALE, Employee::GENDER_FEMALE),
                 'multiple' => false)),
             'cmbNation' => new sfValidatorChoice(array('required' => false, 'choices' => array_keys($this->getNationalityList()))),
-			'txtPin' => new sfValidatorString(array('required' => false, 'max_length' => 32)),
             'txtOtherID' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'Last Name Length exceeded 30 characters')),
             'cmbMarital' => new sfValidatorString(array('required' => false)),
             'chkSmokeFlag' => new sfValidatorString(array('required' => false)),
             'txtLicExpDate' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be $inputDatePattern")),
-            'txtMilitarySer' => new sfValidatorString(array('required' => false))
+            'txtMilitarySer' => new sfValidatorString(array('required' => false)),
+            'txtPin' => new sfValidatorString(array('required' => false, 'max_length' => 32)),
+            'txtNpwp' => new sfValidatorString(array('required' => false, 'max_length' => 50)),
+            'txtBpjs' => new sfValidatorString(array('required' => false, 'max_length' => 50))
+            
         );
 
         return $validators;
@@ -265,7 +275,9 @@ class EmployeePersonalDetailsForm extends BaseForm {
         }
 
         if ($this->canEditSensitiveInformation) {
-			$employee->pin = $this->getValue('txtPin');
+            $employee->pin = $this->getValue('txtPin');
+            $employee->npwp = $this->getValue('txtNpwp');
+            $employee->bpjs = $this->getValue('txtBpjs');
             $employee->employeeId = $this->getValue('txtEmployeeId');
             $employee->ssn = $this->getValue('txtNICNo');
             $employee->sin = $this->getValue('txtSINNo');

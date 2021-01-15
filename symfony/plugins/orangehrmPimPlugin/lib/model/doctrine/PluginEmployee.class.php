@@ -29,6 +29,7 @@
  */
 abstract class PluginEmployee extends BaseEmployee {
 
+    const SCREEN_PERSONAL_DETAILS   = 'personal';
     /**
      * Get First name and middle name
      * @return string 

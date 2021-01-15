@@ -325,6 +325,14 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'type' => 'string',
              'length' => 32,
              ));
+          $this->hasColumn('npwp', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+          ));
+          $this->hasColumn('bpjs', 'string', 50, array(
+               'type' => 'string',
+               'length' => 50,
+          ));
         $this->hasColumn('emp_lastname as lastName', 'string', 100, array(
              'type' => 'string',
              'default' => '',

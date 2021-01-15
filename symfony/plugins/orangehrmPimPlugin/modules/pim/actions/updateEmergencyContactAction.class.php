@@ -37,7 +37,7 @@ class updateEmergencyContactAction extends basePimAction {
         $this->empNumber = $empNumber;
 
         $this->emergencyContactPermissions = $this->getDataGroupPermissions('emergency_contacts', $empNumber);
-
+        
         $loggedInEmpNum = $this->getUser()->getEmployeeNumber();
         $adminMode = $this->getUser()->hasCredential(Auth::ADMIN_ROLE);
 
@@ -67,7 +67,7 @@ class updateEmergencyContactAction extends basePimAction {
 
         $empNumber = $request->getParameter('empNumber');
 
-        $this->redirect('pim/viewEmergencyContacts?empNumber=' . $empNumber);
+        $this->redirect('pim/viewPersonalDetails?empNumber=' . $empNumber.'#emergencyContact');
     }
 
 }

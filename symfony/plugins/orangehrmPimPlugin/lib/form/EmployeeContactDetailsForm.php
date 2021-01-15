@@ -252,6 +252,28 @@ class EmployeeContactDetailsForm extends sfForm {
         return $list;
     }
 
+    /**
+     * Save employee custom fields
+     */
+    public function save() {
+
+        $values = $this->getValues();
+        $empNumber = $values['EmpID'];
+
+        unset($values['EmpID']);
+
+        try {
+            $q = Doctrine_Query::create()
+                ->update('Employee')
+                ->set($values, array())
+                ->where('empNumber = ?', $empNumber);
+
+            $result = $q->execute();
+
+        } catch (Exception $e) {
+            throw new PIMServiceException($e->getMessage());
+        }
+    }
 }
 
 ?>

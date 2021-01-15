@@ -104,6 +104,8 @@ Employee:
     custom10: string(250)
     purged_at: timestamp
     pin: string(32)
+    npwp: string(50)
+    bpjs: string(50)
   relations:
     subDivision:
       class: Subunit

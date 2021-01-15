@@ -132,16 +132,20 @@ $(document).ready(function() {
     $("form#frmEmpContactDetails .formInputText").attr("disabled", "disabled");
     setCountryState();
 
-    $("#btnSave").click(function() {
+    $("#btnSaveContactDetails").click(function() {
         //if user clicks on Edit make all fields editable
-        if($("#btnSave").attr('value') == edit) {
+        if($("#btnSaveContactDetails").attr('value') == edit) {
             $(".formInputText").removeAttr("disabled");
-            $("#btnSave").attr('value', save);
+            $("#btnSaveContactDetails").attr('value', save);
             return;
         }
 
-        if($("#btnSave").attr('value') == save) {
-            $("#frmEmpContactDetails").submit();
+        if($("#btnSaveContactDetails").attr('value') == save) {
+            if ($("#frmEmpContactDetails").valid()) {
+                $("#btnSaveContactDetails").val(lang_processing);
+                $("#frmEmpContactDetails").submit();
+            }
+           
         }
     });
 

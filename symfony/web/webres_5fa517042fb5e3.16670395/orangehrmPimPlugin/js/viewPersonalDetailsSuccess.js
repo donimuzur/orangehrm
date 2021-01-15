@@ -19,13 +19,12 @@ $(document).ready(function() {
     $(".editable").each(function(){
         $(this).attr("disabled", "disabled");
     });
-    
     // Disable calendar elements
     $(".editable.calendar").datepicker('disable');
     
-    $("#btnSave").click(function() {
+    $("#btnSavePersonalDetails").click(function() {
         //if user clicks on Edit make all fields editable
-        if($("#btnSave").attr('value') == edit) {
+        if($("#btnSavePersonalDetails").attr('value') == edit) {
             
             $("#pdMainContainer .editable").each(function(){
                 $(this).removeAttr("disabled");
@@ -54,13 +53,13 @@ $(document).ready(function() {
                 field.attr('disabled', 'disabled');
             }
 
-            $("#btnSave").attr('value', save);
+            $("#btnSavePersonalDetails").attr('value', save);
             return;
         }
 
-        if($("#btnSave").attr('value') == save) {
+        if($("#btnSavePersonalDetails").attr('value') == save) {
             if ($("#frmEmpPersonalDetails").valid()) {
-                $("#btnSave").val(lang_processing);
+                $("#btnSavePersonalDetails").val(lang_processing);
             }
             $("#frmEmpPersonalDetails").submit();
         }

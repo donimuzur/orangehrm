@@ -344,7 +344,6 @@ $hasAttachments = count($attachmentList) > 0;
             if (hideAttachmentListOnAdd) {
                 $('#attachmentList').hide();
             }
-            
         });
         
         $('#cancelButton').click(function() {

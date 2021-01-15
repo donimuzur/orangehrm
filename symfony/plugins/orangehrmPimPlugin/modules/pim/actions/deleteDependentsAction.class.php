@@ -87,8 +87,7 @@ class deleteDependentsAction extends basePimAction {
             $this->handleBadRequest();
             $this->forwardToSecureAction();
         }
-
-        $this->redirect('pim/viewDependents?empNumber=' . $empNumber);
+        $this->redirect('pim/viewPersonalDetails?empNumber='. $empNumber. '#dependent');
     }
 
 }

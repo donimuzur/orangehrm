@@ -116,7 +116,7 @@ class viewPostAction extends BaseBuzzAction {
         $this->postType = $post->getType();
         $this->employeeID = $post->getEmployeeNumber();
         $this->commentList = $post->getComment();
-        $this->postEmployeeName = $post->getEmployeeFirstLastName();
+        $this->postEmployeeName = $post->getFullName();
         if ($this->postEmployeeName == ' ') {
             $this->postEmployeeName = '(' . __(self::LABEL_EMPLOYEE_DELETED) . ')';
             $this->postSharerDeleted = true;
@@ -126,7 +126,7 @@ class viewPostAction extends BaseBuzzAction {
         $this->originalPost = $post->getPostShared();
         $this->originalPostId = $this->originalPost->getId();
         $this->originalPostEmpNumber = $this->originalPost->getEmployeeNumber();
-        $this->originalPostSharerName = $this->originalPost->getEmployeeFirstLastName();
+        $this->originalPostSharerName = $this->originalPost->getFullName();
         if ($this->originalPostSharerName == ' ') {
             $this->originalPostSharerName = '(' . __(self::LABEL_EMPLOYEE_DELETED) . ')';
             $this->originalPostSharerDeleted = true;

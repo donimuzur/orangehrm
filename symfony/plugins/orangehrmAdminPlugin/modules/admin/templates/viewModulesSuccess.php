@@ -82,8 +82,8 @@
                         <?php echo $form['maintenance']->render(); ?>
                     </li>
 					<li class="checkbox">
-                        <?php echo $form['customattendance']->renderLabel(__('Enable Custom Attendance module')); ?>
-                        <?php echo $form['customattendance']->render(); ?>
+                        <?php echo $form['fingerspot']->renderLabel(__('Enable Custom Attendance module')); ?>
+                        <?php echo $form['fingerspot']->render(); ?>
                     </li>
                     <li class="checkbox">
                         <?php echo $form['mobile']->renderLabel(__('Enable Mobile')); ?>

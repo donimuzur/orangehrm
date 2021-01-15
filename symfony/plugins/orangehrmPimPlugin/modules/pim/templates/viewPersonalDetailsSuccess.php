@@ -60,17 +60,25 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             <?php echo $form['txtEmployeeId']->render(array("maxlength" => 10, "class" => "editable")); ?>
                         </li>
                         <li>
+                            <label for="personal_txtNpwp"><?php echo __('NPWP'); ?></label>
+                            <?php echo $form['txtNpwp']->render(array("maxlength" => 50, "class" => "editable")); ?>
+                        </li>
+                        <li>
+                            <label for="personal_txtBpjs"><?php echo __('BPJS'); ?></label>
+                            <?php echo $form['txtBpjs']->render(array("maxlength" => 50, "class" => "editable")); ?>
+                        </li>
+                        <!-- <li>
                             <label for="personal_txtOtherID"><?php echo __('Other Id'); ?></label>
                             <?php echo $form['txtOtherID']->render(array("maxlength" => 30, "class" => "editable")); ?>
-                        </li>
-                        <li class="long">
+                        </li> -->
+                        <!-- <li class="long">
                             <label for="personal_txtLicenNo"><?php echo __("Driver's License Number"); ?></label>
                             <?php echo $form['txtLicenNo']->render(array("maxlength" => 30, "class" => "editable")); ?>
                         </li>
                         <li>
                             <label for="personal_txtLicExpDate"><?php echo __('License Expiry Date'); ?></label>
                             <?php echo $form['txtLicExpDate']->render(array("class"=>"calendar editable")); ?>
-                        </li>
+                        </li> -->
                         <?php if ($showSSN) : ?>
                         <li class="new">
                             <label for="personal_txtNICNo"><?php echo __('SSN Number'); ?></label>
@@ -128,7 +136,7 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                     <?php endif; ?>                        
 
                     <?php  if ($personalInformationPermission->canUpdate()) : ?>
-                    <p><input type="button" id="btnSave" value="<?php echo __("Edit"); ?>" /></p>
+                    <p><input type="button" id="btnSavePersonalDetails" value="<?php echo __("Edit"); ?>" /></p>
                     <?php endif; ?>
 
                 </fieldset>
@@ -142,10 +150,12 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
         
     </div> <!-- pdMainContainer -->
 
-    
+    <?php echo include_component('pim', 'contactDetails', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_PERSONAL_DETAILS));?>
+    <?php echo include_component('pim', 'emergencyContacts', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_PERSONAL_DETAILS));?>
+    <?php echo include_component('pim', 'dependent', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_PERSONAL_DETAILS));?>
+
     <?php echo include_component('pim', 'customFields', array('empNumber'=>$empNumber, 'screen' => CustomField::SCREEN_PERSONAL_DETAILS));?>
     <?php echo include_component('pim', 'attachments', array('empNumber'=>$empNumber, 'screen' => EmployeeAttachment::SCREEN_PERSONAL_DETAILS));?>
-    
 </div> <!-- employee-details -->
  
 <?php //echo stylesheet_tag('orangehrm.datepicker.css') ?>
