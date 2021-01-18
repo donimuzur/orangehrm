@@ -1,0 +1,2 @@
+[15-Jan-2021 15:11:32 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[15-Jan-2021 15:11:59 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 

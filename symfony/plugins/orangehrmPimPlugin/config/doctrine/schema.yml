@@ -247,7 +247,26 @@ EmpContract:
       local: emp_number
       foreign: emp_number
       type: one
-
+      
+      
+EmpContractNew:
+  tableName: hs_hr_emp_contract
+  columns:
+    emp_number:
+      type: integer(4)
+      primary: true
+    emp_contract_number:
+      type: integer(4)
+      primary: true
+    emp_contract_start_date as start_date: timestamp(25)
+    emp_contract_end_date as end_date: timestamp(25)
+    keterangan: string
+  relations:
+    Employee:
+      local: emp_number
+      foreign: emp_number
+      type: one
+      
 EmpEmergencyContact:
   tableName: hs_hr_emp_emergency_contacts
   columns:

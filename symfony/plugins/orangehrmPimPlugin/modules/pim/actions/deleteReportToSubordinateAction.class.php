@@ -87,7 +87,7 @@ class deleteReportToSubordinateAction extends basePimAction {
         }
 
         $this->getUser()->setFlash('reportTo', 'subordinates');
-        $this->redirect('pim/viewReportToDetails?empNumber=' . $empNumber);
+        $this->redirect('pim/viewJobDetails?empNumber='. $empNumber. '#Report-To-Subordinates');
     }
 
 }

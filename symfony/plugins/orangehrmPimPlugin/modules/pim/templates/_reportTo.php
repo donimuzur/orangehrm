@@ -30,11 +30,9 @@ $allowDel = true;
 $allowEdit = true;
 ?>
 
-<div class="box pimPane">
+<div id="Report-To">
     
     <?php include_partial('global/form_errors', array('form' => $form)); ?>
-
-    <?php echo include_component('pim', 'pimLeftMenu', array('empNumber'=>$empNumber, 'form' => $form));?>
 
     <?php // if ($Permissions->canCreate() || ($have && $Permissions->canUpdate())) { ?>
     <?php if ($reportToPermissions->canCreate()) { ?>
@@ -75,7 +73,7 @@ $allowEdit = true;
                         <p>    
                             <input type="button" class="" name="btnSaveReportTo" id="btnSaveReportTo" 
                                    value="<?php echo __("Save"); ?>"/>
-                            <input type="button" id="btnCancel" class="reset" value="<?php echo __("Cancel"); ?>"/>
+                            <input type="button" id="btnCancelReportTo" class="reset" value="<?php echo __("Cancel"); ?>"/>
                         </p>
                     </fieldset>
                 </form>
@@ -85,8 +83,8 @@ $allowEdit = true;
 
     <div id="listReportToDetails">
         
-        <div class="miniList" id="listReportToSupDetails">
-            <div class="head">
+        <div class="miniList" id="listReportToSupDetails" >
+            <div class="head" id="Report-To-Supervisors">
                 <h1><?php echo __("Assigned Supervisors"); ?></h1>
             </div>
 
@@ -94,9 +92,7 @@ $allowEdit = true;
                 <?php if ($reportToSupervisorPermission->canRead()) : ?>
 
                     <?php 
-                    if ($section == 'supervisor') {
-                        include_partial('global/flash_messages'); 
-                    } 
+                    include_partial('global/flash_messages', array('prefix' => 'reportToSupervisorsMessage'));
                     ?>
                     <form name="frmEmpDelSupervisors" id="frmEmpDelSupervisors" method="post" 
                           action="<?php echo url_for('pim/deleteReportToSupervisor?empNumber=' . $empNumber); ?>">
@@ -151,7 +147,7 @@ $allowEdit = true;
                                         ?>
                                         <?php $supReportingMethodName = $sup->getReportingMethod()->getName(); ?>
                                         <?php if ($reportToSupervisorPermission->canUpdate()) { ?>
-                                            <td class="supName" valign="top"><a href="#"><?php echo $supName; ?></a></td>
+                                            <td class="supName" valign="top"><a href="#frmAddReportTo"><?php echo $supName; ?></a></td>
                                         <?php } else { ?>
                                             <td class="supName" valign="top"><?php echo $supName; ?></td>
                                             <?php
@@ -172,7 +168,7 @@ $allowEdit = true;
         </div> <!-- miniList-listReportToSupDetails -->
     
         <div class="miniList" id="listReportToSubDetails">
-            <div class="head">
+            <div class="head"  id="Report-To-Subordinates">
                 <h1><?php echo __("Assigned Subordinates"); ?></h1>
             </div>
                 
@@ -180,9 +176,7 @@ $allowEdit = true;
                 <?php if ($reportToSubordinatePermission->canRead()) : ?>
 
                     <?php
-                    if ($section == 'subordinates') {
-                        include_partial('global/flash_messages');
-                    }
+                        include_partial('global/flash_messages', array('prefix' => 'reportToSubordinatesMessage'));
                     ?>
 
                     <form name="frmEmpDelSubordinates" id="frmEmpDelSubordinates" method="post" 
@@ -240,7 +234,7 @@ $allowEdit = true;
                                         <?php 
                                         if ($reportToSubordinatePermission->canUpdate()) { 
                                             ?>
-                                            <td class="subName" valign="top"><a href="#"><?php echo $subName; ?></a></td>
+                                            <td class="subName" valign="top"><a href="#frmAddReportTo"><?php echo $subName; ?></a></td>
                                         <?php
                                         } else { 
                                         ?>
@@ -264,11 +258,6 @@ $allowEdit = true;
         </div> <!-- miniList-listReportToSubDetails -->
 
     </div> <!-- listReportToDetails -->
-
-    <?php
-    echo include_component('pim', 'customFields', array('empNumber' => $empNumber, 'screen' => CustomField::SCREEN_REPORT_TO));
-    echo include_component('pim', 'attachments', array('empNumber' => $empNumber, 'screen' => EmployeeAttachment::SCREEN_REPORT_TO));
-    ?>
 
 </div> <!-- Box -->
    

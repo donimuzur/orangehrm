@@ -66,11 +66,15 @@ class updateReportToDetailAction extends basePimAction {
                 'reportToSupervisorPermission' => $reportToSupervisorPermission, 'reportToSubordinatePermission' => $reportToSubordinatePermission);
 
         $this->form = new EmployeeReportToForm(array(), $param, true);
-
+                
+        $section = ($this->form->getValue('type_flag') == ReportTo::SUPERVISOR) ? 'supervisor' : 'subordinates';
+       
         if ($this->getRequest()->isMethod('post')) {
 
             $this->form->bind($request->getParameter($this->form->getName()));
+        
             if ($this->form->isValid()) {
+              
                 If ($this->reportToPermissions->canUpdate() || $this->reportToPermissions->canCreate()) {
 
                     $this->_checkDuplicateEntry($empNumber);
@@ -90,19 +94,26 @@ class updateReportToDetailAction extends basePimAction {
                 $this->forwardToSecureAction();
             }
         }
-
+        
         $empNumber = $request->getParameter('empNumber');
 
         $section = ($this->form->getValue('type_flag') == ReportTo::SUPERVISOR) ? 'supervisor' : 'subordinates';
-        $this->getUser()->setFlash('reportTo', $section);
-        $this->redirect('pim/viewReportToDetails?empNumber=' . $empNumber);
+        if($section == 'supervisor')
+        {
+            $this->getUser()->setFlash('reportToSupervisorsMessage.success', __(TopLevelMessages::SAVE_SUCCESS));
+        }
+        else {
+            $this->getUser()->setFlash('reportToSubordinatesMessage.success', __(TopLevelMessages::SAVE_SUCCESS));
+        }
+        
+        $this->redirect('pim/viewJobDetails?empNumber='. $empNumber.'#Report-To-Supervisors');
     }
 
     protected function _checkDuplicateEntry($empNumber) {
 
         if (empty($id) && $this->getReportingMethodConfigurationService()->isExistingReportingMethodName($this->form->getValue('reportingMethod'))) {
             $this->getUser()->setFlash('warning', __('Name Already Exists'));
-            $this->redirect('pim/viewReportToDetails?empNumber=' . $empNumber);
+            $this->redirect('pim/viewJobDetails?empNumber='. $empNumber. '#Report-To');
         }
     }
 

@@ -86,7 +86,7 @@ class deleteReportToSupervisorAction extends basePimAction {
         }
 
         $this->getUser()->setFlash('reportTo', 'supervisor');
-        $this->redirect('pim/viewReportToDetails?empNumber=' . $empNumber);
+        $this->redirect('pim/viewJobDetails?empNumber='. $empNumber. '#Report-To-Supervisors');
     }
 
 }

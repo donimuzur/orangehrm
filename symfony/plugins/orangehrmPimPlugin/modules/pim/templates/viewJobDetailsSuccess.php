@@ -181,6 +181,8 @@
     </div>
     
     <?php 
+    echo include_component('pim', 'reportTo', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_JOB));
+
     echo include_component('pim', 'customFields', array('empNumber' => $empNumber, 'screen' => CustomField::SCREEN_JOB)); 
     echo include_component('pim', 'attachments', array('empNumber' => $empNumber, 'screen' => EmployeeAttachment::SCREEN_JOB)); 
     ?>

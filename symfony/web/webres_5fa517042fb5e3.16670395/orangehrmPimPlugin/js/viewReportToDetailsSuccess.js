@@ -88,6 +88,9 @@ $(document).ready(function() {
         $('#reportto_subordinateName_empId').val("");
         $('#reportto_supervisorName_empId').val("");
         $("#reportto_previousRecord").val("");
+        
+        $('#reportto_type_flag_2').attr('disabled','disabled');
+        $('#reportto_type_flag_1').removeAttr('disabled');
         $('#reportto_type_flag_1').prop('checked', true);
         $("#reportToHeading").text(addSupervisor);
         $('.radio_list').hide();
@@ -110,6 +113,8 @@ $(document).ready(function() {
         $('#reportto_subordinateName_empId').val("");
         $('#reportto_supervisorName_empId').val("");
         $("#reportto_previousRecord").val("");
+        $('#reportto_type_flag_1').attr('disabled','disabled');
+        $('#reportto_type_flag_2').removeAttr('disabled');
         $('#reportto_type_flag_2').prop('checked', true);
         $("#reportToHeading").text(addSubordinate);
         $('.radio_list').hide();
@@ -127,7 +132,7 @@ $(document).ready(function() {
     });
 
     // Cancel in add pane
-    $('#btnCancel').click(function() {
+    $('#btnCancelReportTo').click(function() {
         
         //remove if disabled while edit
         $('#reportto_supervisorName_empName').removeAttr('disabled');
