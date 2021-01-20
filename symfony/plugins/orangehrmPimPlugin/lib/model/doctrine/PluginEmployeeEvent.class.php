@@ -22,6 +22,7 @@ abstract class PluginEmployeeEvent extends BaseEmployeeEvent
     const EVENT_TYPE_SUPERVISOR = 'supervisor';
     const EVENT_TYPE_SUBORDINATE = 'subordinate';
     const EVENT_TYPE_DEPENDENT = 'dependent';
+    const EVENT_TYPE_EMP_CONTRACT = 'contract';
 
     /**
      * Events

@@ -39,16 +39,16 @@ abstract class BaseEmpContractNew extends sfDoctrineRecord
              'primary' => true,
              'length' => 4,
              ));
-        $this->hasColumn('emp_contract_number as contract_number', 'integer', 4, array(
+        $this->hasColumn('emp_contract_number', 'integer', 4, array(
              'type' => 'decimal',
              'primary' => true,
              'length' => 4,
              ));
-        $this->hasColumn('emp_contract_start_date as start_date', 'timestamp', 25, array(
+        $this->hasColumn('emp_contract_start_date', 'timestamp', 25, array(
              'type' => 'timestamp',
              'length' => 25,
              ));
-        $this->hasColumn('emp_contract_end_date as end_date', 'timestamp', 25, array(
+        $this->hasColumn('emp_contract_end_date', 'timestamp', 25, array(
              'type' => 'timestamp',
              'length' => 25,
              ));

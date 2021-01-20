@@ -63,11 +63,11 @@ class PIMLeftMenuService {
         //     'module' => 'pim',
         //     'data_groups' => array('tax_exemptions', 'tax_attachment', 'tax_custom_fields'),
         //     'label' => 'Tax Exemptions'),
-        'viewReportToDetails' => array(
-            'module' => 'pim',
-            'data_groups' => array('supervisor', 'subordinates', 'report-to_attachment', 'report-to_custom_fields'),
-            'actions' => array(),
-            'label' => 'Report-to'),
+        // 'viewReportToDetails' => array(
+        //     'module' => 'pim',
+        //     'data_groups' => array('supervisor', 'subordinates', 'report-to_attachment', 'report-to_custom_fields'),
+        //     'actions' => array(),
+        //     'label' => 'Report-to'),
         'viewQualifications' => array(
             'module' => 'pim',
             'data_groups' => array('qualification_work', 'qualification_education', 'qualification_skills', 'qualification_languages', 'qualification_license', 'qualifications_attachment', 'qualifications_custom_fields'),

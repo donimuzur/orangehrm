@@ -58,7 +58,7 @@ class viewPersonalDetailsAction extends basePimAction {
         $empNumber = (isset($personal['txtEmpID']))?$personal['txtEmpID']:$request->getParameter('empNumber');
         $this->empNumber = $empNumber;
 
-        // TODO: Improve            
+        // TODO: Improve      
         $adminMode = $this->getUser()->hasCredential(Auth::ADMIN_ROLE);
 
         $this->personalInformationPermission = $this->getDataGroupPermissions('personal_information', $empNumber);

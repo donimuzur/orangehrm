@@ -7,3 +7,12 @@ Message : Emails was sent to donimuzur@gmail.com using smtp
 ========== Message Ends ==========
 
 
+Wed Jan 20 11:09:43 2021,472 [15808] INFO core.email - ========== Message Begins ==========
+
+Time : January 20, 2021, 11:09 am
+Message Type : Failure
+Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: Failed to authenticate on SMTP server with username "no-reply@polowijogosari.co.id" using 2 possible authenticators
+
+========== Message Ends ==========
+
+

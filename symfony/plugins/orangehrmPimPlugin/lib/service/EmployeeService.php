@@ -221,6 +221,7 @@ class EmployeeService extends BaseService {
         return $this->getEmployeeDao()->getEmployeeEmergencyContacts($empNumber);
     }
 
+
     /**
      * Delete the given emergency contacts from the given employee
      * 
@@ -239,6 +240,43 @@ class EmployeeService extends BaseService {
      */
     public function deleteEmployeeEmergencyContacts($empNumber, $sequenceNumbers = null) {
         return $this->getEmployeeDao()->deleteEmployeeEmergencyContacts($empNumber, $sequenceNumbers);
+    }
+
+    /**
+     * Get Emmployee Contract New
+     * 
+     * @version 2.6.11
+     * @param int $empNumber Employee Number
+     * @return array EmpContractNew objects as array. Array will be empty 
+     *               if no Employee Contract New defined fo
+     * r employee.
+     * @throws DaoException
+     * 
+     * @todo Rename method as getEmployeeContractNew [DONE]
+     */
+    public function getEmployeeContractNew($empNumber) {
+        return $this->getEmployeeDao()->getEmployeeContractNew($empNumber);
+    }
+
+
+    /**
+     * Delete the given employee contract  from the given employee
+     * 
+     * If $entriesToDelete is not provided (null), all entries of given employee
+     * will be deleted.
+     * 
+     * @version 2.6.11
+     * @param int $empNumber Employee Number
+     * @param array $contractNumber Array of employee contract numbers. Optional.
+     * @return integer Number of records deleted
+     * @throws DaoException
+     * 
+     * @todo return number of contract deleted (currently returns true always) [DONE]
+     * @todo Exceptions should preserve previous exception [DONE]
+     * @todo rename method as deleteEmployeeContractNew [DONE]
+     */
+    public function deleteEmployeeContractNew($empNumber, $contractNumber = null) {
+        return $this->getEmployeeDao()->deleteEmployeeContractNew($empNumber, $contractNumber);
     }
 
     /**

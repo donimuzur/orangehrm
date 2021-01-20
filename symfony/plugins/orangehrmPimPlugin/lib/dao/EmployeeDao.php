@@ -134,7 +134,8 @@ class EmployeeDao extends BaseDao {
         }
         // @codeCoverageIgnoreEnd
     }
-
+   
+    
     /**
      * Delete Emergency contacts
      * @param int $empNumber
@@ -151,6 +152,54 @@ class EmployeeDao extends BaseDao {
             
             if (is_array($entriesToDelete) && count($entriesToDelete) > 0) {                
                 $q->whereIn('seqno', $entriesToDelete);                
+            }
+            
+            return $q->execute();
+
+        // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd        
+        
+    }
+
+ /**
+     * Get Emergency contacts for given employee
+     * @param int $empNumber Employee Number
+     * @return array EmpEmergencyContact objects as array
+     */
+    public function getEmployeeContractNew($empNumber) {
+
+        try {
+            $q = Doctrine_Query:: create()->from('EmpContractNew ecn')
+                            ->where('ecn.emp_number = ?', $empNumber)
+                            ->orderBy('ecn.emp_contract_number ASC');
+            return $q->execute();
+        // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd
+    }
+
+
+    /**
+     * Delete Emergency contacts
+     * @param int $empNumber
+     * @param array $entriesToDelete
+     * @returns integer
+     * @throws DaoException
+     */
+    public function deleteEmployeeContractNew($empNumber, $entriesToDelete = null) {
+        
+        try {
+            
+            $q = Doctrine_Query::create()->delete('EmpContractNew')
+                                         ->where('emp_number = ?', $empNumber);
+            
+            if (is_array($entriesToDelete) && count($entriesToDelete) > 0) {                
+                $q->whereIn('emp_contract_number', $entriesToDelete);                
             }
             
             return $q->execute();

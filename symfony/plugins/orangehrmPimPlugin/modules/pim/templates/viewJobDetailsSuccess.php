@@ -83,55 +83,6 @@
                             <?php echo $form['location']->renderLabel(__('Location')); ?>
                             <?php echo $form['location']->render(array("class" => "formSelect")); ?>
                         </li>
-                        <li>
-                            <h2><?php echo __('Employment Contract'); ?></h2>
-                        </li>
-                        <li>
-                            <?php echo $form['contract_start_date']->renderLabel(__('Start Date')); ?>
-                            <?php echo $form['contract_start_date']->render(array("class" => "formDateInput")); ?>
-                        </li>
-                        <li>
-                            <?php echo $form['contract_end_date']->renderLabel(__('End Date')); ?>
-                            <?php echo $form['contract_end_date']->render(array("class" => "formDateInput")); ?>
-                        </li>
-                            <?php
-                            if (empty($form->attachment)) {
-                                echo "<li class=\"contractEdidMode\">";
-                                echo $form['contract_file']->renderLabel('Contract Details');
-                                echo $form['contract_file']->render();
-                                echo "<label class=\"fieldHelpBottom\">" . __(CommonMessages::FILE_LABEL_SIZE) . "</label>";
-                                echo "</li>";
-                            } else {
-                                $attachment = $form->attachment;
-                                $linkHtml = "<a title=\"{$attachment->description}\" target=\"_blank\" class=\"fileLink\" href=\"";
-                                $linkHtml .= url_for('pim/viewAttachment?empNumber=' . $empNumber . '&attachId=' . $attachment->attach_id);
-                                $linkHtml .= "\">{$attachment->filename}</a>";
-                                echo "<li class=\"contractEdidMode\">";
-                                echo $form['contract_update']->renderLabel(__('Contract Details'));
-                                echo $linkHtml;
-                                echo "</li>";
-                                
-                                echo "<li id=\"radio\" class=\"radio noLabel contractEdidMode\">";
-                                echo $form['contract_update']->render();
-                                echo "</li>";
-                                
-                                echo "<li id=\"fileUploadSection\" class=\"noLabel\">";
-                                    echo $form['contract_file']->renderLabel(' ');
-                                    echo $form['contract_file']->render();
-                                    echo "<label class=\"fieldHelpBottom\">" . __(CommonMessages::FILE_LABEL_SIZE) . "</label>";
-                                echo "</li>";
-                            }
-                            ?>
-                        <li class="contractReadMode">
-                            <?php
-                            echo "<label>" . __('Contract Details') . "</label>";
-                            if (empty($form->attachment)) {
-                                echo "<label id=\"notDefinedLabel\">" . __('Not Defined') . "</label>";
-                            } else {
-                                echo $linkHtml;
-                            }
-                            ?>
-                        </li>
                     </ol>
                     <?php endif; ?>
                     
@@ -181,6 +132,7 @@
     </div>
     
     <?php 
+    echo include_component('pim', 'empContract', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_JOB));
     echo include_component('pim', 'reportTo', array('empNumber'=>$empNumber, 'screen' => Employee::SCREEN_JOB));
 
     echo include_component('pim', 'customFields', array('empNumber' => $empNumber, 'screen' => CustomField::SCREEN_JOB)); 
