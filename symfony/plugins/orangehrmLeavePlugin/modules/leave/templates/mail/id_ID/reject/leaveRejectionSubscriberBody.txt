@@ -1,0 +1,15 @@
+Halo %recipientFullName%,
+
+%performerFullName% telah menolak pengajuan cuti dari %applicantFullName%. Untuk detail sebagai berikut:
+
+%leaveDetails%
+
+Silahkan login ke aplikasi HRIS untuk detailnya
+atau dengan menglik tautan dibawah ini :
+%urlleaveapproval%
+
+Thank you.
+
+NB : 
+- Anda menerima email ini karena, telah mengikuti notifikasi dari pengajuan cuti
+- Email ini dibuat otomatis, tidak perlu di balas

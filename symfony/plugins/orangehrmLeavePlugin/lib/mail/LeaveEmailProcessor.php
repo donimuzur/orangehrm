@@ -93,7 +93,9 @@ class LeaveEmailProcessor implements orangehrmMailProcessor {
             $replacements['recipientFirstName'] = $data['recipient']->getName();
             $replacements['recipientFullName'] = $data['recipient']->getName();            
         }
-
+        $baseUrl = url_for('leave/viewLeaveList');
+        $replacements['urlleaveapproval'] = 'https://hrm.polowijogosari.co.id'.$baseUrl.'/'.$data['empNumber'];
+        
         $applicantNo = $data['days'][0]->getEmpNumber();
         
         $applicant = $this->getEmployeeService()->getEmployee($applicantNo);

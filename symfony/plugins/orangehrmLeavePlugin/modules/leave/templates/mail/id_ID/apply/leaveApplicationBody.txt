@@ -1,0 +1,16 @@
+Halo %recipientFullName%,
+
+%performerFullName% telah mengajukan cuti. untuk detailnya sebagai berikut:
+
+%leaveDetails%      
+
+Email ini dikirimkan kepada anda, karena anda adalah atasan dari %performerFullName%.
+
+Silahkan login ke aplikasi HRIS untuk detailnya
+atau dengan menglik tautan dibawah ini :
+%urlleaveapproval%
+
+Terimakasih.
+
+NB : 
+Email ini dibuat otomatis, tidak perlu di balas

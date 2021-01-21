@@ -1,0 +1,14 @@
+Halo %recipientFullName%,
+
+%performerFullName% telah membatalkan pengajuan cuti dari %applicantFullName%. Untuk detailnya sebagai berikut :
+
+%leaveDetails%
+
+Silahkan login ke aplikasi HRIS untuk detailnya
+atau dengan menglik tautan dibawah ini :
+%urlleaveapproval%
+
+Terimakasih
+
+NB : 
+- Email ini dibuat otomatis, tidak perlu di balas

@@ -1,0 +1,1 @@
+Notifikasi Cuti - %performerFullName% telah membatalkan pengajuan cuti dari %applicantFullName%

@@ -1,0 +1,13 @@
+Halo %recipientFullName%,
+
+%performerFullName% has done the following changes to your leave request for following days:
+
+%leaveDetails%
+
+Silahkan login ke aplikasi HRIS untuk detailnya
+atau dengan menglik tautan dibawah ini :
+%urlleaveapproval%
+
+Terimakasih
+
+This is an automated notification.

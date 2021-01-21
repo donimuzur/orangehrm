@@ -16,3 +16,84 @@ Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: 
 ========== Message Ends ==========
 
 
+Thu Jan 21 11:26:22 2021,602 [27004] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:26 am
+Message Type : Success
+Message : Emails was sent to zulfi.rusdani@polowijogosari.com using smtp
+
+========== Message Ends ==========
+
+
+Thu Jan 21 11:27:41 2021,764 [27004] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:27 am
+Message Type : Success
+Message : Leave application email was sent to donimuzur@gmail.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 11:36:01 2021,661 [6648] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:36 am
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:04:31 2021,302 [27536] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:04 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:34:35 2021,413 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:34 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:34:37 2021,587 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:34 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:35:04 2021,292 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:35 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:39:43 2021,074 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:39 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:42:16 2021,741 [27536] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:42 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+

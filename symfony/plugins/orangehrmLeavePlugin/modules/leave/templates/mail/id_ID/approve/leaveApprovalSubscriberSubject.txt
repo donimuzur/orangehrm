@@ -1,0 +1,1 @@
+Notifikasi Cuti - %performerFullName% telah menyetujui pengajuan cuti dari %applicantFullName%

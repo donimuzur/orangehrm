@@ -1,2 +1,108 @@
 [15-Jan-2021 15:11:32 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
 [15-Jan-2021 15:11:59 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[21-Jan-2021 10:08:31 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+Thu Jan 21 11:26:22 2021,602 [27004] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:26 am
+Message Type : Success
+Message : Emails was sent to zulfi.rusdani@polowijogosari.com using smtp
+
+========== Message Ends ==========
+
+
+Thu Jan 21 11:27:41 2021,764 [27004] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:27 am
+Message Type : Success
+Message : Leave application email was sent to donimuzur@gmail.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 11:36:01 2021,661 [6648] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 11:36 am
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+[21-Jan-2021 14:01:57 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function get() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php:97
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(455): LeaveEmailProcessor->getReplacements()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(500): EmailService->sendEmailNotification()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveMailer.php(90): EmailService->sendEmailNotifications()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\event\sfEventDispatcher.class.php(77): LeaveMailer->listen()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveApplicationService.php(158): sfEventDispatcher->notify()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveApplicationService.php(7 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php on line 97
+Thu Jan 21 14:04:31 2021,302 [27536] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:04 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+[21-Jan-2021 14:22:54 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getRequest() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php:97
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(455): LeaveEmailProcessor->getReplacements()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(500): EmailService->sendEmailNotification()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveMailer.php(90): EmailService->sendEmailNotifications()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\event\sfEventDispatcher.class.php(77): LeaveMailer->listen()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveRequestService.php(690): sfEventDispatcher->notify()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveRequestService.php(58 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php on line 97
+[21-Jan-2021 14:28:11 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getRequest() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php:97
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(455): LeaveEmailProcessor->getReplacements()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\core\Service\EmailService.php(500): EmailService->sendEmailNotification()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveMailer.php(90): EmailService->sendEmailNotifications()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\event\sfEventDispatcher.class.php(77): LeaveMailer->listen()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveRequestService.php(690): sfEventDispatcher->notify()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\service\LeaveRequestService.php(58 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmLeavePlugin\lib\mail\LeaveEmailProcessor.php on line 97
+Thu Jan 21 14:34:35 2021,413 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:34 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:34:37 2021,587 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:34 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:35:04 2021,292 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:35 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:39:43 2021,074 [25240] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:39 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
+Thu Jan 21 14:42:16 2021,741 [27536] INFO core.email - ========== Message Begins ==========
+
+Time : January 21, 2021, 2:42 pm
+Message Type : Success
+Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
+
+========== Message Ends ==========
+
+
