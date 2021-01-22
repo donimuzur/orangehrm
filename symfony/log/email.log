@@ -97,3 +97,5 @@ Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
 ========== Message Ends ==========
 
 
+Thu Jan 21 16:51:07 2021,493 [1728] ERROR core.email - No email template found for: leave.approve, role: ess
+Thu Jan 21 16:51:07 2021,578 [1728] ERROR core.email - No email template found for: leave.approve, role: subscriber
