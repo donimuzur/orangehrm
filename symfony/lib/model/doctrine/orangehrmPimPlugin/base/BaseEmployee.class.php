@@ -52,6 +52,9 @@
  * @property string                                            $custom9                                                     Type: string(250)
  * @property string                                            $custom10                                                    Type: string(250)
  * @property string                                            $purged_at                                                   Type: timestamp, Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
+ * @property string                                            $pin                                                         Type: string(32)
+ * @property string                                            $npwp                                                        Type: string(50)
+ * @property string                                            $bpjs                                                        Type: string(50)
  * @property Subunit                                           $subDivision                                                 
  * @property JobTitle                                          $jobTitle                                                    
  * @property EmploymentStatus                                  $employeeStatus                                              
@@ -77,6 +80,8 @@
  * @property Doctrine_Collection|Comment[]                     $comment                                                     
  * @property BuzzNotificationMetadata                          $NotificationMetadata                                        
  * @property Doctrine_Collection|SystemUser[]                  $SystemUser                                                  
+ * @property Doctrine_Collection|FingerspotRecord[]            $FingerspotRecord                                            
+ * @property Doctrine_Collection|FingerspotRecordTemp[]        $FingerspotRecordTemp                                        
  * @property Doctrine_Collection|LeaveEntitlement[]            $LeaveEntitlement                                            
  * @property Doctrine_Collection|LeaveAdjustment[]             $LeaveAdjustment                                             
  * @property Doctrine_Collection|LeaveRequest[]                $LeaveRequest                                                
@@ -89,6 +94,7 @@
  * @property Doctrine_Collection|PerformanceTrackerReviewer[]  $PerformanceTrackerReviewer                                  
  * @property Doctrine_Collection|Employee[]                    $subordinates                                                
  * @property Doctrine_Collection|EmpPicture[]                  $EmpPicture                                                  
+ * @property Doctrine_Collection|EmpContractNew[]              $EmpContractNew                                              
  * @property Doctrine_Collection|EmployeeImmigrationRecord[]   $EmployeeImmigrationRecord                                   
  * @property Doctrine_Collection|EmpUsTaxExemption[]           $EmpUsTaxExemption                                           
  * @property Doctrine_Collection|EmployeeMembership[]          $EmployeeMembership                                          
@@ -152,6 +158,9 @@
  * @method string                                              getCustom9()                                                 Type: string(250)
  * @method string                                              getCustom10()                                                Type: string(250)
  * @method string                                              getPurgedAt()                                                Type: timestamp, Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
+ * @method string                                              getPin()                                                     Type: string(32)
+ * @method string                                              getNpwp()                                                    Type: string(50)
+ * @method string                                              getBpjs()                                                    Type: string(50)
  * @method Subunit                                             getSubDivision()                                             
  * @method JobTitle                                            getJobTitle()                                                
  * @method EmploymentStatus                                    getEmployeeStatus()                                          
@@ -177,6 +186,8 @@
  * @method Doctrine_Collection|Comment[]                       getComment()                                                 
  * @method BuzzNotificationMetadata                            getNotificationMetadata()                                    
  * @method Doctrine_Collection|SystemUser[]                    getSystemUser()                                              
+ * @method Doctrine_Collection|FingerspotRecord[]              getFingerspotRecord()                                        
+ * @method Doctrine_Collection|FingerspotRecordTemp[]          getFingerspotRecordTemp()                                    
  * @method Doctrine_Collection|LeaveEntitlement[]              getLeaveEntitlement()                                        
  * @method Doctrine_Collection|LeaveAdjustment[]               getLeaveAdjustment()                                         
  * @method Doctrine_Collection|LeaveRequest[]                  getLeaveRequest()                                            
@@ -189,6 +200,7 @@
  * @method Doctrine_Collection|PerformanceTrackerReviewer[]    getPerformanceTrackerReviewer()                              
  * @method Doctrine_Collection|Employee[]                      getSubordinates()                                            
  * @method Doctrine_Collection|EmpPicture[]                    getEmpPicture()                                              
+ * @method Doctrine_Collection|EmpContractNew[]                getEmpContractNew()                                          
  * @method Doctrine_Collection|EmployeeImmigrationRecord[]     getEmployeeImmigrationRecord()                               
  * @method Doctrine_Collection|EmpUsTaxExemption[]             getEmpUsTaxExemption()                                       
  * @method Doctrine_Collection|EmployeeMembership[]            getEmployeeMembership()                                      
@@ -252,6 +264,9 @@
  * @method Employee                                            setCustom9(string $val)                                      Type: string(250)
  * @method Employee                                            setCustom10(string $val)                                     Type: string(250)
  * @method Employee                                            setPurgedAt(string $val)                                     Type: timestamp, Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
+ * @method Employee                                            setPin(string $val)                                          Type: string(32)
+ * @method Employee                                            setNpwp(string $val)                                         Type: string(50)
+ * @method Employee                                            setBpjs(string $val)                                         Type: string(50)
  * @method Employee                                            setSubDivision(Subunit $val)                                 
  * @method Employee                                            setJobTitle(JobTitle $val)                                   
  * @method Employee                                            setEmployeeStatus(EmploymentStatus $val)                     
@@ -277,6 +292,8 @@
  * @method Employee                                            setComment(Doctrine_Collection $val)                         
  * @method Employee                                            setNotificationMetadata(BuzzNotificationMetadata $val)       
  * @method Employee                                            setSystemUser(Doctrine_Collection $val)                      
+ * @method Employee                                            setFingerspotRecord(Doctrine_Collection $val)                
+ * @method Employee                                            setFingerspotRecordTemp(Doctrine_Collection $val)            
  * @method Employee                                            setLeaveEntitlement(Doctrine_Collection $val)                
  * @method Employee                                            setLeaveAdjustment(Doctrine_Collection $val)                 
  * @method Employee                                            setLeaveRequest(Doctrine_Collection $val)                    
@@ -289,6 +306,7 @@
  * @method Employee                                            setPerformanceTrackerReviewer(Doctrine_Collection $val)      
  * @method Employee                                            setSubordinates(Doctrine_Collection $val)                    
  * @method Employee                                            setEmpPicture(Doctrine_Collection $val)                      
+ * @method Employee                                            setEmpContractNew(Doctrine_Collection $val)                  
  * @method Employee                                            setEmployeeImmigrationRecord(Doctrine_Collection $val)       
  * @method Employee                                            setEmpUsTaxExemption(Doctrine_Collection $val)               
  * @method Employee                                            setEmployeeMembership(Doctrine_Collection $val)              
@@ -321,18 +339,6 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'autoincrement' => true,
              'length' => 4,
              ));
-		$this->hasColumn('pin', 'string', 32, array(
-             'type' => 'string',
-             'length' => 32,
-             ));
-          $this->hasColumn('npwp', 'string', 50, array(
-             'type' => 'string',
-             'length' => 50,
-          ));
-          $this->hasColumn('bpjs', 'string', 50, array(
-               'type' => 'string',
-               'length' => 50,
-          ));
         $this->hasColumn('emp_lastname as lastName', 'string', 100, array(
              'type' => 'string',
              'default' => '',
@@ -533,6 +539,18 @@ abstract class BaseEmployee extends sfDoctrineRecord
         $this->hasColumn('purged_at', 'timestamp', null, array(
              'type' => 'timestamp',
              ));
+        $this->hasColumn('pin', 'string', 32, array(
+             'type' => 'string',
+             'length' => 32,
+             ));
+        $this->hasColumn('npwp', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
+        $this->hasColumn('bpjs', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
     }
 
     public function setUp()
@@ -640,6 +658,14 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'local' => 'emp_number',
              'foreign' => 'emp_number'));
 
+        $this->hasMany('FingerspotRecord', array(
+             'local' => 'pin',
+             'foreign' => 'pin'));
+
+        $this->hasMany('FingerspotRecordTemp', array(
+             'local' => 'pin',
+             'foreign' => 'pin'));
+
         $this->hasMany('LeaveEntitlement', array(
              'local' => 'emp_number',
              'foreign' => 'emp_number'));
@@ -686,6 +712,10 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'foreign' => 'erep_sub_emp_number'));
 
         $this->hasMany('EmpPicture', array(
+             'local' => 'emp_number',
+             'foreign' => 'emp_number'));
+
+        $this->hasMany('EmpContractNew', array(
              'local' => 'emp_number',
              'foreign' => 'emp_number'));
 
