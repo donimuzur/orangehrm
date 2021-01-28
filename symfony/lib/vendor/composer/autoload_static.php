@@ -86,11 +86,14 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Http\\Client\\' => 16,
             'PhpOffice\\PhpSpreadsheet\\' => 25,
+		    'PhpOffice\\PhpWord\\' => 18,
+            'PhpOffice\\Common\\' => 17,
         ),
         'Z' => 
         array (
             'ZxcvbnPhp\\' => 10,
             'ZipStream\\' => 10,
+			'Zend\\Escaper\\' => 13,
         ),
         'W' => 
         array (
@@ -159,6 +162,18 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
     );
 
     public static $prefixDirsPsr4 = array (
+	   'Zend\\Escaper\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/zendframework/zend-escaper/src',
+        ),
+        'PhpOffice\\PhpWord\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/phpword/src/PhpWord',
+        ),
+        'PhpOffice\\Common\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/phpoffice/common/src/Common',
+        ),
         'ZipStream\\' => 
         array (
             0 => __DIR__ . '/..' . '/maennchen/zipstream-php/src',
@@ -371,6 +386,7 @@ class ComposerStaticInitc69022a59a343d96a741973d22cc9b2f
     );
 
     public static $classMap = array (
+		'PclZip' => __DIR__ . '/..' . '/pclzip/pclzip/pclzip.lib.php',
         'Behat\\Gherkin\\Cache\\CacheInterface' => __DIR__ . '/..' . '/behat/gherkin/src/Behat/Gherkin/Cache/CacheInterface.php',
         'Behat\\Gherkin\\Cache\\FileCache' => __DIR__ . '/..' . '/behat/gherkin/src/Behat/Gherkin/Cache/FileCache.php',
         'Behat\\Gherkin\\Cache\\MemoryCache' => __DIR__ . '/..' . '/behat/gherkin/src/Behat/Gherkin/Cache/MemoryCache.php',

@@ -29,4 +29,53 @@
         <?php include_component('core', 'ohrmPluginPannel', array('location' => 'pim_left_menu_bottom')); ?>
     </ul>
 
+    <p>
+        <input type="button" class="" id="btnPrintToPdf" value="<?php echo __("Print to PDF"); ?>" tabindex="2" style="
+            margin-top: 10px;
+            width: 100%;"/>
+    </p>
+
 </div> <!-- sidebar -->
+
+<script type="text/javascript">
+
+    var linkPrintToPDF ='<?php echo url_for('pim/printToPdf'); ?>';
+    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING);?>';
+    var linkToDownloadFile='<?php echo url_for('pim/downloadFile'); ?>'
+    var empNumber = <?php echo $empNumber; ?>;
+    $(document).ready(function(){
+        $("#btnPrintToPdf").click(function() {
+           $("#btnPrintToPdf").val(lang_processing);
+           printToPdf();
+        });
+    });
+    
+    function printToPdf(){
+        $.ajax({
+            type:     "post",
+            data:    {
+                empNumber: empNumber
+            },
+            timeout: 0,
+            cache:    false,
+            url:      linkPrintToPDF,
+            dataType: "text",
+            error: function(xhr, status, error) {
+                $("#btnPrintToPdf").val("Print to PDF");
+            },
+            success: function (data) {
+                if(data.includes("sukses")){
+                    window.location = linkToDownloadFile;
+                    $("#btnPrintToPdf").val("Print to PDF");
+                }
+                else{
+                    location.reload();
+                }
+            }
+        });  
+        return false;
+            
+    }
+
+    
+</script>

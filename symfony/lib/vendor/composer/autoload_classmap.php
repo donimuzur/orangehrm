@@ -12421,4 +12421,5 @@ return array(
     'phpseclib\\Net\\SSH2' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Net/SSH2.php',
     'phpseclib\\System\\SSH\\Agent' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent.php',
     'phpseclib\\System\\SSH\\Agent\\Identity' => $vendorDir . '/phpseclib/phpseclib/phpseclib/System/SSH/Agent/Identity.php',
+	'PclZip' => $vendorDir . '/pclzip/pclzip/pclzip.lib.php',
 );

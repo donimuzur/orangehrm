@@ -108,3 +108,164 @@ Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
 
 Thu Jan 21 16:51:07 2021,493 [1728] ERROR core.email - No email template found for: leave.approve, role: ess
 Thu Jan 21 16:51:07 2021,578 [1728] ERROR core.email - No email template found for: leave.approve, role: subscriber
+[27-Jan-2021 12:54:56 Asia/Krasnoyarsk] Action "pim/printToPdf" does not exist.
+[27-Jan-2021 12:55:34 Asia/Krasnoyarsk] Action "pim/printToPdf" does not exist.
+[27-Jan-2021 12:56:40 Asia/Krasnoyarsk] Action "ohrmBase/printToPdf" does not exist.
+[27-Jan-2021 12:57:53 Asia/Krasnoyarsk] Action "ohrmBase/printToPdf" does not exist.
+[27-Jan-2021 13:09:49 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getFingerspotRecord() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php:61
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.ym in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 61
+[27-Jan-2021 13:12:29 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getFingerspotRecord() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php:61
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.ym in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 61
+[27-Jan-2021 13:23:50 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] A socket operation was attempted to an unreachable host.
+
+[27-Jan-2021 13:27:39 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[27-Jan-2021 13:28:29 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[27-Jan-2021 13:28:30 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: No such host is known. 
+[27-Jan-2021 13:40:53 Asia/Krasnoyarsk] PDO Connection Error: SQLSTATE[HY000] [2002] A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.
+
+Wed Jan 27 13:49:53 2021,531 [14500] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: sfRenderException: The template "downloadFileSuccess.php" does not exist or is unreadable in "". in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:2032
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4395): sfView->preRenderCheck()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#27 {main}
+[27-Jan-2021 14:31:55 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getEmployee() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php:48
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 48
+[27-Jan-2021 14:35:00 Asia/Krasnoyarsk] Action "pim/downloadFileAction" does not exist.
+Wed Jan 27 14:36:58 2021,558 [21284] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: sfRenderException: The template "downloadFileSuccess.php" does not exist or is unreadable in "". in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:2032
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4395): sfView->preRenderCheck()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#27 {main}
+Wed Jan 27 16:08:01 2021,148 [26508] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Connection_Mysql_Exception: SQLSTATE[HY000]: General error: 2006 MySQL server has gone away in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection.php:1090
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection\Statement.php(286): Doctrine_Connection->rethrowException()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection.php(1014): Doctrine_Connection_Statement->execute()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Query\Abstract.php(1032): Doctrine_Connection->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Query\Abstract.php(1088): Doctrine_Query_Abstract->_execute()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Query.php(2188): Doctrine_Query_Abstract->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection.php(905): Doctrine_Query->query()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Relation\LocalKey.php(63): Doctrine_Connection->query()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1379): Doctrine_Relation_LocalKey->fetchRelatedFor()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1349): Doctrine_Record->_get()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\plugins\sfDoctrinePlugin\lib\record\sfDoctrineRecord.class.php(185): Doctrine_Record->get()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\auth\service\AuthenticationService.php(65): sfDoctrineRecord->__call()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\model\auth\service\AuthenticationService.php(99): AuthenticationService->setCredentialsForUser()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\modules\auth\actions\validateCredentialsAction.class.php(59): AuthenticationService->setCredentials()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): validateCredentialsAction->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(46): sfFilterChain->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#32 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#33 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#34 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#35 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#36 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#37 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(22): sfContext->dispatch()
+#38 {main}
+[27-Jan-2021 16:08:01 Asia/Krasnoyarsk] SQLSTATE[HY000]: General error: 2006 MySQL server has gone away
+[27-Jan-2021 16:16:41 Asia/Krasnoyarsk] Empty module and/or action after parsing the URL "/pim/viewPhoto/empNumber/1.png" (/).
+[27-Jan-2021 16:17:20 Asia/Krasnoyarsk] Empty module and/or action after parsing the URL "/pim/viewPhoto/empNumber/1.png" (/).
+[28-Jan-2021 08:32:12 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function sfUser::setFlash(), 1 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 77 and at least 2 expected in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:1600
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php(77): sfUser->setFlash()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml. in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php on line 1600
+[28-Jan-2021 08:32:23 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function sfUser::setFlash(), 1 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 77 and at least 2 expected in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:1600
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php(77): sfUser->setFlash()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml. in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php on line 1600
+[28-Jan-2021 08:32:40 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function sfUser::setFlash(), 1 passed in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php on line 77 and at least 2 expected in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php:1600
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\actions.class.php(77): sfUser->setFlash()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(483): PimActions->executePrintToPdf()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): sfActions->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml. in D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php on line 1600

@@ -39,6 +39,7 @@
                 <p>
                     <input type="button" id="searchBtn" value="<?php echo __("Search") ?>" name="_search" />
                     <input type="button" class="reset" id="resetBtn" value="<?php echo __("Reset") ?>" name="_reset" />                    
+                    <input type="button" id="btnExportToXls" value="<?php echo __("Export To Excel") ?>" name="BtnExportToXls" />
                 </p>
 
             </fieldset>
