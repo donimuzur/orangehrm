@@ -1,8 +1,5 @@
 alter table hs_hr_employee add column npwp varchar(50);
-GO;
-
 alter table hs_hr_employee add column bpjs varchar(50);
-go;
 
 CREATE TABLE `hs_hr_emp_contract` (
   `emp_number` int NOT NULL,
@@ -12,4 +9,3 @@ CREATE TABLE `hs_hr_emp_contract` (
   `keterangan` text,
   PRIMARY KEY (`emp_number`,`emp_contract_number`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-go;
