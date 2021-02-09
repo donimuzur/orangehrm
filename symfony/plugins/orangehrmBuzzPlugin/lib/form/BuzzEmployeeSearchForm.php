@@ -55,11 +55,6 @@ class BuzzEmployeeSearchForm extends BaseForm{
         $styleSheets[plugin_web_path('orangehrmCorporateDirectoryPlugin', 'css/viewDirectorySuccess.css')] = 'all';
         return $styleSheets;
     }
-
-    
-
-   
-
     
     public function getEmployeeListAsJson() {
         $jsonArray = array();

@@ -33,8 +33,8 @@ use_javascripts_for_form($form);
         <h1><?php echo __($form->getTitle());?></h1>
     </div>
     <div class="inner">
+        
         <form id="frmFilterLeave" name="frmFilterLeave" method="post" action="<?php echo url_for($baseUrl); ?>">
-
             <fieldset>                
                 <ol>
                     <?php echo $form->render(); ?>
@@ -50,7 +50,6 @@ use_javascripts_for_form($form);
                     <?php include_component('core', 'ohrmPluginPannel', array('location' => 'listing_layout_navigation_bar_1')); ?>
                     <input type="hidden" name="pageNo" id="pageNo" value="" />
                     <input type="hidden" name="hdnAction" id="hdnAction" value="search" />
-                    
                 </p>                
             </fieldset>
             
@@ -142,6 +141,38 @@ use_javascripts_for_form($form);
     var lang_View = '<?php echo __js('View');?>';
     var balanceData = false;
     
+    $(document).ready(function(){
+        $("#btnPrintOutReportLeave").click(function() {
+            $("#btnPrintOutReportLeave").val(lang_Loading);
+            printLeaveReport(); 
+        });
+    });
+
+    function printLeaveReport(){
+        $.ajax({
+            type:     "post",
+            timeout: 0,
+            cache:    false,
+            url:      '<?php echo url_for('leave/printLeaveReport');?>',
+            dataType: "text",
+            error: function(xhr, status, error) {
+                alert("Error hubungi admin atau team IT \n"+xhr.responseText)
+                $("#btnExport").val("Export to Excel");
+            },
+            success: function (data) {
+                if(data.includes("sukses")){
+                    //window.location = linkToDownloadFile;
+                    $("#btnPrintOutReportLeave").val("Print Leave Report");
+                    location.reload();
+                }
+                else{
+                    location.reload();
+                }
+            }
+        });  
+        return false;
+    }
+
     $.ajax({
        type: "POST",
        url: '<?php echo url_for('leave/leaveListBalanceAjax');?>',

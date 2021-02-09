@@ -183,7 +183,25 @@ class EmployeeDao extends BaseDao {
         // @codeCoverageIgnoreEnd
     }
 
-
+    public function getEmployeeContractNewByEmpNumberContractNumber($empNumber, $contractNumber) {
+        try {
+            $result = Doctrine :: getTable('EmpContractNew')->find(array(
+                'emp_number' => $empNumber,
+                'emp_contract_number' => $contractNumber
+            ));
+            
+            if (!$result) {
+                return null;
+            }
+            
+            return $result;
+            
+        // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd
+    }
     /**
      * Delete Emergency contacts
      * @param int $empNumber
@@ -210,6 +228,45 @@ class EmployeeDao extends BaseDao {
         }
         // @codeCoverageIgnoreEnd        
         
+    }
+
+    public function updateEmployeeContractNewStatus($empNumber,$ContractNumber) {
+        
+        try {
+            
+            $q = Doctrine_Query::create()->update('EmpContractNew')
+                                         ->set('status',0)
+                                         ->where('emp_number = ?', $empNumber)
+                                         ->where('emp_contract_number = ?', $ContractNumber);
+            
+            return $q->execute();
+
+        // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+    }
+
+      /**
+     *
+     * @param type $date
+     * @return type
+     * @throws DaoException
+     */
+    public function getEmployeeContractExpiredIn30DaysNew($date) {
+        try {
+            $whereClause = "WHERE status = 1 and :date > DATE_ADD(emp_contract_end_date, INTERVAL -30 DAY)";
+
+            $params = array(':date' => $date);
+
+            $q = Doctrine_Manager::getInstance()->getCurrentConnection();
+            $result = $q->execute("SELECT * FROM hs_hr_emp_contract $whereClause ORDER BY MONTH(emp_contract_end_date) ASC, DAY(emp_contract_end_date) ASC", $params);
+            return $result->fetchAll();
+            // @codeCoverageIgnoreStart
+        } catch (Exception $e) {
+            throw new DaoException($e->getMessage(), $e->getCode(), $e);
+        }
+        // @codeCoverageIgnoreEnd
     }
 
     /**

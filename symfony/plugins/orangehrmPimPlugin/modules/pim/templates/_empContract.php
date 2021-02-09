@@ -101,7 +101,8 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
                             <th class="empContractNumber"> <?php echo __("Contract No"); ?></th>
                             <th><?php echo __("Start Date"); ?></th>
                             <th><?php echo __("End Date"); ?></th>
-                            <th style="min-width: 200px;"><?php echo __("Note"); ?></th>
+                            <th><?php echo __("Status"); ?></th>
+                            <th style="min-width: 200px;"><?php echo __("Action"); ?></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -112,6 +113,7 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
                             <td class="check" id='chkEmpContractNew'></td>
                             <?php } ?>
                             <td><?php echo __(TopLevelMessages::NO_RECORDS_FOUND); ?></td>
+                            <td></td>
                             <td></td>
                             <td></td>
                             <td></td>
@@ -142,12 +144,33 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
                             <input type="hidden" id="emp_contract_number<?php echo $employeeContracts->emp_contract_number; ?>" value="<?php echo $employeeContracts->emp_contract_number; ?>" />
                             <input type="hidden" id="emp_contract_start_date_<?php echo $employeeContracts->emp_contract_number; ?>" value="<?php echo set_datepicker_date_format($employeeContracts->emp_contract_start_date); ?>" />
                             <input type="hidden" id="emp_contract_end_date_<?php echo $employeeContracts->emp_contract_number; ?>" value="<?php echo set_datepicker_date_format($employeeContracts->emp_contract_end_date); ?>" />
+                            <input type="hidden" id="status_<?php echo $employeeContracts->status; ?>" value="<?php echo $employeeContracts->status; ?>" />
                             <input type="hidden" id="keterangan_<?php echo $employeeContracts->emp_contract_number; ?>" value="<?php echo $employeeContracts->keterangan; ?>" />
+                            
                             
                             <?php
                             echo '<td>' . set_datepicker_date_format($employeeContracts->emp_contract_start_date) . '</td>';
                             echo '<td>' . set_datepicker_date_format($employeeContracts->emp_contract_end_date) . '</td>';
-                            echo '<td>' . $employeeContracts->keterangan . '</td>';
+                            if($employeeContracts->status)
+                            {
+                                echo '<td>Contract Active</td>';
+                            }
+                            else{
+                                echo '<td>Contract Ended</td>';
+                            }
+                            
+                            $startTd = '<td>';
+                            $content1 ='';
+                            $content2='';
+                            if ($empContractNewPermissions->canUpdate()) {
+                                if($employeeContracts->status)
+                                {
+                                    $content1 = '<input type="button" class="" id="extend_'.$employeeContracts->emp_contract_number.'" value="'.__("Extend").'" onclick="extend('.$employeeContracts->emp_contract_number.')"/>';
+                                    $content2 = '<input type="button" class="delete" id="endContract_'.$employeeContracts->emp_contract_number.'" value="'.__("End Contract").'" data-toggle="modal" href="#endContractModal" onclick="endContract('.$employeeContracts->emp_contract_number.')" />';
+                                }
+                            }
+                            $endTd = '</td>';
+                            echo $startTd. $content1.' '.$content2.$endTd;
                             echo '</tr>';
                             $row++;
                         endforeach;
@@ -163,7 +186,26 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
     </div> <!-- miniList -->
 </div> <!-- Box -->
 
-
+<?php if ($empContractNewPermissions->canRead()) { ?>
+<div class="modal hide" id="endContractModal">
+    <div class="modal-header">
+        <a class="close" data-dismiss="modal">×</a>
+        <h3><?php echo __('End Employee Contract') ?></h3>
+    </div>
+    <div class="modal-body">
+        <form name="frmEmpEndContractNew" id="frmEmpEndContractNew" method="post" action="<?php echo url_for('pim/UpdateEmpEndContractNew?empNumber=' . $empNumber); ?>">
+            <input type="hidden" name="emp_contract_number" class="EndContract" id="emp_contract_number" value="" />
+            <p><?php echo __("are you sure ?")?></p>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <?php if ($empContractNewPermissions->canUpdate()) { ?>
+        <input type="button" id="dialogConfirmEndContract" class="btn" value="<?php echo __('Confirm'); ?>" />
+        <?php } ?>
+        <input type="button"  id="dialogCancelEndContract" name="dialogCancel" class="btn reset" data-dismiss="modal" value="<?php echo __('Cancel'); ?>" />
+    </div>
+</div>
+<?php }?>
 <script type="text/javascript">
     //<![CDATA[
     // Move to separate js after completing initial work
@@ -194,9 +236,38 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
             $(this).parent().text($(this).text());
         });
     }
+    function extend(ContractNumber)
+        {
+            var endDate = $("#emp_contract_end_date_" + ContractNumber).val();
+            var keterangan = $("#keterangan_" + ContractNumber).val();
+              
+            $('#empContractNew_emp_contract_number').val('');
+            $('#empContractNew_keterangan').val(keterangan);
+            $('#empContractNew_emp_contract_start_date').val(endDate);
 
-    $(document).ready(function() {
-        
+            if ($.trim(endDate) == '') {
+                endDate = displayDateFormat;
+            }
+            $('#empContractNew_emp_contract_start_date').val(endDate);
+
+            $('div#messagebarEmpContractNew').hide();
+            
+            // hide validation error messages
+
+            $('#empContractNewListActions').hide();
+            $('#empContractNew_list .check#chkEmpContractNew').hide();
+            $('#addPaneEmpContractNew').css('display', 'block');
+
+            $(".paddingLeftRequired").show();
+            $('#btnCancelEmpContractNew').show();
+
+        }
+       function endContract(ContractNumber)
+       {
+            $('#emp_contract_number').val(ContractNumber);
+       }
+      $(document).ready(function() {
+  
         $('#addPaneEmpContractNew').hide();
         <?php  if (!$haveContracts){?>
         $(".check#chkEmpContractNew").hide();
@@ -272,7 +343,6 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
 
         });
 
-        
         // Cancel in add pane
         $('#btnCancelEmpContractNew').click(function() {
             clearAddForm();
@@ -316,7 +386,25 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
             rules: {
                 'empContractNew[keterangan]' : {required:false},
                 'empContractNew[emp_contract_start_date]' : { required: true, valid_date: function(){ return {format:datepickerDateFormat, required:true, displayFormat:displayDateFormat}}},
-                'empContractNew[emp_contract_end_date]' : { required: true, valid_date: function(){ return {format:datepickerDateFormat, required:true, displayFormat:displayDateFormat} }, date_range: function() {return {format:datepickerDateFormat, displayFormat:displayDateFormat, fromDate:stratDate}}}  
+                'empContractNew[emp_contract_end_date]' : 
+                { 
+                    required: true, 
+                    valid_date: function()
+                    { 
+                        return {
+                            format:datepickerDateFormat, 
+                            required:true, 
+                            displayFormat:displayDateFormat
+                        } 
+                    }, date_range: function() 
+                    {
+                        return {
+                            format:datepickerDateFormat,
+                            displayFormat:displayDateFormat,
+                            fromDate:$('#empContractNew_emp_contract_start_date').val()
+                        }
+                    }
+                }  
             },
             messages: {
                 'empContractNew[keterangan]': {
@@ -334,7 +422,14 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
             }
         });
 
-        
+        $('#dialogConfirmEndContract').click(function(){
+            if($('#frmEmpEndContractNew').valid()){
+                $('#frmEmpEndContractNew').submit()
+            }
+        });
+        $('#dialogCancelEndContract').click(function(){
+            clearErrors();
+        });
         $('#delEmpContractNewBtn').click(function() {
             
             var checked = $('#frmEmpDelContractNew input:checked').length;
@@ -352,6 +447,4 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
             $('#frmEmpContractNew').submit();
         });
 });
-//]]>
 </script>
-

@@ -104,7 +104,6 @@ class FingerspotDao {
         }
     }
 
-    
     public function saveFingerspotRecord(FingerspotRecord $fingerspotRecord) {
         
         try {
@@ -116,7 +115,6 @@ class FingerspotDao {
         } catch (Exception $e) {
             throw new DaoException($e->getMessage(), $e->getCode(), $e);
         }
-        
     }
 }
 

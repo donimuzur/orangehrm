@@ -1,0 +1,351 @@
+Wed Feb  3 15:07:39 2021,218 [28436] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Connection_Mysql_Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangehrm_mysql_test.empcontractnew' doesn't exist in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection.php:1090
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection\Statement.php(286): Doctrine_Connection->rethrowException()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Connection.php(1014): Doctrine_Connection_Statement->execute()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php(246): Doctrine_Connection->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(35): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(23): sfContext->dispatch()
+#32 {main}
+
+Next DaoException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'orangehrm_mysql_test.empcontractnew' doesn't exist in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:250
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(35): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(23): sfContext->dispatch()
+#29 {main}
+[03-Feb-2021 15:49:07 Asia/Krasnoyarsk] PHP Fatal error:  Maximum execution time of 300 seconds exceeded in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\config\sfAutoloadConfigHandler.class.php on line 129
+[03-Feb-2021 15:49:50 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[03-Feb-2021 15:58:09 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[03-Feb-2021 16:02:10 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:13
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 13
+[03-Feb-2021 16:13:20 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Object of class sfOutputEscaperArrayDecorator could not be converted to string in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.ym in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[03-Feb-2021 16:22:04 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[03-Feb-2021 16:24:19 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:13
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 13
+[03-Feb-2021 16:32:24 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getEmpNumber() on array in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php:38
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php on line 38
+[03-Feb-2021 16:33:18 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getEmpNumber() on array in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php:35
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php on line 35
+[03-Feb-2021 16:42:07 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function getEmpNumber() on array in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php:35
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php on line 35
+[04-Feb-2021 09:10:31 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function orderBy() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:245
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(34): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#5 D:\project\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 245
+[04-Feb-2021 09:12:16 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function orderBy() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:245
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(34): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#5 D:\project\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 245
+[04-Feb-2021 09:13:06 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:245
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(34): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#5 D:\project\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 245
+[04-Feb-2021 09:17:52 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function execute() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:244
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(34): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#5 D:\project\ in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 244
+[04-Feb-2021 09:22:08 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method Doctrine_Connection_Statement::fetchArray() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php:246
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\service\EmployeeService.php(284): EmployeeDao->getEmployeeContractExpiredIn30DaysNew()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\actions\employeeContractExpiredAction.class.php(34): EmployeeService->getEmployeeContractExpiredIn30DaysNew()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): employeeContractExpiredAction->execute()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->execu in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 246
+[04-Feb-2021 09:28:49 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[04-Feb-2021 09:37:42 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getFullName() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:15
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(104 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 15
+Thu Feb  4 09:39:10 2021,007 [17280] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Record_UnknownPropertyException: Unknown record property / related component "emp_number" on "Employee" in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record\Filter\Standard.php:55
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1394): Doctrine_Record_Filter_Standard->filterGet()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1349): Doctrine_Record->_get()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Access.php(123): Doctrine_Record->get()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\escaper\sfOutputEscaperIteratorDecorator.class.php(126): Doctrine_Access->offsetGet()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php(12): sfOutputEscaperIteratorDecorator->offsetGet()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#32 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(23): sfContext->dispatch()
+#33 {main}
+Thu Feb  4 09:40:25 2021,467 [14600] ERROR filter.ExceptionCatcherFilter - Uncaught Exception: Doctrine_Record_UnknownPropertyException: Unknown record property / related component "emp_contract_end_date" on "Employee" in D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record\Filter\Standard.php:55
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1394): Doctrine_Record_Filter_Standard->filterGet()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Record.php(1349): Doctrine_Record->_get()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\lexpress\doctrine1\lib\Doctrine\Access.php(123): Doctrine_Record->get()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\escaper\sfOutputEscaperIteratorDecorator.class.php(126): Doctrine_Access->offsetGet()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php(20): sfOutputEscaperIteratorDecorator->offsetGet()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require('D:\\project\\Polo...')
+#6 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#7 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#8 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#9 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#10 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#11 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfCommonFilter.class.php(29): sfFilterChain->execute()
+#12 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfCommonFilter->execute()
+#13 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmPostExecutionFilter.php(22): sfFilterChain->execute()
+#14 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): orangehrmPostExecutionFilter->execute()
+#15 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ModuleFilter.php(56): sfFilterChain->execute()
+#16 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ModuleFilter->execute()
+#17 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\authorization\filter\ohrmAuthorizationFilter.php(101): sfFilterChain->execute()
+#18 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ohrmAuthorizationFilter->execute()
+#19 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\SessionInfoFetcherFilter.php(67): sfFilterChain->execute()
+#20 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): SessionInfoFetcherFilter->execute()
+#21 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\OrangeI18NFilter.php(58): sfFilterChain->execute()
+#22 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): OrangeI18NFilter->execute()
+#23 D:\project\Polowijo Gosari\orangehrm\symfony\apps\orangehrm\lib\filter\ExceptionCatcherFilter.php(26): sfFilterChain->execute()
+#24 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): ExceptionCatcherFilter->execute()
+#25 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\filter\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()
+#26 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfBasicSecurityFilter->execute()
+#27 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1009): sfFilterChain->execute()
+#28 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfRenderingFilter->execute()
+#29 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(685): sfFilterChain->execute()
+#30 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(2773): sfController->forward()
+#31 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\util\sfContext.class.php(179): sfFrontWebController->dispatch()
+#32 D:\project\Polowijo Gosari\orangehrm\symfony\web\index.php(23): sfContext->dispatch()
+#33 {main}
+[04-Feb-2021 10:11:32 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[04-Feb-2021 10:12:44 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getEmpNumber() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:12
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(10 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 12
+[04-Feb-2021 10:41:17 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to undefined method sfOutputEscaperArrayDecorator::getFullName() in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php:15
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4338): require()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(4397): sfPHPView->renderFile()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(994): sfPHPView->render()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(981): sfExecutionFilter->executeView()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(949): sfExecutionFilter->handleView()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(104 in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmDashboardPlugin\modules\dashboard\templates\employeeContractExpiredSuccess.php on line 15
+[05-Feb-2021 10:15:28 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php:164
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php(86): EmployeePersonalDetailsForm->getPersonalInfoWidgets()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\sfForm.class.php(75): EmployeePersonalDetailsForm->configure()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\addon\sfFormSymfony.class.php(35): sfForm->__construct()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\viewPersonalDetailsAction.class.php(80): sfFormSymfony->__construct()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): viewPersonalDetailsAction->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCo in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php on line 164
+[05-Feb-2021 10:17:37 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php:229
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php(99): EmployeePersonalDetailsForm->getSensitiveInfoWidgets()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\sfForm.class.php(75): EmployeePersonalDetailsForm->configure()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\addon\sfFormSymfony.class.php(35): sfForm->__construct()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\viewPersonalDetailsAction.class.php(80): sfFormSymfony->__construct()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): viewPersonalDetailsAction->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmC in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php on line 229
+[05-Feb-2021 10:18:36 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function setAttribute() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php:229
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php(99): EmployeePersonalDetailsForm->getSensitiveInfoWidgets()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\sfForm.class.php(75): EmployeePersonalDetailsForm->configure()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\lib\form\addon\sfFormSymfony.class.php(35): sfForm->__construct()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\viewPersonalDetailsAction.class.php(80): sfFormSymfony->__construct()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): viewPersonalDetailsAction->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmC in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\form\EmployeePersonalDetailsForm.php on line 229
+[08-Feb-2021 09:07:39 Asia/Krasnoyarsk] PHP Parse error:  syntax error, unexpected end of file in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\templates\_empContract.php on line 446
+[08-Feb-2021 09:10:19 Asia/Krasnoyarsk] PHP Parse error:  syntax error, unexpected end of file in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\templates\_empContract.php on line 442
+[08-Feb-2021 09:52:35 Asia/Krasnoyarsk] PHP Parse error:  syntax error, unexpected 'public' (T_PUBLIC), expecting variable (T_VARIABLE) in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\lib\dao\EmployeeDao.php on line 194
+[08-Feb-2021 10:13:51 Asia/Krasnoyarsk] Action "pim/UpdateEmpEndContractNewAction" does not exist.
+[08-Feb-2021 10:14:27 Asia/Krasnoyarsk] Action "pim/UpdateEmpEndContractNewAction" does not exist.
+[08-Feb-2021 10:21:21 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function setStatus() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\updateEmpEndContractNewAction.class.php:65
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): UpdateEmpEndContractNewAction->execute()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\l in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\updateEmpEndContractNewAction.class.php on line 65
+[08-Feb-2021 10:22:53 Asia/Krasnoyarsk] PHP Fatal error:  Uncaught Error: Call to a member function setStatus() on null in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\updateEmpEndContractNewAction.class.php:65
+Stack trace:
+#0 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(967): UpdateEmpEndContractNewAction->execute()
+#1 D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmCorePlugin\lib\filter\orangehrmExecutionFilter.php(42): sfExecutionFilter->executeAction()
+#2 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(962): orangehrmExecutionFilter->executeAction()
+#3 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(948): sfExecutionFilter->handleAction()
+#4 D:\project\Polowijo Gosari\orangehrm\symfony\cache\orangehrm\prod\config\config_core_compile.yml.php(1044): sfExecutionFilter->execute()
+#5 D:\project\Polowijo Gosari\orangehrm\symfony\lib\vendor\symfony\l in D:\project\Polowijo Gosari\orangehrm\symfony\plugins\orangehrmPimPlugin\modules\pim\actions\updateEmpEndContractNewAction.class.php on line 65
+Tue Feb  9 08:30:23 2021,607 [7424] INFO core.email - ========== Message Begins ==========
+
+Time : February 9, 2021, 8:30 am
+Message Type : Failure
+Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: Failed to authenticate on SMTP server with username "no-reply@polowijogosari.co.id" using 2 possible authenticators
+
+========== Message Ends ==========
+
+
+[09-Feb-2021 09:52:33 Asia/Krasnoyarsk] Action "leave/PrintLeaveReport" does not exist.
+[09-Feb-2021 10:02:29 Asia/Krasnoyarsk] Action "leave/PrintLeaveReport" does not exist.
+[09-Feb-2021 10:02:35 Asia/Krasnoyarsk] Action "leave/PrintLeaveReport" does not exist.
+[09-Feb-2021 10:03:54 Asia/Krasnoyarsk] Action "leave/printLeaveReport" does not exist.
+[09-Feb-2021 10:04:32 Asia/Krasnoyarsk] Action "leave/printLeaveReport" does not exist.

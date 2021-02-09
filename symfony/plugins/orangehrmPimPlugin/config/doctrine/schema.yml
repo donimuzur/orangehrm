@@ -106,6 +106,8 @@ Employee:
     pin: string(32)
     npwp: string(50)
     bpjs: string(50)
+    bpjstk: string(50)
+    emp_placeofbirth: string(50)
   relations:
     subDivision:
       class: Subunit
@@ -261,6 +263,7 @@ EmpContractNew:
     emp_contract_start_date : timestamp(25)
     emp_contract_end_date: timestamp(25)
     keterangan: string
+    status : integer(4)
   relations:
     Employee:
       local: emp_number

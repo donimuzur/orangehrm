@@ -109,7 +109,20 @@ class indexAction extends BaseDashboardAction {
                         'left' => 0,
                         'ohrm_module' => 'leave',
                         'loadDefault' => 'false'
-            )));
+                     )),
+                array(
+                    'name' => 'Contract Will Expired in 30 Days',
+                    'attributes' => array(
+                        'width' => 300,
+                        'height' => 281,
+                        'module_name' => 'dashboard',
+                        'action_name' => 'EmployeeContractExpired',
+                        'top' => 0,
+                        'left' => 0,
+                        'ohrm_module' => 'leave',
+                        'loadDefault' => 'false'
+                    ))
+                );
         } else {
             $allowedPanels = array(array(
                     'name' => 'Pending Leave Requests',
@@ -127,7 +140,7 @@ class indexAction extends BaseDashboardAction {
 
         $graphPanel = array(
             'attributes' => array('title' => "",
-                'width' => 1100,
+                'width' => 1300,
                 'height' => 300,
                 'permissions' => array(1, 3)),
             'name' => 'Graphs',

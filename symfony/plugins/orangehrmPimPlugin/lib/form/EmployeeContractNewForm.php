@@ -147,6 +147,13 @@ class EmployeeContractNewForm extends BaseForm {
         $employeeContract = false;
 
         if (empty($empContractNumber)) {
+           
+            $q = Doctrine_Query::create()->update('EmpContractNew')
+            ->set('status',0)
+            ->where('emp_number = ?', $empNumber);
+           
+            $result  = $q->execute();
+           
 
             $q = Doctrine_Query::create()
                     ->select('MAX(ecn.emp_contract_number)')
@@ -172,6 +179,7 @@ class EmployeeContractNewForm extends BaseForm {
             $employeeContract = new EmpContractNew();
             $employeeContract->emp_number = $empNumber;
             $employeeContract->emp_contract_number = $empContractNumber;
+            $employeeContract->status = 1;
         }
 
         $employeeContract->emp_contract_start_date = $this->getValue('emp_contract_start_date');
@@ -182,6 +190,6 @@ class EmployeeContractNewForm extends BaseForm {
         $this->getEmployeeEventService()->saveEvent($empNumber,PluginEmployeeEvent::EVENT_TYPE_EMP_CONTRACT,PluginEmployeeEvent::EVENT_UPDATE,'Employee Contract Changed',$this->getEmployeeEventService()->getUserRole());
 
     }
-
+   
 }
 

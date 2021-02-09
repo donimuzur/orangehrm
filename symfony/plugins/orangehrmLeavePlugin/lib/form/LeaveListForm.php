@@ -164,6 +164,7 @@ class LeaveListForm extends sfForm {
         return array(
             'btnSearch' => new ohrmWidgetButton('btnSearch', 'Search', array()),
             'btnReset' => new ohrmWidgetButton('btnReset', 'Reset', array('class' => 'reset')),
+            'btnPrintOutReportLeave' => new ohrmWidgetButton('btnPrintOutReportLeave', 'Print Leave Report', array()),
         );
     }
 

@@ -26,6 +26,7 @@ abstract class BaseDashboardAction extends sfAction {
     private $dashboardService;
     private $graphService;
     private $leaveRequestService;
+    private $employeeService;
     private $systemUserService;
     private $userRoleManager;
 
@@ -49,7 +50,12 @@ abstract class BaseDashboardAction extends sfAction {
         }
         return $this->leaveRequestService;
     }
-
+    public function getEmployeeService() {
+        if (is_null($this->employeeService)) {
+            $this->employeeService = new EmployeeService();
+        }
+        return $this->employeeService;
+    }
     public function getGraphService() {
         if (is_null($this->graphService)) {
             $this->graphService = new GraphService();

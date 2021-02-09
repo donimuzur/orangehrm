@@ -99,3 +99,12 @@ Message : Leave application email was sent to zulfi.rusdani@polowijogosari.com
 
 Thu Jan 21 16:51:07 2021,493 [1728] ERROR core.email - No email template found for: leave.approve, role: ess
 Thu Jan 21 16:51:07 2021,578 [1728] ERROR core.email - No email template found for: leave.approve, role: subscriber
+Tue Feb  9 08:30:23 2021,607 [7424] INFO core.email - ========== Message Begins ==========
+
+Time : February 9, 2021, 8:30 am
+Message Type : Failure
+Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: Failed to authenticate on SMTP server with username "no-reply@polowijogosari.co.id" using 2 possible authenticators
+
+========== Message Ends ==========
+
+

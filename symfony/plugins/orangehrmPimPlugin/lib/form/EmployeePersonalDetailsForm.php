@@ -146,8 +146,10 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtMilitarySer' => new sfWidgetFormInputText(),
             'txtNpwp' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
             'txtBpjs' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
-			'txtPin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32))
-           
+            'txtBpjsTk' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
+			'txtPin' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 32)),
+            'POB' => new sfWidgetFormInputText(array(), array("class" => "formInputText", "maxlength" => 50)),
+            
         );
 
         //setting default values
@@ -162,6 +164,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
         //settting default npwp & bpjs
         $widgets['txtNpwp']->setAttribute('value', $this->employee->npwp);
         $widgets['txtBpjs']->setAttribute('value', $this->employee->bpjs);
+        $widgets['txtBpjsTk']->setAttribute('value', $this->employee->bpjstk);
 		
         //setting the default selected nation code
         $widgets['cmbNation']->setDefault($this->employee->nation_code);
@@ -205,7 +208,9 @@ class EmployeePersonalDetailsForm extends BaseForm {
             'txtMilitarySer' => new sfValidatorString(array('required' => false)),
             'txtPin' => new sfValidatorString(array('required' => false, 'max_length' => 32)),
             'txtNpwp' => new sfValidatorString(array('required' => false, 'max_length' => 50)),
-            'txtBpjs' => new sfValidatorString(array('required' => false, 'max_length' => 50))
+            'txtBpjs' => new sfValidatorString(array('required' => false, 'max_length' => 50)),
+            'txtBpjsTk' => new sfValidatorString(array('required' => false, 'max_length' => 50)),
+            'POB' => new sfValidatorString(array('required' => false, 'max_length' => 50))
             
         );
 
@@ -234,7 +239,7 @@ class EmployeePersonalDetailsForm extends BaseForm {
         $inputDatePattern = sfContext::getInstance()->getUser()->getDateFormat();
 
         $validators = array('txtNICNo' => new sfValidatorString(array('required' => false)),
-            'txtSINNo' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'First Name Length exceeded 30 characters')),
+            'txtSINNo' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'SIN Name Length exceeded 30 characters')),
             'txtLicenNo' => new sfValidatorString(array('required' => false, 'max_length' => 30), array('max_length' => 'License No length exceeded 30 characters')),
             'DOB' => new ohrmDateValidator(array('date_format' => $inputDatePattern, 'required' => false), array('invalid' => "Date format should be" . $inputDatePattern)));
 
@@ -278,9 +283,11 @@ class EmployeePersonalDetailsForm extends BaseForm {
             $employee->pin = $this->getValue('txtPin');
             $employee->npwp = $this->getValue('txtNpwp');
             $employee->bpjs = $this->getValue('txtBpjs');
+            $employee->bpjstk = $this->getValue('txtBpjsTk');
             $employee->employeeId = $this->getValue('txtEmployeeId');
             $employee->ssn = $this->getValue('txtNICNo');
             $employee->sin = $this->getValue('txtSINNo');
+            $employee->emp_placeofbirth = $this->getValue('POB');
             $employee->emp_birthday = $this->getValue('DOB');
             $employee->licenseNo = $this->getValue('txtLicenNo');
         }

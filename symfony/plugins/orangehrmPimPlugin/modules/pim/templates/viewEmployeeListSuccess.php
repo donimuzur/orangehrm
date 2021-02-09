@@ -26,9 +26,7 @@
         <?php include_partial('global/flash_messages', array('prefix' => 'search')); ?>
 
         <form id="search_form" name="frmEmployeeSearch" method="post" action="<?php echo url_for('@employee_list'); ?>">
-
             <fieldset>
-
                 <ol>
                     <?php echo $form->render(); ?>
                 </ol>
@@ -39,13 +37,10 @@
                 <p>
                     <input type="button" id="searchBtn" value="<?php echo __("Search") ?>" name="_search" />
                     <input type="button" class="reset" id="resetBtn" value="<?php echo __("Reset") ?>" name="_reset" />                    
-                    <input type="button" id="btnExportToXls" value="<?php echo __("Export To Excel") ?>" name="BtnExportToXls" />
+                    <input type="button" id="btnExport" value="<?php echo __("Export To Excel") ?>" name="btnExport" />
                 </p>
-
             </fieldset>
-
         </form>
-
     </div> <!-- inner -->
 
     <a href="#" class="toggle tiptip" title="<?php echo __(CommonMessages::TOGGABLE_DEFAULT_MESSAGE); ?>">&gt;</a>
@@ -58,6 +53,9 @@
 
 <script type="text/javascript">
 
+    var linkToExport='<?php echo url_for('pim/exportEmployeeListToExcel'); ?>'
+    var linkToDownloadFile='<?php echo url_for('pim/downloadFile'); ?>'
+    var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
     $(document).ready(function() {
         
         var supervisors = <?php echo str_replace('&#039;', "'", $form->getSupervisorListAsJson()) ?>;
@@ -97,7 +95,6 @@
         }
 
         $("#empsearch_id, #empsearch_supervisor_name").one('focus', function() {
-
             if ($(this).hasClass("inputFormatHint")) {
                 $(this).val("");
                 $(this).removeClass("inputFormatHint");
@@ -134,10 +131,11 @@
             $("#empsearch_termination").val('<?php echo EmployeeSearchForm::WITHOUT_TERMINATED; ?>');
             $('#search_form').submit();
         });
-
+        
         $('#btnAdd').click(function() {
             location.href = "<?php echo url_for('pim/addEmployee') ?>";
         });
+
         $('#btnDelete').click(function() {
             $('#frmList_ohrmListComponent').submit(function() {
                 $('#deleteConfirmation').dialog('open');
@@ -150,8 +148,53 @@
             document.frmList_ohrmListComponent.submit();
         });
         /* Delete confirmation controls: End */
-
+        
+        $("#btnExport").click(function() {
+            $("#btnExport").val(lang_processing);
+            exportToExcel();
+        });
     }); //ready
+        
+    function exportToExcel(){
+        var empsearch_employee_name_empId = $('#empsearch_employee_name_empId').val();
+        var empsearch_employee_status = $('#empsearch_employee_status').val();
+        var empsearch_termination = $('#empsearch_termination').val();
+        var empsearch_job_title = $('#empsearch_job_title').val();
+        var empsearch_sub_unit = $('#empsearch_sub_unit').val();
+        var empsearch__csrf_token = $('#empsearch__csrf_token').val();
+        
+        $.ajax({
+            type:     "post",
+            data:    {
+                empsearch_employee_name_empId: employeeId,
+                empsearch_employee_status: fromDate,
+                empsearch_termination: toDate,
+                empsearch_job_title: employeeId,
+                empsearch_sub_unit: fromDate,
+                empsearch__csrf_token: toDate
+            },
+            timeout: 0,
+            cache:    false,
+            url:      linkToExport,
+            dataType: "text",
+            error: function(xhr, status, error) 
+            {
+                console.log("Error hubungi admin atau team IT \n"+xhr.responseText)
+                $("#btnExport").val("Export to Excel");
+            },
+            success: function (data) 
+            {
+                if(data.includes("sukses")){
+                    window.location = linkToDownloadFile;
+                    $("#btnExport").val("Export to Excel");
+                }
+                else{
+                    location.reload();
+                }
+            }
+        });
+        return false;
+    }
 
     function submitPage(pageNo) {
         document.frmEmployeeSearch.pageNo.value = pageNo;

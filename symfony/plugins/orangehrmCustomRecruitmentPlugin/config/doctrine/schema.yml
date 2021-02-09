@@ -1,0 +1,25 @@
+CustomRecruitmentCandidateAttachment:
+  tableName: ohrm_custom_recruitment_candidate_attachment
+  columns:
+    id:
+      type: integer(13)
+      primary: true
+      autoincrement: true
+    vacany_position:
+      name: vacancy_position
+      type: string(50)
+    file_name:
+      name: file_name as fileName
+      type: string(255)
+    file_type:
+      name: file_type as fileType
+      type: string(255)
+    file_size:
+      name: file_size as fileSize
+      type: integer(30)
+    file_content:
+      name: file_content as fileContent
+      type: blob(2147483647)
+    attachment_type:
+      name: attachment_type as attachmentType
+      type: integer(4)

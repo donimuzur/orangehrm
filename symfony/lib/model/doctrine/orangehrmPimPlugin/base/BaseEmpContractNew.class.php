@@ -10,6 +10,7 @@
  * @property string          $emp_contract_start_date             Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @property string          $emp_contract_end_date               Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @property string          $keterangan                          Type: string
+ * @property int             $status                              Type: integer(4)
  * @property Employee        $Employee                            
  *  
  * @method int               getEmpNumber()                       Type: integer(4), primary key
@@ -17,6 +18,7 @@
  * @method string            getEmpContractStartDate()            Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @method string            getEmpContractEndDate()              Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @method string            getKeterangan()                      Type: string
+ * @method int               getStatus()                          Type: integer(4)
  * @method Employee          getEmployee()                        
  *  
  * @method EmpContractNew    setEmpNumber(int $val)               Type: integer(4), primary key
@@ -24,6 +26,7 @@
  * @method EmpContractNew    setEmpContractStartDate(string $val) Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @method EmpContractNew    setEmpContractEndDate(string $val)   Type: timestamp(25), Timestamp in ISO-8601 format (YYYY-MM-DD HH:MI:SS)
  * @method EmpContractNew    setKeterangan(string $val)           Type: string
+ * @method EmpContractNew    setStatus(int $val)                  Type: integer(4)
  * @method EmpContractNew    setEmployee(Employee $val)           
  *  
  * @package    orangehrm
@@ -56,6 +59,10 @@ abstract class BaseEmpContractNew extends sfDoctrineRecord
              ));
         $this->hasColumn('keterangan', 'string', null, array(
              'type' => 'string',
+             ));
+        $this->hasColumn('status', 'integer', 4, array(
+             'type' => 'integer',
+             'length' => 4,
              ));
     }
 

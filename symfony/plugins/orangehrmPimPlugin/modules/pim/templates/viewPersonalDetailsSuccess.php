@@ -50,7 +50,7 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             </ol>    
                         </li>
                     </ol>
-                    <ol>
+                    <ol style="border-bottom:none;padding-bottom: 0px;margin-bottom: 0px;">
 					  <li>
                             <label for="personal_txtPin"><?php echo __('Pin'); ?></label>
                             <?php echo $form['txtPin']->render(array("maxlength" => 32, "class" => "editable")); ?>
@@ -63,10 +63,18 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                             <label for="personal_txtNpwp"><?php echo __('NPWP'); ?></label>
                             <?php echo $form['txtNpwp']->render(array("maxlength" => 50, "class" => "editable")); ?>
                         </li>
+                    </ol>
+                    <ol style="border-bottom:none;padding-bottom: 0px;margin-bottom: 0px;">
                         <li>
-                            <label for="personal_txtBpjs"><?php echo __('BPJS'); ?></label>
+                            <label for="personal_txtBpjs"><?php echo __('BPJS Kesehatan'); ?></label>
                             <?php echo $form['txtBpjs']->render(array("maxlength" => 50, "class" => "editable")); ?>
                         </li>
+                        <li>
+                            <label for="personal_txtBpjsTk"><?php echo __('BPJS TK'); ?></label>
+                            <?php echo $form['txtBpjsTk']->render(array("maxlength" => 50, "class" => "editable")); ?>
+                        </li>
+                    </ol>
+                    <ol>
                         <!-- <li>
                             <label for="personal_txtOtherID"><?php echo __('Other Id'); ?></label>
                             <?php echo $form['txtOtherID']->render(array("maxlength" => 30, "class" => "editable")); ?>
@@ -92,7 +100,7 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                         </li>                    
                         <?php endif; ?>                    
                     </ol>
-                    <ol>
+                    <ol style="border-bottom:none;padding-bottom: 0px;margin-bottom: 0px;">
                         <li class="radio">
                             <label for="personal_optGender"><?php echo __("Gender"); ?></label>
                             <?php echo $form['optGender']->render(array("class"=>"editable")); ?>
@@ -104,6 +112,12 @@ use_stylesheet(plugin_web_path('orangehrmPimPlugin', 'css/viewPersonalDetailsSuc
                         <li class="new">
                             <label for="personal_cmbNation"><?php echo __("Nationality"); ?></label>
                             <?php echo $form['cmbNation']->render(array("class"=>"editable")); ?>
+                        </li>
+                    </ol>
+                    <ol>
+                        <li>
+                            <label for="personal_POB"><?php echo __('Place Of Birth'); ?></label>
+                            <?php echo $form['POB']->render(array("maxlength" => 50, "class" => "editable")); ?>
                         </li>
                         <li>
                             <label for="personal_DOB"><?php echo __("Date of Birth"); ?></label>

@@ -258,7 +258,10 @@ class EmployeeService extends BaseService {
         return $this->getEmployeeDao()->getEmployeeContractNew($empNumber);
     }
 
-
+    public function getEmployeeContractNewByEmpNumberContractNumber($empNumber, $contractNumber) {
+        return $this->getEmployeeDao()->getEmployeeContractNewByEmpNumberContractNumber($empNumber, $contractNumber);
+    }
+    
     /**
      * Delete the given employee contract  from the given employee
      * 
@@ -278,7 +281,11 @@ class EmployeeService extends BaseService {
     public function deleteEmployeeContractNew($empNumber, $contractNumber = null) {
         return $this->getEmployeeDao()->deleteEmployeeContractNew($empNumber, $contractNumber);
     }
-
+    
+    public function getEmployeeContractExpiredIn30DaysNew($date)
+    {
+        return $this->getEmployeeDao()->getEmployeeContractExpiredIn30DaysNew($date);
+    }
     /**
      * Delete the given immigration entries for the given employee.
      * 
@@ -1564,7 +1571,7 @@ class EmployeeService extends BaseService {
     public function searchEmployees(EmployeeSearchParameterHolder $parameterHolder) {
         return $this->getEmployeeDao()->searchEmployees($parameterHolder);
     }
-    
+  
     /**
      * Get Search Employee Count
      *
@@ -1595,6 +1602,11 @@ class EmployeeService extends BaseService {
      */
     public function updateEmployeeDependent(EmpDependent $employeeDependent){
         return $this->getEmployeeDao()->updateEmployeeDependent($employeeDependent);
+    }
+
+    public function updateEmployeeContractNewStatus($empNumber,$ContractNumber)
+    {
+        return $this->getEmployeeDao()->updateEmployeeContractNewStatus($empNumber,$ContractNumber);
     }
 
     /**

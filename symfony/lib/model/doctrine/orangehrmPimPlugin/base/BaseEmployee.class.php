@@ -55,6 +55,8 @@
  * @property string                                            $pin                                                         Type: string(32)
  * @property string                                            $npwp                                                        Type: string(50)
  * @property string                                            $bpjs                                                        Type: string(50)
+ * @property string                                            $bpjstk                                                      Type: string(50)
+ * @property string                                            $emp_placeofbirth                                            Type: string(50)
  * @property Subunit                                           $subDivision                                                 
  * @property JobTitle                                          $jobTitle                                                    
  * @property EmploymentStatus                                  $employeeStatus                                              
@@ -161,6 +163,8 @@
  * @method string                                              getPin()                                                     Type: string(32)
  * @method string                                              getNpwp()                                                    Type: string(50)
  * @method string                                              getBpjs()                                                    Type: string(50)
+ * @method string                                              getBpjstk()                                                  Type: string(50)
+ * @method string                                              getEmpPlaceofbirth()                                         Type: string(50)
  * @method Subunit                                             getSubDivision()                                             
  * @method JobTitle                                            getJobTitle()                                                
  * @method EmploymentStatus                                    getEmployeeStatus()                                          
@@ -267,6 +271,8 @@
  * @method Employee                                            setPin(string $val)                                          Type: string(32)
  * @method Employee                                            setNpwp(string $val)                                         Type: string(50)
  * @method Employee                                            setBpjs(string $val)                                         Type: string(50)
+ * @method Employee                                            setBpjstk(string $val)                                       Type: string(50)
+ * @method Employee                                            setEmpPlaceofbirth(string $val)                              Type: string(50)
  * @method Employee                                            setSubDivision(Subunit $val)                                 
  * @method Employee                                            setJobTitle(JobTitle $val)                                   
  * @method Employee                                            setEmployeeStatus(EmploymentStatus $val)                     
@@ -548,6 +554,14 @@ abstract class BaseEmployee extends sfDoctrineRecord
              'length' => 50,
              ));
         $this->hasColumn('bpjs', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
+        $this->hasColumn('bpjstk', 'string', 50, array(
+             'type' => 'string',
+             'length' => 50,
+             ));
+        $this->hasColumn('emp_placeofbirth', 'string', 50, array(
              'type' => 'string',
              'length' => 50,
              ));
