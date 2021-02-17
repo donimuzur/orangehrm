@@ -54,6 +54,19 @@ abstract class PluginLeaveRequest extends BaseLeaveRequest {
         }
     }
 
+    
+    public function getLeavestatus() {
+        $this->_fetchLeave();
+        $statusStrings = array();
+        foreach ($this->statusCounter as $status => $count) {
+            if (!is_null($status)) {
+                $statusStrings[] = __(ucwords(strtolower(Leave::getTextForLeaveStatus($status))));
+            }
+        }
+
+        return implode(', ', $statusStrings);
+    }
+
     public function getLeaveBreakdown() {
         $this->_fetchLeave();
 
@@ -98,6 +111,27 @@ abstract class PluginLeaveRequest extends BaseLeaveRequest {
             reset($this->statusCounter);
             $firstKey = key($this->statusCounter);
             return $firstKey;
+        }
+    }
+
+    public function getLeaveDate(){
+        $this->_fetchLeave();
+        $leaveCount = count($this->leave);
+
+        if ($leaveCount == 1) {
+            return array("startDate"=> $this->leave[0]->getFormattedLeaveDateToView(),"endDate"=> $this->leave[0]->getFormattedLeaveDateToView());
+        } else {
+            $firstDate = $this->leave[0]->getDate();
+            $lastDate = $this->leave[$leaveCount - 1]->getDate();
+            
+            if (strtotime($firstDate) > strtotime($lastDate)) {
+                $startDate = $lastDate;
+                $endDate = $firstDate;
+            } else {
+                $startDate = $firstDate;
+                $endDate = $lastDate;                
+            }
+            return array("startDate"=> $startDate,"endDate"=> $endDate);
         }
     }
 

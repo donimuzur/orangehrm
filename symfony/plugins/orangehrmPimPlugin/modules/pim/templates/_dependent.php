@@ -205,7 +205,7 @@ foreach($form->getWidgetSchema()->getPositions() as $widgetName) {
     }
 
     function hideShowRelationshipOther() {
-        if ($('#dependent_relationshipType').val() == 'child' || $('#dependent_relationshipType').val() == '') {
+        if ($('#dependent_relationshipType').val() == 'child' || $('#dependent_relationshipType').val() == 'Wife/Husband' || $('#dependent_relationshipType').val() == '') {
             $('#relationshipDesc').hide();
         } else {
             $('#relationshipDesc').show();

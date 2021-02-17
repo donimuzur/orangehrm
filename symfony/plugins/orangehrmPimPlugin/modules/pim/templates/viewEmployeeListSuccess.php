@@ -150,29 +150,20 @@
         /* Delete confirmation controls: End */
         
         $("#btnExport").click(function() {
+            $("#empsearch_isSubmitted").val('yes');
+            $('#search_form input.inputFormatHint').val('');
+            $('#search_form input.ac_loading').val('');
             $("#btnExport").val(lang_processing);
             exportToExcel();
         });
     }); //ready
         
     function exportToExcel(){
-        var empsearch_employee_name_empId = $('#empsearch_employee_name_empId').val();
-        var empsearch_employee_status = $('#empsearch_employee_status').val();
-        var empsearch_termination = $('#empsearch_termination').val();
-        var empsearch_job_title = $('#empsearch_job_title').val();
-        var empsearch_sub_unit = $('#empsearch_sub_unit').val();
-        var empsearch__csrf_token = $('#empsearch__csrf_token').val();
+        var values = $('#search_form').serialize();
         
         $.ajax({
             type:     "post",
-            data:    {
-                empsearch_employee_name_empId: employeeId,
-                empsearch_employee_status: fromDate,
-                empsearch_termination: toDate,
-                empsearch_job_title: employeeId,
-                empsearch_sub_unit: fromDate,
-                empsearch__csrf_token: toDate
-            },
+            data:   values,
             timeout: 0,
             cache:    false,
             url:      linkToExport,

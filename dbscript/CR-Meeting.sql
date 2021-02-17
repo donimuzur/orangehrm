@@ -131,4 +131,11 @@ WHERE id in
 
 alter table hs_hr_employee add column emp_placeofbirth varchar(50), add column bpjstk varchar(50);
 
-INSERT INTO `orangehrm_mysql_test`.`ohrm_module` (`name`, `status`) VALUES ('customRecruitment', '0');
+INSERT INTO `ohrm_module` (`name`, `status`) VALUES ('customRecruitment', '0');
+
+INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES ('Print Leave Report', '4', 'printLeaveReport');
+
+SET @ohrm_screen_id := (SELECT id FROM ohrm_screen WHERE action_url = 'printLeaveReport' LIMIT 1);
+INSERT INTO `ohrm_menu_item` (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `status`) VALUES ('Print Leave Report', @ohrm_screen_id, '78', '3', '100', '1');
+
+INSERT INTO `ohrm_user_role_screen` (`user_role_id`, `screen_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', '133', '1', '1', '1', '1');

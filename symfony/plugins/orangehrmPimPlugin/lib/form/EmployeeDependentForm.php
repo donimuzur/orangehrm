@@ -107,7 +107,7 @@ class EmployeeDependentForm extends BaseForm {
         $widgets = array();
         // Note: Widget names were kept from old non-symfony version
         $i18nHelper = sfContext::getInstance()->getI18N();
-        $relationshipChoices = array('' => "-- " . __('Select') . " --", 'child'=> $i18nHelper->__('Child'), 'other'=> $i18nHelper->__('Other'));
+        $relationshipChoices = array('' => "-- " . __('Select') . " --", 'Wife/Husband'=> $i18nHelper->__('Wife/Husband'), 'child'=> $i18nHelper->__('Child'), 'other'=> $i18nHelper->__('Other'));
         
         //creating widgets
         $widgets['seqNo'] = new sfWidgetFormInputHidden();

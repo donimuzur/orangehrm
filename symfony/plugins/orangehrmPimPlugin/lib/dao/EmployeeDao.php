@@ -2210,7 +2210,6 @@ class EmployeeDao extends BaseDao {
      * @param EmployeeSearchParameterHolder $parameterHolder
      */
     public function searchEmployees(EmployeeSearchParameterHolder $parameterHolder) {
-        
         $sortField  = $parameterHolder->getOrderField();
         $sortOrder  = $parameterHolder->getOrderBy();
         $offset     = $parameterHolder->getOffset();

@@ -52,9 +52,7 @@ use_javascripts_for_form($form);
                     <input type="hidden" name="hdnAction" id="hdnAction" value="search" />
                 </p>                
             </fieldset>
-            
         </form>
-        
     </div> <!-- inner -->
     <a href="#" class="toggle tiptip" title="<?php echo __(CommonMessages::TOGGABLE_DEFAULT_MESSAGE); ?>">&gt;</a>
 </div> <!-- leave-list-search -->
@@ -139,6 +137,7 @@ use_javascripts_for_form($form);
     var lang_Comment = '<?php echo __js('Comment');?>';
     var lang_Loading = '<?php echo __js('Loading');?>...';
     var lang_View = '<?php echo __js('View');?>';
+    var linkToDownloadFile='<?php echo url_for('leave/downloadFileLeaveReport'); ?>'
     var balanceData = false;
     
     $(document).ready(function(){
@@ -149,11 +148,13 @@ use_javascripts_for_form($form);
     });
 
     function printLeaveReport(){
+        var values = $('#frmFilterLeave').serialize();
         $.ajax({
             type:     "post",
             timeout: 0,
             cache:    false,
-            url:      '<?php echo url_for('leave/printLeaveReport');?>',
+            data: values,
+            url:   '<?php echo url_for('leave/printLeaveReport');?>',
             dataType: "text",
             error: function(xhr, status, error) {
                 alert("Error hubungi admin atau team IT \n"+xhr.responseText)
@@ -161,12 +162,10 @@ use_javascripts_for_form($form);
             },
             success: function (data) {
                 if(data.includes("sukses")){
-                    //window.location = linkToDownloadFile;
+                    window.location = linkToDownloadFile;
                     $("#btnPrintOutReportLeave").val("Print Leave Report");
-                    location.reload();
                 }
                 else{
-                    location.reload();
                 }
             }
         });  

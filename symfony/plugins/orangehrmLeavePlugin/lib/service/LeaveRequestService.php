@@ -442,6 +442,13 @@ class LeaveRequestService extends BaseService {
 
     }
 
+    public function printLeaveRequestsReport($searchParameters, $page = 1, $isCSVPDFExport = false, $isMyLeaveList = false, 
+            $prefetchLeave = false, $prefetchComments = false, $includePurgeEmployee = false) {
+        $result = $this->getLeaveRequestDao()->printLeaveRequestsReport($searchParameters, $page, $isCSVPDFExport, 
+                $isMyLeaveList, $prefetchLeave, $prefetchComments, $includePurgeEmployee);
+        return $result;
+
+    }
     /**
      * Get Leave Request Status
      * @param $day

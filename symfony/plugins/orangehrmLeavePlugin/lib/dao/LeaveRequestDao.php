@@ -537,6 +537,137 @@ class LeaveRequestDao extends BaseDao {
         }
     }
 
+    
+    public function printLeaveRequestsReport($searchParameters, $page = 1, $isCSVPDFExport = false, $isMyLeaveList = false,
+            $prefetchLeave = false, $prefetchComments = false, $includePurgeEmployee= false) {
+        
+        $this->_markApprovedLeaveAsTaken();
+
+        $limit = !is_null($searchParameters->getParameter('noOfRecordsPerPage')) ? $searchParameters->getParameter('noOfRecordsPerPage') : sfConfig::get('app_items_per_page');
+        $offset = ($page > 0) ? (($page - 1) * $limit) : 0;
+
+        $list = array();
+
+        $select = 'lr.*, em.firstName, em.lastName, em.middleName, em.termination_id, lt.*';
+        
+        if ($prefetchComments) {
+            $select .= ', lc.*';
+        }
+        if ($prefetchLeave) {
+            $select .= ', l.*';
+        }
+        
+        $q = Doctrine_Query::create()
+                ->select($select)
+                ->from('LeaveRequest lr')
+                ->leftJoin('lr.Leave l')
+                ->leftJoin('lr.Employee em')
+                ->leftJoin('lr.LeaveType lt');
+
+        if ($prefetchComments) {
+            $q->leftJoin('lr.LeaveRequestComment lc');
+        }
+        
+        $dateRange = $searchParameters->getParameter('dateRange', new DateRange());
+        $statuses = $searchParameters->getParameter('statuses');
+        $employeeFilter = $searchParameters->getParameter('employeeFilter');
+        $leavePeriod = $searchParameters->getParameter('leavePeriod');
+        $leaveType = $searchParameters->getParameter('leaveType');
+        $leaveTypeId = $searchParameters->getParameter('leaveTypeId');
+        $includeTerminatedEmployees = $searchParameters->getParameter('cmbWithTerminated');
+        $subUnit = $searchParameters->getParameter('subUnit');
+        $locations = $searchParameters->getParameter('locations');
+        $employeeName = $searchParameters->getParameter('employeeName');
+
+        $fromDate = $dateRange->getFromDate();
+        $toDate = $dateRange->getToDate();
+
+        if (!empty($fromDate)) {
+            $q->andWhere("l.date >= ?",$fromDate);
+        }
+
+        if (!empty($toDate)) {
+            $q->andWhere("l.date <= ?",$toDate);
+        }
+
+        if (!empty($statuses)) {
+            $q->whereIn("l.status", $statuses);
+        }
+
+
+//        if (trim($fromDate) == "" && trim($toDate) == "" && !empty($leavePeriod)) {
+//            $leavePeriodId = ($leavePeriod instanceof LeavePeriod) ? $leavePeriod->getLeavePeriodId() : $leavePeriod;
+//            $q->andWhere('lr.leave_period_id = ?', (int) $leavePeriodId);
+//        }
+
+        if (!empty($leaveType)) {
+            $leaveTypeId = ($leaveType instanceof LeaveType) ? $leaveType->getLeaveTypeId() : $leaveType;
+            $q->andWhere('lr.leave_type_id = ?', $leaveTypeId);
+        }
+        if (!empty($leaveTypeId)) {
+            $q->andWhere('lr.leave_type_id = ?', $leaveTypeId);
+        }
+
+        if ($isMyLeaveList) {
+            $includeTerminatedEmployees = true;
+        }
+
+        // Search by employee name
+        if (!empty($employeeName)) {
+            $employeeName = str_replace(' (' . __('Past Employee') . ')', '', $employeeName);
+            // Replace multiple spaces in string with wildcards
+            $employeeName = preg_replace('!\s+!', '%', $employeeName);
+
+            // Surround with wildcard character
+            $employeeName = '%' . $employeeName . '%';
+
+            $q->andWhere('CONCAT_WS(\' \', em.emp_firstname, em.emp_middle_name, em.emp_lastname) LIKE ?', $employeeName);
+        }
+
+        if (!empty($subUnit)) {
+
+            // Get given subunit's descendents as well.
+            $subUnitIds = array($subUnit);
+            $subUnitObj = Doctrine::getTable('Subunit')->find($subUnit);
+
+            if (!empty($subUnitObj)) {
+                $descendents = $subUnitObj->getNode()->getDescendants();
+                foreach ($descendents as $descendent) {
+                    $subUnitIds[] = $descendent->id;
+                }
+            }
+
+            $q->andWhereIn('em.work_station', $subUnitIds);
+        }
+
+        if (empty($includeTerminatedEmployees)) {
+            $q->andWhere("em.termination_id IS NULL");
+        }
+        if (!$includePurgeEmployee) {
+            $q->andWhere("em.purged_at IS NULL");
+        }
+
+        if (!empty($locations)) {
+            $q->leftJoin('em.locations loc');
+            $q->andWhereIn('loc.id', $locations);
+        }
+
+        $count = $q->count();
+
+        $q->orderBy('l.date ASC, em.emp_lastname ASC, em.emp_firstname ASC');        
+
+        if ($isCSVPDFExport) {
+            $limit = $count;
+            $offset = 0;
+        }
+        $q->offset($offset);
+        $q->limit($limit);
+        $query = $q->getSqlQuery();
+        $list = $q->execute();
+
+        return $isCSVPDFExport ? $list : array('list' => $list, 'meta' => array('record_count' => $count), 'Query' => $query);
+    }
+
     /**
      * Search Leave Requests.
      * 

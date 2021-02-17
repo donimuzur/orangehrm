@@ -26,11 +26,9 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
  * if not, write to the Free Software Foundation, Inc., 51 Franklin Street, Fifth Floor,
  * Boston, MA  02110-1301, USA
  */
-class PimActions extends sfActions {
-    private $fingerspotDevicesService;
-    private $fingerspotRecordTempService;
-	private $fingerspotService;
+ class PimActions extends sfActions {
     private $employeeService;
+    private $jobTitleService;
     
 	public function getEmployeeService() {
 
@@ -44,6 +42,20 @@ class PimActions extends sfActions {
     public function setEmployeeService(EmployeeService $employeeService) {
 
         $this->employeeService = $employeeService;
+    }
+	
+    public function getJobTitleService() {
+
+        if (is_null($this->jobTitleService)) {
+            $this->jobTitleService = new JobTitleService();
+        }
+
+        return $this->jobTitleService;
+    }
+
+    public function setJobTitleService(JobTitleService $jobTitleService) {
+
+        $this->jobTitleService = $jobTitleService;
     }
 	
     protected function _getThemeName() {
@@ -124,6 +136,13 @@ class PimActions extends sfActions {
             $templateProcessor->cloneRowAndSetValues('emgKontakNo', $EmgContactList);
 
             $templateProcessor->saveAs('files/data.docx');
+            
+            \PhpOffice\PhpWord\Settings::setPdfRendererPath(ROOT_PATH . '/symfony/lib/vendor/tecnickcom/tcpdf');
+            \PhpOffice\PhpWord\Settings::setPdfRendererName(\PhpOffice\PhpWord\Settings::PDF_RENDERER_TCPDF);
+
+            $phpWord = \PhpOffice\PhpWord\IOFactory::load('files/data.docx'); 
+            $xmlWriter = \PhpOffice\PhpWord\IOFactory::createWriter($phpWord , 'PDF');
+            $xmlWriter->save('files/data.pdf');  
             $this->records = "sukses";
             $this->getUser()->setFlash('personaldetails.success',"Sukses Print To Pdf" );
         }
@@ -136,50 +155,203 @@ class PimActions extends sfActions {
 
     public function executeExportEmployeeListToExcel($request) { 
         try {
-            $this->empsearch_employee_name_empId = $request->getParameter('empsearch_employee_name_empId');
-            $this->empsearch_employee_status = $request->getParameter('empsearch_employee_status');
-            $this->empsearch_termination = $request->getParameter('empsearch_termination');
-            $this->empsearch_job_title = $request->getParameter('empsearch_job_title');
-            $this->empsearch_status = $request->getParameter('empsearch_employee_status');
-            $this->empsearch_sub_unit = $request->getParameter('empsearch_sub_unit');
-            $this->empsearch__csrf_token = $request->getParameter('empsearch__csrf_token');
-            
-            $userRoleManager = $this->getContext()->getUserRoleManager();   
-            $this->employeeId = $this->getContext()->getUser()->getEmployeeNumber();
-
-            $empRecords = array();
-            $empRecords = $this->employeeService->getEmployee($this->employeeId);
-            $empRecords = array($empRecords);
-
-            $arrPin =array();
-            foreach ($empRecords as $employee) {
-                array_push($arrPin,$employee->getpin());
+            if ($this->getUser()->hasFlash('templateMessage')) {
+                list($this->messageType, $this->message) = $this->getUser()->getFlash('templateMessage');
             }
-            $attendanceRecords = $this->fingerspotService->getFingerspotRecord($arrPin, $this->fromDate, $this->toDate);
             
+            $empNumber = $request->getParameter('empNumber');
+            $isPaging = $request->getParameter('hdnAction') == 'search' ? 1 : $request->getParameter('pageNo', 1);
+    
+            $pageNumber = $isPaging;
+            if (!empty($empNumber) && $this->getUser()->hasAttribute('pageNumber')) {
+                $pageNumber = $this->getUser()->getAttribute('pageNumber');
+            }
+
+            $noOfRecords = sfConfig::get('app_items_per_page');
+
+            $offset = ($pageNumber >= 1) ? (($pageNumber - 1) * $noOfRecords) : ($request->getParameter('pageNo', 1) - 1) * $noOfRecords;
+    
+             // Reset filters if requested to
+            if ($request->hasParameter('reset')) {
+                $this->setFilters(array());
+                $this->setSortParameter(array("field"=> NULL, "order"=> NULL));
+                $this->setPage(1);
+            }
+    
+            $this->form = new EmployeeSearchForm($this->getFilters());
+            if ($request->isMethod('post')) {
+    
+                $this->form->bind($request->getParameter($this->form->getName()));
+    
+                if ($this->form->isValid()) {
+                    
+                    if($this->form->getValue('isSubmitted')=='yes'){
+                        $this->setSortParameter(array("field"=> NULL, "order"=> NULL));
+                    }         
+                    
+                    $this->setFilters($this->form->getValues());
+                    
+                } else {
+                    $this->setFilters(array());
+                    $this->handleBadRequest();
+                    $this->getUser()->setFlash('search.warning', __(TopLevelMessages::VALIDATION_FAILED), false);
+                }
+    
+                $this->setPage(1);
+            }
+            
+            if ($request->isMethod('get')) {
+                $sortParam = array("field"=>$request->getParameter('sortField'), 
+                                   "order"=>$request->getParameter('sortOrder'));
+                $this->setSortParameter($sortParam);
+                $this->setPage(1);
+            }
+            
+            $sort = $this->getSortParameter();
+            $sortField = $sort["field"];
+            $sortOrder = $sort["order"];
+            $filters = $this->getFilters();
+            
+            if( isset(  $filters['employee_name'])){
+                $filters['employee_name'] = str_replace(' (' . __('Past Employee') . ')', '', $filters['employee_name']['empName']);
+            }
+            
+            if (isset($filters['supervisor_name'])) {
+                $filters['supervisor_name'] = str_replace(' (' . __('Past Employee') . ')', '', $filters['supervisor_name']);
+            }
+            
+            $this->filterApply = !empty($filters);
+    
+            $accessibleEmployees = UserRoleManagerFactory::getUserRoleManager()->getAccessibleEntityIds('Employee');
+            $countEmp;
+            if (count($accessibleEmployees) > 0) {
+                $filters['employee_id_list'] = $accessibleEmployees;
+                $count = $this->getEmployeeService()->getSearchEmployeeCount( $filters );
+                $countEmp = $count;
+                $parameterHolder = new EmployeeSearchParameterHolder();
+                $parameterHolder->setOrderField($sortField);
+                $parameterHolder->setOrderBy($sortOrder);
+                $parameterHolder->setLimit($count);
+                $parameterHolder->setOffset(0);
+                $parameterHolder->setFilters($filters);
+    
+                $list = $this->getEmployeeService()->searchEmployees($parameterHolder);
+                
+            } else {
+                $count = 0;
+                $list = array();
+            }
+    
+
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
 
-            $header = array("Id", "Employee Name","Job Title","Address", "Employment Status", "Sub Unit", "", "Birth");
+            $header = array(__("NIK"), __("Employee Name"), __("Job Title"), __("Address"), __("Employment Status"), __("Sub Unit"), __("Place of Birth"), __("Date of Birth"),
+                __("Gender"), __("Marrital Status"), __("Wife/Husband"), __("Child 1"), __("Child 2"), __("Child 3"), __("Child 4"), __("Child 5") );
             $sheet->fromArray([$header], NULL, 'A1');
             $count = 2;
-            foreach($attendanceRecords as $attendance)
+            foreach($list as $list)
             {
-                $sheet->setCellValue("A".$count,$attendance->getdate_ymd());
-                $sheet->setCellValue("B".$count,$attendance->getEmployee()->getFullName());
-                $sheet->setCellValue("C".$count,$attendance->getjobTitleName());
-                $sheet->setCellValue("D".$count,$attendance->getsubUnit());
-                $sheet->setCellValue("E".$count,$attendance->getscan_date());
+                $Employee = $this->getEmployeeService()->getEmployee($list->getEmpNumber());
+                $jobTitle = $this->getJobTitleService()->getJobTitleById($list->getJobTitle());
+                $sheet->setCellValue("A".$count,$list->getEmployeeId());
+                $sheet->setCellValue("B".$count,$list->getFullName());
+                $sheet->setCellValue("C".$count,$list->getJobTitle()->getJobTitleName());
+                $sheet->setCellValue("D".$count,$list->getStreet1());
+                $sheet->setCellValue("E".$count,$list->getEmpStatus());
+                $sheet->setCellValue("F".$count,$list->getSubDivision());
+                $sheet->setCellValue("G".$count,$Employee->getEmpPlaceofbirth());
+                $sheet->setCellValue("H".$count,$Employee->getEmpBirthday());
+                $sheet->getStyle('H'.$count)
+                        ->getNumberFormat()
+                        ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
+                $sheet->setCellValue("I".$count,"");
+                
+                if($Employee->getEmpGender()==1)
+                {
+                    $sheet->setCellValue("I".$count,__("Male"));
+                }
+                else if($Employee->getEmpGender()==2)
+                {
+                    $sheet->setCellValue("I".$count,__("Female"));
+                }
+                
+                $sheet->setCellValue("J".$count,$Employee->getEmpMaritalStatus());
                 $count++;
             }
+
             $writer = new Xlsx($spreadsheet);
             $writer->save('files/data.xlsx');
+
             $this->records = "sukses";
-            $this->getUser()->setFlash('fingerspotDevices.success',"Sukses Export Data");
-        }catch (Exception $ex) {
+            $this->getUser()->setFlash('search.success',"Sukses Export Data".$countEmp );
+
+        }
+        catch (Exception $ex) {
             $this->records = "error";
-            $this->getUser()->setFlash('fingerspotDevices.warning',"Error ".$ex->getMessage());
+            $this->getUser()->setFlash('search.warning',"Error ".$ex->getMessage());
+
         }  
+    }
+
+    
+    /**
+     * Set's the current page number in the user session.
+     * @param $page int Page Number
+     * @return None
+     */
+    protected function setPage($page) {
+        $this->getUser()->setAttribute('emplist.page', $page, 'pim_module');
+    }
+
+    /**
+     * Get the current page number from the user session.
+     * @return int Page number
+     */
+    protected function getPage() {
+        return $this->getUser()->getAttribute('emplist.page', 1, 'pim_module');
+    }
+    
+    /**
+     * Sets the current sort field and order in the user session.
+     * @param type Array $sort 
+     */
+    protected function setSortParameter($sort) {
+        $this->getUser()->setAttribute('emplist.sort', $sort, 'pim_module');
+    }
+
+    /**
+     * Get the current sort feild&order from the user session.
+     * @return array ('field' , 'order')
+     */
+    protected function getSortParameter() {
+        return $this->getUser()->getAttribute('emplist.sort', null, 'pim_module');
+    }
+    
+    /**
+     *
+     * @param array $filters
+     * @return unknown_type
+     */
+    protected function setFilters(array $filters) {
+        return $this->getUser()->setAttribute('emplist.filters', $filters, 'pim_module');
+    }
+
+    /**
+     *
+     * @return unknown_type
+     */
+    protected function getFilters() {
+        return $this->getUser()->getAttribute('emplist.filters', null, 'pim_module');
+    }
+
+    protected function _getFilterValue($filters, $parameter, $default = null) {
+        $value = $default;
+        if (isset($filters[$parameter])) {
+            $value = $filters[$parameter];
+        }
+
+        return $value;
     }
 }
 ?>

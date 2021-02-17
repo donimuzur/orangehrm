@@ -13,15 +13,11 @@ $(document).ready(function() {
     //form validation
     $("#frmEmpPersonalDetails").validate({
         rules: {
-            'personal[txtEmpFirstName]':{required: true },
-            'personal[txtEmpLastName]': { required: true }
+            'personal[txtEmpFirstName]':{required: true }
         },
         messages: {
             'personal[txtEmpFirstName]':{
                 required: firstNameRequired
-            },
-            'personal[txtEmpLastName]':{
-                required: lastNameRequired
             }
         },
         errorElement : 'div',
@@ -66,15 +62,11 @@ $(document).ready(function() {
     //form validation
     $("#frmEmpPersonalDetails").validate({
         rules: {
-            'personal[txtEmpFirstName]':{required: true },
-            'personal[txtEmpLastName]': { required: true }
+            'personal[txtEmpFirstName]':{required: true }
         },
         messages: {
             'personal[txtEmpFirstName]':{
                 required: firstNameRequired
-            },
-            'personal[txtEmpLastName]':{
-                required: lastNameRequired
             }
         },
         errorElement : 'div',
