@@ -23,6 +23,11 @@ $cultureElements = explode('_', $sf_user->getCulture());
         <link href="<?php echo theme_path('css/main.css')?>" rel="stylesheet" type="text/css"/>
         
         <?php       
+        //Library Stylesheet files
+        // echo stylesheet_tag('/css/plugins/bootstrap-fileinput/fileinput.css');
+
+
+
         // Library JavaScript files
 
         echo javascript_include_tag('jquery/jquery-3.4.1.min.js');
@@ -47,13 +52,16 @@ $cultureElements = explode('_', $sf_user->getCulture());
         echo javascript_include_tag('orangehrm.marketplace.js');
         echo javascript_include_tag('orangehrm.helper.js');
         
+        // echo javascript_include_tag('/js/plugins/bootstrap-fileinput/plugins/sortable.js');
+        // echo javascript_include_tag('/js/plugins/bootstrap-fileinput/plugins/purify.js');
+        // echo javascript_include_tag('/js/plugins/bootstrap-fileinput/fileinput.js');
 
+        // echo javascript_include_tag('/js/plugins/plupload-2.3.6/js/plupload.full.min.js');
         /* Note: use_javascript() doesn't work well when we need to maintain the order of JS inclutions.
          * Ex: It may include a jQuery plugin before jQuery core file. There are two position options as
          * 'first' and 'last'. But they don't seem to resolve the issue.
          */
         ?>   
-        
         <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
             <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>

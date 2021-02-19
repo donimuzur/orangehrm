@@ -86,6 +86,10 @@
                         <?php echo $form['fingerspot']->render(); ?>
                     </li>
                     <li class="checkbox">
+                        <?php echo $form['customRecruitment']->renderLabel(__('Enable Custom Recruitment module')); ?>
+                        <?php echo $form['customRecruitment']->render(); ?>
+                    </li>
+                    <li class="checkbox">
                         <?php echo $form['mobile']->renderLabel(__('Enable Mobile')); ?>
                         <?php echo $form['mobile']->render(); ?>
                     </li>

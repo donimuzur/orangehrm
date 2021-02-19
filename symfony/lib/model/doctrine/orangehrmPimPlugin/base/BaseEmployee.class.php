@@ -165,7 +165,7 @@
  * @method string                                              getBpjs()                                                    Type: string(50)
  * @method string                                              getBpjstk()                                                  Type: string(50)
  * @method string                                              getEmpPlaceofbirth()                                         Type: string(50)
- * @method Subunit                                             pob()                                             
+ * @method Subunit                                             getSubDivision()                                             
  * @method JobTitle                                            getJobTitle()                                                
  * @method EmploymentStatus                                    getEmployeeStatus()                                          
  * @method Doctrine_Collection|Employee[]                      getSupervisors()                                             

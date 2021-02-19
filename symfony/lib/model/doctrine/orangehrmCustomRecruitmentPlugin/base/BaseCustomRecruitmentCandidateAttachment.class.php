@@ -7,6 +7,7 @@
  * 
  * @property int                                   $id                             Type: integer(13), primary key
  * @property string                                $vacancy_position               Type: string(50)
+ * @property string                                $uploadDate                     Type: datetime, Date and time in ISO-8601 format (YYYY-MM-DD HH:MI)
  * @property string                                $fileName                       Type: string(255)
  * @property string                                $fileType                       Type: string(255)
  * @property int                                   $fileSize                       Type: integer(30)
@@ -15,6 +16,7 @@
  *  
  * @method int                                     getId()                         Type: integer(13), primary key
  * @method string                                  getVacancyPosition()            Type: string(50)
+ * @method string                                  getUploaddate()                 Type: datetime, Date and time in ISO-8601 format (YYYY-MM-DD HH:MI)
  * @method string                                  getFilename()                   Type: string(255)
  * @method string                                  getFiletype()                   Type: string(255)
  * @method int                                     getFilesize()                   Type: integer(30)
@@ -23,6 +25,7 @@
  *  
  * @method CustomRecruitmentCandidateAttachment    setId(int $val)                 Type: integer(13), primary key
  * @method CustomRecruitmentCandidateAttachment    setVacancyPosition(string $val) Type: string(50)
+ * @method CustomRecruitmentCandidateAttachment    setUploaddate(string $val)      Type: datetime, Date and time in ISO-8601 format (YYYY-MM-DD HH:MI)
  * @method CustomRecruitmentCandidateAttachment    setFilename(string $val)        Type: string(255)
  * @method CustomRecruitmentCandidateAttachment    setFiletype(string $val)        Type: string(255)
  * @method CustomRecruitmentCandidateAttachment    setFilesize(int $val)           Type: integer(30)
@@ -48,6 +51,9 @@ abstract class BaseCustomRecruitmentCandidateAttachment extends sfDoctrineRecord
         $this->hasColumn('vacancy_position', 'string', 50, array(
              'type' => 'string',
              'length' => 50,
+             ));
+        $this->hasColumn('upload_date as uploadDate', 'datetime', null, array(
+             'type' => 'datetime',
              ));
         $this->hasColumn('file_name as fileName', 'string', 255, array(
              'type' => 'string',

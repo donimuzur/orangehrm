@@ -8,6 +8,9 @@ CustomRecruitmentCandidateAttachment:
     vacany_position:
       name: vacancy_position
       type: string(50)
+    upload_date:
+      name: upload_date as uploadDate
+      type: datetime
     file_name:
       name: file_name as fileName
       type: string(255)

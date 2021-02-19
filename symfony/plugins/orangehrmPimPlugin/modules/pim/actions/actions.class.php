@@ -246,38 +246,41 @@ use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
             $spreadsheet = new Spreadsheet();
             $sheet = $spreadsheet->getActiveSheet();
 
-            $header = array(__("NIK"), __("Employee Name"), __("Job Title"), __("Address"), __("Employment Status"), __("Sub Unit"), __("Place of Birth"), __("Date of Birth"),
+            $header = array(__("No"),__("NIK"), __("Employee Name"), __("Job Title"), __("Address"), __("Employment Status"), __("Sub Unit"), __("Place of Birth"), __("Date of Birth"),
                 __("Gender"), __("Marrital Status"), __("Wife/Husband"), __("Child 1"), __("Child 2"), __("Child 3"), __("Child 4"), __("Child 5") );
             $sheet->fromArray([$header], NULL, 'A1');
             $count = 2;
+            $idx = 1;
             foreach($list as $list)
             {
                 $Employee = $this->getEmployeeService()->getEmployee($list->getEmpNumber());
                 $jobTitle = $this->getJobTitleService()->getJobTitleById($list->getJobTitle());
-                $sheet->setCellValue("A".$count,$list->getEmployeeId());
-                $sheet->setCellValue("B".$count,$list->getFullName());
-                $sheet->setCellValue("C".$count,$list->getJobTitle()->getJobTitleName());
-                $sheet->setCellValue("D".$count,$list->getStreet1());
-                $sheet->setCellValue("E".$count,$list->getEmpStatus());
-                $sheet->setCellValue("F".$count,$list->getSubDivision());
-                $sheet->setCellValue("G".$count,$Employee->getEmpPlaceofbirth());
-                $sheet->setCellValue("H".$count,$Employee->getEmpBirthday());
-                $sheet->getStyle('H'.$count)
+                $sheet->setCellValue("A".$count,$idx);
+                $sheet->setCellValue("B".$count,$list->getEmployeeId());
+                $sheet->setCellValue("C".$count,$list->getFullName());
+                $sheet->setCellValue("D".$count,$list->getJobTitle()->getJobTitleName());
+                $sheet->setCellValue("E".$count,$list->getStreet1());
+                $sheet->setCellValue("F".$count,$list->getEmpStatus());
+                $sheet->setCellValue("G".$count,$list->getSubDivision());
+                $sheet->setCellValue("H".$count,$Employee->getEmpPlaceofbirth());
+                $sheet->setCellValue("I".$count,$Employee->getEmpBirthday());
+                $sheet->getStyle('I'.$count)
                         ->getNumberFormat()
                         ->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
-                $sheet->setCellValue("I".$count,"");
+                $sheet->setCellValue("J".$count,"");
                 
                 if($Employee->getEmpGender()==1)
                 {
-                    $sheet->setCellValue("I".$count,__("Male"));
+                    $sheet->setCellValue("J".$count,__("Male"));
                 }
                 else if($Employee->getEmpGender()==2)
                 {
-                    $sheet->setCellValue("I".$count,__("Female"));
+                    $sheet->setCellValue("J".$count,__("Female"));
                 }
                 
-                $sheet->setCellValue("J".$count,$Employee->getEmpMaritalStatus());
+                $sheet->setCellValue("K".$count,$Employee->getEmpMaritalStatus());
                 $count++;
+                $idx++;
             }
 
             $writer = new Xlsx($spreadsheet);

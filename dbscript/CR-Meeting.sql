@@ -131,7 +131,7 @@ WHERE id in
 
 alter table hs_hr_employee add column emp_placeofbirth varchar(50), add column bpjstk varchar(50);
 
-INSERT INTO `ohrm_module` (`name`, `status`) VALUES ('customRecruitment', '0');
+INSERT INTO `ohrm_module` (`name`, `status`) VALUES ('customRecruitment', '1');
 
 INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES ('Print Leave Report', '4', 'printLeaveReport');
 
@@ -139,3 +139,18 @@ SET @ohrm_screen_id := (SELECT id FROM ohrm_screen WHERE action_url = 'printLeav
 INSERT INTO `ohrm_menu_item` (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `status`) VALUES ('Print Leave Report', @ohrm_screen_id, '78', '3', '100', '1');
 
 INSERT INTO `ohrm_user_role_screen` (`user_role_id`, `screen_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', '133', '1', '1', '1', '1');
+
+set @module_id = (select id from ohrm_module where name = 'customRecruitment' limit 1 );
+INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES ('Upload CV Candidate', @module_id, 'viewUploadCV');
+
+set @screen_id = (select id from ohrm_screen where name = 'Upload CV Candidate' limit 1 );
+INSERT INTO `ohrm_menu_item` (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `status`) VALUES ('Upload CV', @screen_id, '65', '2', '80', '1');
+INSERT INTO `ohrm_user_role_screen` (`user_role_id`, `screen_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', @screen_id, '1', '1', '1', '1');
+
+INSERT INTO `ohrm_data_group` (`name`, `description`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('upload_cv', 'Recruitment - Upload CV', '1', '1', '1', '1');
+
+set @data_group_id = (select id from ohrm_data_group where name = 'upload_cv' limit 1 );
+INSERT INTO `ohrm_user_role_data_group` (`user_role_id`, `data_group_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', @data_group_id, '1', '1', '1', '1');
+
+
+

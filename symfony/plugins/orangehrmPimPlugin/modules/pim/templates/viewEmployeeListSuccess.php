@@ -54,7 +54,7 @@
 <script type="text/javascript">
 
     var linkToExport='<?php echo url_for('pim/exportEmployeeListToExcel'); ?>'
-    var linkToDownloadFile='<?php echo url_for('pim/downloadFile'); ?>'
+    var linkToDownloadFile='<?php echo url_for('pim/downloadFileXls'); ?>'
     var lang_processing = '<?php echo __js(CommonMessages::LABEL_PROCESSING."...");?>';
     $(document).ready(function() {
         
