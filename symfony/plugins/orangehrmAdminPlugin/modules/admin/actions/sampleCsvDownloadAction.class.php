@@ -19,7 +19,7 @@ class sampleCsvDownloadAction extends sfAction {
 		$response->setHttpHeader("Content-type", "application/csv");
 		$response->setHttpHeader("Content-Disposition", "attachment; filename=importData.csv");
 		$response->setHttpHeader('Expires', '0');
-		$content = "first_name,middle_name,last_name,employee_id,other_id,driver's_license_no,license_expiry_date,gender,marital_status,nationality,date_of_birth,address_street_1,address_street_2,city,state/province,zip/postal_code,country,home_telephone,mobile,work_telephone,work_email,other_email,pin";
+		$content = "first_name,middle_name,last_name,employee_id,other_id,driver's_license_no,license_expiry_date,gender,marital_status,nationality,date_of_birth,address_street_1,address_street_2,city,state/province,zip/postal_code,country,home_telephone,mobile,work_telephone,work_email,other_email,pin,bpjs,npwp,emp_placeofbirth,bpjstk";
 		$response->setHttpHeader("Content-Length", strlen($content));
 		$response->setContent($content);
 

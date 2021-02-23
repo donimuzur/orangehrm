@@ -5,6 +5,7 @@
     <div class="inner">
         <?php include_partial('global/flash_messages', array('prefix' => 'uploadCV')); ?>
         <form action="<?php echo url_for("customRecruitment/viewUploadCV"); ?>" id="uploadCVForm" name="uploadCVForm" method="post"  enctype="multipart/form-data">
+            <?php echo $form['_csrf_token']; ?>
             <fieldset>
                 <ol class="normal">
 					<li>
@@ -19,7 +20,7 @@
                         <label id="selectFileSpan" style="height:100%"><?php echo __("Select File")?> <em>*</em></label>
                         <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />                        
                         <?php echo $form['ufile']->render(); ?>
-                        <!-- <input type="file" name="ufile" id="ufile" multiple/> -->
+                        <!-- <input type="file" name="viewUploadCV[ufile]" id="viewUploadCV_ufile" multiple/> -->
                         <?php echo "<label class=\"fieldHelpBottom\">" . __(CommonMessages::FILE_LABEL_DOC) . "</label>"; ?>
                     </li>
 					<li class="required">
@@ -34,114 +35,8 @@
         </form>
     </div>
 </div>
-<div id="attachmentList" class="box miniList">
-    <div class="head">
-        <h1><?php echo __('Attachments'); ?></h1>
-    </div>
-    <div class="inner">
-        
-        <?php include_partial('global/flash_messages', array('prefix' => 'listAttachmentPane')); ?>
 
-        <form name="frmEmpDelAttachments" id="frmEmpDelAttachments" method="post" action="<?php echo url_for('pim/deleteAttachments?empNumber='.$employee->empNumber); ?>">
-
-            <?php echo $deleteForm['_csrf_token']; ?>
-            <input type="hidden" name="EmpID" value="<?php echo $employee->empNumber;?>"/>
-
-            <p id="attachmentActions">
-                <?php if ($permission->canCreate()) : ?>
-                <input type="button" class="addbutton" id="btnAddAttachment" value="<?php echo __("Add");?>" />
-                <?php elseif (!$hasAttachments) :
-                        echo __(TopLevelMessages::NO_RECORDS_FOUND);
-                      endif; // $permission->canCreate() ?>
-                <?php if ($permission->canDelete() && $hasAttachments) : ?>
-                 <input type="button" class="delete" id="btnDeleteAttachment" value="<?php echo __("Delete");?>"/>
-                <?php endif; // $permission->canDelete() && $hasAttachments ?>
-            </p>
-            
-            <?php if ($hasAttachments) : ?>
-            
-                <table id="tblAttachments" cellpadding="0" cellspacing="0" width="100%" class="table tablesorter">
-                    <thead>
-                        <tr>
-                            <?php if ($permission->canDelete()){?>
-                            <th width="2%"><input type="checkbox" id="attachmentsCheckAll" class="checkboxAtch"/></th>
-                            <?php }?>
-                            <th width="15%"><?php echo __("Vacancy Position")?></th>
-                            <th width="15%"><?php echo __("Upload Date")?></th>
-                            <th width="15%"><?php echo __("File Name")?></th>
-                            <th width="38%"><?php echo __("Description")?></th>
-                            <th width="10%"><?php echo __("Size")?></th>
-                            <th width="10%"><?php echo __("Type")?></th>
-                            <th width="10%"><?php echo __("Date Added")?></th>
-                            <th width="10%"><?php echo __("Added By")?></th>
-                            <th width="5%"></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        
-                        <?php
-                            $disabled = ($permission->canDelete()) ? "" : 'disabled="disabled"';
-                            $row = 0;
-                        ?>
-                        
-                        <?php foreach ($attachmentList as $attachment) : ?>
-                        <?php $cssClass = ($row%2) ? 'even' : 'odd'; ?>
-                            
-                            <tr class="<?php echo $cssClass;?>">
-                                <?php if ($permission->canDelete()){?>
-                                <td class="center">
-                                    <input type="checkbox" <?php echo $disabled;?> class="checkboxAtch" 
-                                    name="chkattdel[]" value="<?php echo $attachment->attach_id; ?>"/>
-                                </td>
-                                <?php }?>
-                                <td>
-                                    <?php if (!$permission->canDelete()){?>
-                                        <input type="hidden" <?php echo $disabled;?> 
-                                               name="chkattid[]" value="<?php echo $attachment->attach_id; ?>"/>                                    
-                                    <?php }?>
-                                    <a title="<?php echo __('Click to download'); ?>" target="_blank" class="fileLink tiptip"
-                                    href="<?php echo url_for('pim/viewAttachment?empNumber='.$employee->empNumber . '&attachId=' . $attachment->attach_id);?>">
-                                    <?php echo $attachment->filename; ?></a>
-                                </td>
-                                <td>
-                                    <?php echo $attachment->description; ?>
-                                </td>
-                                <td>
-                                    <?php echo add_si_unit($attachment->size); ?>
-                                </td>
-                                <td>
-                                    <?php echo $attachment->file_type; ?>
-                                </td>
-                                <td>
-                                    <?php echo set_datepicker_date_format($attachment->attached_time); ?>
-                                </td>
-                                <?php
-                                $performedBy = $attachment->attached_by_name;
-                                $performedBy = ($performedBy == 'Admin')?__($performedBy):$performedBy;
-                                ?>
-                                <td>
-                                    <?php echo $performedBy; ?>
-                                </td>
-                                <?php if ($permission->canUpdate()) : ?>                                
-                                <td>
-                                    <a href="#" class="editLink"><?php echo __("Edit"); ?></a>
-                                </td>
-                                <?php else: ?>
-                                <td>
-                                </td>
-                                <?php endif; ?>
-                            </tr>
-                        
-                        <?php $row++; ?>
-                        <?php endforeach; ?>
-                        
-                    </tbody>
-                </table>
-            
-            <?php endif; // $hasAttachments ?>
-        </form> 
-    </div>
-</div> 
+<?php echo include_component('customRecruitment', 'viewCandidateAttachmentList', array('empNumber'=>$empNumber));?>
 
 <script type="text/javascript">
     //<![CDATA[
@@ -197,7 +92,7 @@
     
     $("#uploadCVForm").validate({
         rules: {
-            "ufile" : {attachment:true},
+            "viewUploadCV[ufile]" : {required:true, attachment:true},
             "viewUploadCV[vacancyPosition]" : {required:true},
             "viewUploadCV[uploadDate]" :{
                 required: true, 
@@ -217,7 +112,10 @@
                 required: lang_NameRequired,
                 valid_date: errorForInvalidFormat
             },
-            "ufile": lang_PleaseSelectAFile,
+            "viewUploadCV[ufile]": {
+                required: lang_NameRequired,
+                attachment :lang_PleaseSelectAFile,
+            } 
         }
     });
 

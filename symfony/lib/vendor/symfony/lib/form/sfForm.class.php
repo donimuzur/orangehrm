@@ -239,6 +239,7 @@ class sfForm implements ArrayAccess, Iterator, Countable
     }
     catch (sfValidatorErrorSchema $e)
     {
+      echo $e;
       $this->values = array();
       $this->errorSchema = $e;
     }
