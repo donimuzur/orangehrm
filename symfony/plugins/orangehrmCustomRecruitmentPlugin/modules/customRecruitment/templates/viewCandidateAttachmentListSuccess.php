@@ -21,7 +21,7 @@
             </ol>
             <p>
                 <input type="button" class="" id="btView" value="<?php echo __('Search') ?>" />
-                <input type="button" class="cancel" id="cancelButton" value="<?php echo __("Cancel"); ?>" />
+                <input type="button" class="cancel" id="resetButton" value="<?php echo __("Reset"); ?>" />
                 <input type="hidden" name="pageNo" id="pageNo" value="" />
                 <input type="hidden" name="hdnAction" id="hdnAction" value="search" />
             </p>
@@ -82,4 +82,19 @@
         document.frmCandidateListForm.hdnAction.value = 'paging';
         document.getElementById('reportForm').submit();
     }
+    $(document).ready(function(){
+        $('#btView').click(function() {
+            $("#reportForm").submit();
+        });
+        
+        $('#resetButton').click(function() {
+            $("#search_vacancyPosition").val('');
+            $("#search_uploadDate").val('');
+
+            $("#reportForm").submit();
+        });
+
+   
+    });
+    
 </script>

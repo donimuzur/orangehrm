@@ -30,12 +30,30 @@ class CustomRecruitmentCandidateDao extends BaseDao {
         }
     }
     
-    public function getCandidateAttachmentListWithLimit($limit, $offset) {
+    public function getCandidateAttachmentListWithLimit($vacancy, $uploadDate, $limit, $offset) {
         try {
             $query = Doctrine_Query::create()
-                    ->from("CustomRecruitmentCandidateAttachment")
-                    ->limit($limit)
+                    ->from("CustomRecruitmentCandidateAttachment b");
+            if(!is_null($vacancy))
+            {
+                $query->where("b.vacancy_position like ? ", "%".$vacancy."%" );
+            }
+
+            if(!is_null($uploadDate))
+            {
+                $query->where("b.uploadDate = ?",$uploadDate );
+            }       
+                    
+            if(!is_null($vacancy) && !is_null($uploadDate))
+            {
+                $query->where("b.vacancy_position like ? ", "%".$vacancy."%" )
+                        ->andwhere("b.uploadDate = ?",$uploadDate );
+            }     
+         
+                
+            $query->limit($limit)
                     ->offset($offset);
+                            
             $records = $query->execute();
             if (is_null($records[0]->getId())) {
                 return null;
@@ -49,12 +67,29 @@ class CustomRecruitmentCandidateDao extends BaseDao {
         
     }
 
-    public function getCandidateAttachmentListCount() {
+    public function getCandidateAttachmentListCount($vacancy, $uploadDate) {
         try {
             $query = Doctrine_Query::create()
-                    ->from("CustomRecruitmentCandidateAttachment");
-                    
+                    ->from("CustomRecruitmentCandidateAttachment b");
+
+            if(!is_null($vacancy))
+            {
+                $query->where("b.vacancy_position like ? ", "%".$vacancy."%" );
+            }
+
+            if(!is_null($uploadDate))
+            {
+                $query->where("b.uploadDate = ?",$uploadDate );
+            }       
+                 
+            if(!is_null($vacancy) && !is_null($uploadDate))
+            {
+                $query->where("b.vacancy_position like ? ", "%".$vacancy."%" )
+                        ->andwhere("b.uploadDate = ?",$uploadDate );
+            }     
+
             $records = $query->execute();
+          
             if (is_null($records[0]->getId())) {
                 return null;
             } else {

@@ -141,7 +141,7 @@ INSERT INTO `ohrm_menu_item` (`menu_title`, `screen_id`, `parent_id`, `level`, `
 INSERT INTO `ohrm_user_role_screen` (`user_role_id`, `screen_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', '133', '1', '1', '1', '1');
 
 set @module_id = (select id from ohrm_module where name = 'customRecruitment' limit 1 );
-INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES ('Upload CV Candidate', @module_id, 'viewUploadCV');
+INSERT INTO `ohrm_screen` (`name`, `module_id`, `action_url`) VALUES ('Upload CV Candidate', @module_id, 'viewCandidateAttachmentList');
 
 set @screen_id = (select id from ohrm_screen where name = 'Upload CV Candidate' limit 1 );
 INSERT INTO `ohrm_menu_item` (`menu_title`, `screen_id`, `parent_id`, `level`, `order_hint`, `status`) VALUES ('Upload CV', @screen_id, '65', '2', '80', '1');
@@ -156,3 +156,14 @@ INSERT INTO `hs_hr_module` (`mod_id`, `name`, `owner`, `owner_email`, `version`,
 UPDATE `hs_hr_module` SET `owner` = 'Polowijo Gosar Indonesiai' WHERE (`mod_id` = 'MOD010');
 
 
+CREATE TABLE `ohrm_custom_recruitment_candidate_attachment` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
+  `vacancy_position` varchar(50) DEFAULT NULL,
+  `file_name` varchar(255) DEFAULT NULL,
+  `file_type` varchar(255) DEFAULT NULL,
+  `file_size` bigint DEFAULT NULL,
+  `file_content` longblob,
+  `attachment_type` int DEFAULT NULL,
+  `upload_date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=378 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;

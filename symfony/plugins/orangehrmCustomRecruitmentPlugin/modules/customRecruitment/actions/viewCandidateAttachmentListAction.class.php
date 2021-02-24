@@ -36,12 +36,15 @@ class viewCandidateAttachmentListAction extends ohrmBaseAction {
     public function execute($request) {
         
         $loggedInEmpNum = $this->getUser()->getEmployeeNumber();
+        
+        $search_vacancyPosition = $request->getParameter('search_vacancyPosition');;
+        $search_uploadDate = $request->getParameter('search_uploadDate');;
 
         $isPaging = $request->getParameter('pageNo');
         $pageNumber = $isPaging;
 		
         $noOfRecords = $noOfRecords = sfConfig::get('app_items_per_page');
-        $offset = ($pageNumber >= 1) ? (($pageNumber - 1) * $noOfRecords) : ($request->getParameter('pageNo', 1) - 1) * $noOfRecords;
+        $offset = ($pageNumber >= 1) ? (($pageNumber - 1) * $noOfRecords) : 0;
 
         $records = array();
 
@@ -55,15 +58,34 @@ class viewCandidateAttachmentListAction extends ohrmBaseAction {
       
         $param = array('empNumber' => $empNumber,  'permission' => $this->permission);
         $this->setForm(new ViewCandidateAttachmentListForm(array(), $param, true));
+       
+        $records = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListWithLimit( $search_vacancyPosition, $search_uploadDate, $noOfRecords,$offset);
+        $count = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListCount($search_vacancyPosition, $search_uploadDate);
         
-        $records = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListWithLimit( $noOfRecords,$offset);
-        $count = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListCount();
-
         $this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
+        
         if (!($this->trigger)){
             if ($request->isMethod('post')) {
                 $this->listForm->bind($request->getParameter($this->listForm->getName()));
                 if ($this->listForm->isValid()) {
+                    $post = $this->listForm->getValues();
+                    
+                    $isPaging = $request->getParameter('pageNo');
+                    $pageNumber = $isPaging;
+                    
+                    $noOfRecords = $noOfRecords = sfConfig::get('app_items_per_page');
+                    $offset = ($pageNumber >= 1) ? (($pageNumber - 1) * $noOfRecords) : 0;
+
+                    if (!$search_vacancyPosition) {
+                        $search_vacancyPosition = $post['search_vacancyPosition'];
+                    }
+
+                    if (!$search_uploadDate) {
+                        $search_uploadDate = $post['search_uploadDate'];
+                    }
+
+                    $records = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListWithLimit( $search_vacancyPosition, $search_uploadDate, $noOfRecords,$offset);
+                    $count = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListCount($search_vacancyPosition, $search_uploadDate);
                     
                     $this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
                 } else {

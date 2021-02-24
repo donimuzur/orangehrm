@@ -37,12 +37,12 @@ class CustomRecruitmentCandidateService {
         $this->CustomRecruitmentCandidateDao = $CustomRecruitmentCandidateDao;
     }
 
-    public function getCandidateAttachmentListWithLimit($limit, $offset){
-        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListWithLimit($limit, $offset);
+    public function getCandidateAttachmentListWithLimit($vacancy, $uploadDate,$limit, $offset){
+        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListWithLimit($vacancy, $uploadDate,$limit, $offset);
     }
 
-    public function getCandidateAttachmentListCount(){
-        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListCount();
+    public function getCandidateAttachmentListCount($vacancy, $uploadDate){
+        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListCount($vacancy, $uploadDate);
     }
 
     public function getCandidateAttachment($id){
