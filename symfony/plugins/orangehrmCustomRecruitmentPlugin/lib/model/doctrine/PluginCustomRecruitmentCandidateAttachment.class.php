@@ -13,5 +13,18 @@
  */
 abstract class PluginCustomRecruitmentCandidateAttachment extends BaseCustomRecruitmentCandidateAttachment
 {
+    private $date_ymd = '';
 
+    public function setdate_ymd($date_ymd) {
+        
+       $this->date_ymd = $date_ymd;
+    }
+    public function getdate_ymd(){
+        $ymdDate ='';
+        if($this->getUploadDate() != null && $this->getUploadDate() != '---' )
+        {
+            $ymdDate = date('Y-m-d', strtotime($this->getUploadDate()));    
+        }
+        return  $ymdDate;
+    }
 }

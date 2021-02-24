@@ -1,10 +1,21 @@
 <?php 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of CustomRecruitmentCandidateService
+ *
+ * @author Muhamamd Zulfi Rusdani
+ */
 class CustomRecruitmentCandidateService {
     private $CustomRecruitmentCandidateDao;
 
     /**
      * Get Attendance Data Access Object
      * @return AttendanceDao
+     * @author Muhamamd Zulfi Rusdani
      */
     public function getCustomRecruitmentCandidateDaoDao() {
 
@@ -26,8 +37,16 @@ class CustomRecruitmentCandidateService {
         $this->CustomRecruitmentCandidateDao = $CustomRecruitmentCandidateDao;
     }
 
-    public function getCandidateAttachmentListWithLimit($toDate, $limit, $offset){
-        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListWithLimit($toDate, $limit, $offset);
+    public function getCandidateAttachmentListWithLimit($limit, $offset){
+        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListWithLimit($limit, $offset);
+    }
+
+    public function getCandidateAttachmentListCount(){
+        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachmentListCount();
+    }
+
+    public function getCandidateAttachment($id){
+        return $this->getCustomRecruitmentCandidateDaoDao()->getCandidateAttachment($id);
     }
 }
 ?>

@@ -1,6 +1,16 @@
 <?php 
 
-class viewCandidateAttachmentListComponent extends sfComponent {
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of viewCandidateAttachmentListAction
+ *
+ * @author Muhamamd Zulfi Rusdani
+ */
+class viewCandidateAttachmentListAction extends ohrmBaseAction {
   
     private $CustomRecruitmentCandidateService;
 
@@ -18,14 +28,15 @@ class viewCandidateAttachmentListComponent extends sfComponent {
      * @return
      */
     public function setForm(sfForm $form) {
-        if (is_null($this->form)) {
-            $this->form = $form;
+        if (is_null($this->listForm)) {
+            $this->listForm = $form;
         }
     }
     
     public function execute($request) {
         
         $loggedInEmpNum = $this->getUser()->getEmployeeNumber();
+
         $isPaging = $request->getParameter('pageNo');
         $pageNumber = $isPaging;
 		
@@ -34,20 +45,33 @@ class viewCandidateAttachmentListComponent extends sfComponent {
 
         $records = array();
 
+        $this->parmetersForListCompoment = array();
+
         $CandidateAttachmentList = $request->getParameter('CandidateAttachmentList');
         $empNumber = (isset($contact['empNumber']))?$contact['empNumber']:$request->getParameter('empNumber');
         $this->empNumber = $empNumber;
               
         $this->permission = $this->getDataGroupPermissions('upload_cv', $empNumber);
-        
-        if (!$this->IsActionAccessible($empNumber)) {
-            $this->forward(sfConfig::get('sf_secure_module'), sfConfig::get('sf_secure_action'));
-        }
-
+      
         $param = array('empNumber' => $empNumber,  'permission' => $this->permission);
-        $this->setForm(new EmployeeContactDetailsForm(array(), $param, true));
+        $this->setForm(new ViewCandidateAttachmentListForm(array(), $param, true));
+        
+        $records = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListWithLimit( $noOfRecords,$offset);
+        $count = $this->GetCustomRecruitmentCandidateService()->getCandidateAttachmentListCount();
 
-        $this->_setListComponent($records, $noOfRecords, $pageNumber, null);
+        $this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
+        if (!($this->trigger)){
+            if ($request->isMethod('post')) {
+                $this->listForm->bind($request->getParameter($this->listForm->getName()));
+                if ($this->listForm->isValid()) {
+                    
+                    $this->_setListComponent($records, $noOfRecords, $pageNumber, $count);
+                } else {
+                    $this->handleBadRequest();
+                    $this->getUser()->setFlash('viewCandidateAttachmentList.warning', __(TopLevelMessages::VALIDATION_FAILED), false);
+                }
+            }
+        }
     }
 
     protected function getDataGroupPermissions($dataGroups, $empNumber) { 
@@ -68,27 +92,11 @@ class viewCandidateAttachmentListComponent extends sfComponent {
 
         ohrmListComponent::setActivePlugin('orangehrmCustomRecruitmentPlugin');
         ohrmListComponent::setConfigurationFactory($configurationFactory);
-        
         ohrmListComponent::setListData($records);
         ohrmListComponent::setPageNumber($pageNumber);
         ohrmListComponent::setItemsPerPage($noOfRecords);
         ohrmListComponent::setNumberOfRecords($count);
     }
     
-    protected function IsActionAccessible($empNumber) {
-        
-        $isValidUser = true;
-        
-        $loggedInEmpNum = $this->getUser()->getEmployeeNumber();     
-        
-        $userRoleManager = $this->getContext()->getUserRoleManager();            
-        $accessible = $userRoleManager->isEntityAccessible('Employee', $empNumber);
-            
-        if ($empNumber != $loggedInEmpNum && (!$accessible)) {
-            $isValidUser = false;
-        }      
-        
-        return $isValidUser;
-    }
 }
 ?>

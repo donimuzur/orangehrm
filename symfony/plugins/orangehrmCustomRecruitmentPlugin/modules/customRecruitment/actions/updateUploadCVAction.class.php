@@ -6,11 +6,11 @@
  */
 
 /**
- * Description of viewMyAttendanceRecordAction
+ * Description of updateUploadCVAction
  *
- * @author orangehrm
+ * @author Muhammad Zulfi Rusdani
  */
-class viewUploadCVAction extends ohrmBaseAction {
+class updateUploadCVAction extends  ohrmBaseAction{
     
     protected function getDataGroupPermissions($dataGroups, $empNumber) { 
         $loggedInEmpNum = $this->getUser()->getEmployeeNumber();
@@ -30,8 +30,6 @@ class viewUploadCVAction extends ohrmBaseAction {
         $values = array('vacancyPosition' => $this->vacancyPosition, 'uploadDate' => $this->uploadDate );
 
         $this->form = new ViewUploadCVForm(array(), $values);
-        $this->deleteForm = new viewUploadCVDeleteForm(array(), array(), true);
-        $this->permission = $this->getDataGroupPermissions('upload_cv',  $this->empNumber);
 
         if (!($this->trigger)) {
             if ($request->isMethod('post')) {
@@ -45,8 +43,7 @@ class viewUploadCVAction extends ohrmBaseAction {
                 }
             }
         }
-          
-        
+        $this->redirect('customRecruitment/viewCandidateAttachmentList');
     }
 }
 

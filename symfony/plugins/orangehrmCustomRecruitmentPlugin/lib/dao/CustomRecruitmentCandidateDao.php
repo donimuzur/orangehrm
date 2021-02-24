@@ -1,6 +1,19 @@
 <?php 
 
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+/**
+ * Description of CustomRecruitmentCandidateDao
+ *
+ * @author Muhamamd Zulfi Rusdani
+ */
+
+
 class CustomRecruitmentCandidateDao extends BaseDao {
+
      /**
      *
      * @param <type> $attachId
@@ -17,15 +30,12 @@ class CustomRecruitmentCandidateDao extends BaseDao {
         }
     }
     
-    public function getCandidateAttachmentListWithLimit($toDate, $limit, $offset) {
+    public function getCandidateAttachmentListWithLimit($limit, $offset) {
         try {
-
             $query = Doctrine_Query::create()
                     ->from("CustomRecruitmentCandidateAttachment")
                     ->limit($limit)
-                    ->offset($offset)
-                    ->addOrderBy("vacancy_position");
-                    
+                    ->offset($offset);
             $records = $query->execute();
             if (is_null($records[0]->getId())) {
                 return null;
@@ -36,6 +46,25 @@ class CustomRecruitmentCandidateDao extends BaseDao {
         } catch (Exception $ex) {
             throw new DaoException($ex->getMessage());
         }
+        
+    }
+
+    public function getCandidateAttachmentListCount() {
+        try {
+            $query = Doctrine_Query::create()
+                    ->from("CustomRecruitmentCandidateAttachment");
+                    
+            $records = $query->execute();
+            if (is_null($records[0]->getId())) {
+                return null;
+            } else {
+
+                return count($records);
+            }
+        } catch (Exception $ex) {
+            throw new DaoException($ex->getMessage());
+        }
+        
     }
 }
 ?>

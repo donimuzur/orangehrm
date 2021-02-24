@@ -1,5 +1,14 @@
 <?php
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
 
+/**
+ * Description of RawLabelCell
+ *
+ * @author Muhamamd Zulfi Rusdani
+ */
 class RawLabelCell extends Cell {
 
     public function __toString() {

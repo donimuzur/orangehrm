@@ -152,5 +152,7 @@ INSERT INTO `ohrm_data_group` (`name`, `description`, `can_read`, `can_create`, 
 set @data_group_id = (select id from ohrm_data_group where name = 'upload_cv' limit 1 );
 INSERT INTO `ohrm_user_role_data_group` (`user_role_id`, `data_group_id`, `can_read`, `can_create`, `can_update`, `can_delete`) VALUES ('1', @data_group_id, '1', '1', '1', '1');
 
+INSERT INTO `hs_hr_module` (`mod_id`, `name`, `owner`, `owner_email`, `version`, `description`) VALUES ('MOD011', 'CustomRecruitment', 'Polowijo Gosari Indonesia', 'zulfi.rusdani@polowijogosari.com', 'VER001', 'Custom Recruitment');
+UPDATE `hs_hr_module` SET `owner` = 'Polowijo Gosar Indonesiai' WHERE (`mod_id` = 'MOD010');
 
 

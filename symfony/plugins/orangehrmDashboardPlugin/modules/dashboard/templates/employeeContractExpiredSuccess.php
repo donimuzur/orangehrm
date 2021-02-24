@@ -12,7 +12,7 @@
                                     <a href="<?php echo url_for('pim/viewJobDetails/empNumber') . '/empNumber/' . $expiredContractList['emp_number'].'#employeeContractNew' ?>">
                                         <?php
                                         $count++;
-                                        echo str_pad($count, 2, '0', STR_PAD_LEFT) . ". " . $expiredContractList['full_name'];
+                                        echo str_pad($count, 2, '0', STR_PAD_LEFT) . ". " . $expiredContractList['full_name'].(!$expiredContractList['sub_unit'] ? "":" - ".$expiredContractList['sub_unit']);
 
                                         ?>
                                         <br>

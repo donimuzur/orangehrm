@@ -4,7 +4,7 @@
     </div>
     <div class="inner">
         <?php include_partial('global/flash_messages', array('prefix' => 'uploadCV')); ?>
-        <form action="<?php echo url_for("customRecruitment/viewUploadCV"); ?>" id="uploadCVForm" name="uploadCVForm" method="post"  enctype="multipart/form-data">
+        <form action="<?php echo url_for("customRecruitment/updateUploadCV"); ?>" id="uploadCVForm" name="uploadCVForm" method="post"  enctype="multipart/form-data">
             <?php echo $form['_csrf_token']; ?>
             <fieldset>
                 <ol class="normal">
@@ -18,10 +18,10 @@
                     </li>
                     <li class="fieldHelpContainer">
                         <label id="selectFileSpan" style="height:100%"><?php echo __("Select File")?> <em>*</em></label>
-                        <input type="hidden" name="MAX_FILE_SIZE" value="1048576" />                        
+                        <input type="hidden" name="MAX_FILE_SIZE" value="5242880" />                        
                         <?php echo $form['ufile']->render(); ?>
                         <!-- <input type="file" name="viewUploadCV[ufile]" id="viewUploadCV_ufile" multiple/> -->
-                        <?php echo "<label class=\"fieldHelpBottom\">" . __(CommonMessages::FILE_LABEL_DOC) . "</label>"; ?>
+                        <?php echo "<label class=\"fieldHelpBottom\">" . __("Accepts .docx, .doc, .odt, .pdf, .rtf, .txt up to 5MB") . "</label>"; ?>
                     </li>
 					<li class="required">
                         <em>*</em> <?php echo __(CommonMessages::REQUIRED_FIELD); ?>
@@ -35,9 +35,6 @@
         </form>
     </div>
 </div>
-
-<?php echo include_component('customRecruitment', 'viewCandidateAttachmentList', array('empNumber'=>$empNumber));?>
-
 <script type="text/javascript">
     //<![CDATA[
     //we write javascript related stuff here, but if the logic gets lengthy should use a seperate js file

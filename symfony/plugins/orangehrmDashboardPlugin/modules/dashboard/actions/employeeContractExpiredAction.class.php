@@ -35,7 +35,7 @@ class employeeContractExpiredAction extends BaseDashboardAction {
         foreach($EmployeeExpiredContractList as $item)
         {
             $employee = $this->getEmployeeService()->getEmployee($item['emp_number']);
-            array_push($this->arr,array_merge($item,array('full_name'=>$employee->getFullName())));
+            array_push($this->arr,array_merge($item,array('full_name'=>$employee->getFullName(),'sub_unit'=>$employee->getSubDivision() )));
         }
 
         $this->recordCount = count($this->arr);
