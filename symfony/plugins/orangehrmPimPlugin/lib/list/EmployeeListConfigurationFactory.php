@@ -36,29 +36,14 @@ class EmployeeListConfigurationFactory extends ohrmListConfigurationFactory {
         ));
 
         $header2->populateFromArray(array(
-            'name' => __('First (& Middle) Name'),
+            'name' => __('Full Name'),
             'width' => '13%',
             'isSortable' => true,
-            'sortField' => 'firstMiddleName',
+            'sortField' => 'fullName',
             'elementType' => 'link',
             'textAlignmentStyle' => 'left',
             'elementProperty' => array(
-                'labelGetter' => array('getFirstAndMiddleName'),
-                'placeholderGetters' => array('id' => 'getEmpNumber'),
-                'linkable' => $this->getLinkable(),
-                'urlPattern' => public_path('index.php/pim/viewEmployee/empNumber/{id}'),
-            ),
-        ));
-
-        $header3->populateFromArray(array(
-            'name' => 'Last Name',
-            'width' => '10%',
-            'isSortable' => true,
-            'sortField' => 'lastName',
-            'elementType' => 'link',
-            'textAlignmentStyle' => 'left',
-            'elementProperty' => array(
-                'labelGetter' => array('getFullLastName'),
+                'labelGetter' => array('getFullName'),
                 'placeholderGetters' => array('id' => 'getEmpNumber'),
                 'linkable' => $this->getLinkable(),
                 'urlPattern' => public_path('index.php/pim/viewEmployee/empNumber/{id}'),
@@ -105,7 +90,7 @@ class EmployeeListConfigurationFactory extends ohrmListConfigurationFactory {
             'elementProperty' => array('getter' => 'getSupervisorNames')
         ));
 
-        $this->headers = array($header1, $header2, $header3, $header4, $header5, $header6, $header7);
+        $this->headers = array($header1, $header2, $header4, $header5, $header6, $header7);
     }
     
     public function getClassName() {
