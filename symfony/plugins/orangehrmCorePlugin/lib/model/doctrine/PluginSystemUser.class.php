@@ -64,4 +64,12 @@ abstract class PluginSystemUser extends BaseSystemUser
            
     }
 
+    public function getfullName(){
+        if( $this->getEmployee()->getFullName() != ''){
+            return $this->getEmployee()->getFullName();
+        }else{
+            return $this->getUserRole()->getName();
+        }  
+           
+    }
 }

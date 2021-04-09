@@ -117,3 +117,39 @@ Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: 
 ========== Message Ends ==========
 
 
+Wed Mar 10 10:37:53 2021,009 [9772] INFO core.email - ========== Message Begins ==========
+
+Time : March 10, 2021, 10:37 am
+Message Type : Failure
+Message : Couldn't send leave application email to donimuzur@gmail.com. Reason: Failed to authenticate on SMTP server with username "no-reply@polowijogosari.co.id" using 2 possible authenticators
+
+========== Message Ends ==========
+
+
+Wed Mar 10 10:39:28 2021,172 [6652] INFO core.email - ========== Message Begins ==========
+
+Time : March 10, 2021, 10:39 am
+Message Type : Failure
+Message : Sending email failed to donimuzur@gmail.com using smtp. Reason: Failed to authenticate on SMTP server with username "no-reply@polowijogosari.co.id" using 2 possible authenticators
+
+========== Message Ends ==========
+
+
+Wed Mar 10 10:42:27 2021,226 [6652] INFO core.email - ========== Message Begins ==========
+
+Time : March 10, 2021, 10:42 am
+Message Type : Success
+Message : Emails was sent to donimuzur@gmail.com using smtp
+
+========== Message Ends ==========
+
+
+Wed Mar 10 10:45:51 2021,996 [9772] INFO core.email - ========== Message Begins ==========
+
+Time : March 10, 2021, 10:45 am
+Message Type : Success
+Message : Leave application email was sent to donimuzur@gmail.com
+
+========== Message Ends ==========
+
+

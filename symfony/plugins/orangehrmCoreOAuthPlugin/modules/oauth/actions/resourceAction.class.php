@@ -8,7 +8,7 @@
 /**
  * Description of resourceAction
  *
- * @author orangehrm
+ * @author MUHAMMAD ZULFI RUSDANI
  */
 class resourceAction extends baseOAuthAction {
     public function execute($request) {
